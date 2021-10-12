@@ -30,15 +30,17 @@ namespace PhumlaKamnandi
         private void InitializeComponent()
         {
             this.Passwordtxt = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.UserNametxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Passwordtxt
@@ -51,28 +53,20 @@ namespace PhumlaKamnandi
             this.Passwordtxt.TabIndex = 1;
             this.Passwordtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources.Loginpic2;
-            this.pictureBox1.Location = new System.Drawing.Point(285, 139);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(0, 0);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.UserNametxt);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Passwordtxt);
-            this.panel1.Location = new System.Drawing.Point(245, 108);
+            this.panel1.Location = new System.Drawing.Point(166, 130);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(616, 323);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -81,7 +75,7 @@ namespace PhumlaKamnandi
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(307, 30);
+            this.label1.Location = new System.Drawing.Point(310, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 30);
             this.label1.TabIndex = 2;
@@ -115,7 +109,7 @@ namespace PhumlaKamnandi
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(255, 98);
+            this.label2.Location = new System.Drawing.Point(258, 101);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(3);
             this.label2.Size = new System.Drawing.Size(113, 27);
@@ -126,12 +120,32 @@ namespace PhumlaKamnandi
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(282, 155);
+            this.label3.Location = new System.Drawing.Point(269, 158);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(3);
             this.label3.Size = new System.Drawing.Size(88, 27);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 54);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(201, 201);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources.Loginpic2;
+            this.pictureBox1.Location = new System.Drawing.Point(285, 139);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(0, 0);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -143,11 +157,11 @@ namespace PhumlaKamnandi
             this.Controls.Add(this.pictureBox1);
             this.Name = "Login";
             this.Text = "Login";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +175,6 @@ namespace PhumlaKamnandi
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
