@@ -31,12 +31,12 @@ namespace PhumlaKamnandi
         {
             this.Passwordtxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.UserNametxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UserNametxt = new System.Windows.Forms.TextBox();
+            this.Loginbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,7 +61,7 @@ namespace PhumlaKamnandi
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.UserNametxt);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.Loginbtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Passwordtxt);
             this.panel1.Location = new System.Drawing.Point(166, 130);
@@ -71,50 +71,15 @@ namespace PhumlaKamnandi
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(310, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Employee Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.Location = new System.Drawing.Point(397, 219);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(2);
-            this.button1.Size = new System.Drawing.Size(162, 36);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // UserNametxt
-            // 
-            this.UserNametxt.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.UserNametxt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNametxt.Location = new System.Drawing.Point(397, 102);
-            this.UserNametxt.Name = "UserNametxt";
-            this.UserNametxt.Size = new System.Drawing.Size(162, 23);
-            this.UserNametxt.TabIndex = 5;
-            this.UserNametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(258, 101);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(3);
-            this.label2.Size = new System.Drawing.Size(113, 27);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Employee ID";
+            this.pictureBox2.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 54);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(201, 201);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -127,15 +92,51 @@ namespace PhumlaKamnandi
             this.label3.TabIndex = 7;
             this.label3.Text = "Password";
             // 
-            // pictureBox2
+            // label2
             // 
-            this.pictureBox2.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 54);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(201, 201);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(258, 101);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(3);
+            this.label2.Size = new System.Drawing.Size(113, 27);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Employee ID";
+            // 
+            // UserNametxt
+            // 
+            this.UserNametxt.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.UserNametxt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNametxt.Location = new System.Drawing.Point(397, 102);
+            this.UserNametxt.Name = "UserNametxt";
+            this.UserNametxt.Size = new System.Drawing.Size(162, 23);
+            this.UserNametxt.TabIndex = 5;
+            this.UserNametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Loginbtn
+            // 
+            this.Loginbtn.BackColor = System.Drawing.Color.Blue;
+            this.Loginbtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Loginbtn.Location = new System.Drawing.Point(397, 219);
+            this.Loginbtn.Name = "Loginbtn";
+            this.Loginbtn.Padding = new System.Windows.Forms.Padding(2);
+            this.Loginbtn.Size = new System.Drawing.Size(162, 36);
+            this.Loginbtn.TabIndex = 4;
+            this.Loginbtn.Text = "Login";
+            this.Loginbtn.UseVisualStyleBackColor = false;
+            this.Loginbtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(310, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Employee Login";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -171,7 +172,7 @@ namespace PhumlaKamnandi
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox UserNametxt;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Loginbtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
