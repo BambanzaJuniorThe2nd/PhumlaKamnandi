@@ -115,7 +115,7 @@ namespace PhumlaKamnandi
             // 
             // Loginbtn
             // 
-            this.Loginbtn.BackColor = System.Drawing.Color.Blue;
+            this.Loginbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Loginbtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Loginbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Loginbtn.Location = new System.Drawing.Point(397, 219);
@@ -152,7 +152,7 @@ namespace PhumlaKamnandi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Blue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(890, 564);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);

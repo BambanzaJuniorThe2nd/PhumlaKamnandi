@@ -16,5 +16,25 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             InitializeComponent();
         }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void existingBookingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exsitingBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
