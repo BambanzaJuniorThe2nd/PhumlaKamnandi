@@ -186,7 +186,7 @@ namespace PhumlaKamnandi.Data
 
         private void Create_DELETE_Command()
         {
-            daMain.DeleteCommand = new SqlCommand("DELETE FROM Booking WHERE BookingID=@ID", cnMain);
+            daMain.DeleteCommand = new SqlCommand("DELETE FROM Booking WHERE BookingID=@BookingID", cnMain);
             Build_DELETE_Parameters();
         }
 
