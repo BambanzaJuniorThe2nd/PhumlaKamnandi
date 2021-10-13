@@ -84,7 +84,7 @@ namespace PhumlaKamnandi.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //In c# there is no item property (but we use the 2-dim array) it is automatically known to the compiler when used as below
-                    if (aBooking.ID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["ID"]))
+                    if (aBooking.BookingID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
                     {
                         returnValue = rowIndex;
                     }
