@@ -83,6 +83,16 @@ namespace PhumlaKamnandi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _435_4352019_search_icon_small_small_search_icon_png_transparent {
+            get {
+                object obj = ResourceManager.GetObject("435-4352019_search-icon-small-small-search-icon-png-transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoginPic {
             get {
                 object obj = ResourceManager.GetObject("LoginPic", resourceCulture);

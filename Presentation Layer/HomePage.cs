@@ -19,7 +19,6 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void HomePage_Load(object sender, EventArgs e)
         {
-
         }
 
         private void existingBookingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +34,24 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void exsitingBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtGuestID_Enter(object sender, EventArgs e)
+        {
+            if(txtGuestID.Text=="Enter Guest ID")
+            {
+                txtGuestID.Text = "";
+                txtGuestID.ForeColor = Color.White;
+            }
+        }
+
+        private void txtGuestID_Leave(object sender, EventArgs e)
+        {
+            if(txtGuestID.Text=="")
+            {
+                txtGuestID.Text = "Enter Guest ID";
+                txtGuestID.ForeColor = Color.White;
+            }
         }
     }
 }

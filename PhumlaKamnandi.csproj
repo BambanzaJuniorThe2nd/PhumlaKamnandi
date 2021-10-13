@@ -136,6 +136,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\435-4352019_search-icon-small-small-search-icon-png-transparent.png" />
     <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d %281%29.png" />
     <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d.png" />
     <None Include="Resources\Loginpic2.png" />
