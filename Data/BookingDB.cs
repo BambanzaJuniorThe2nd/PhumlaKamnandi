@@ -66,11 +66,6 @@ namespace PhumlaKamnandi.Data
         }
         private void FillRow(DataRow aRow, Booking aBooking, DB.DBOperation operation)
         {
-            if (operation == DB.DBOperation.Add)
-            {
-                aRow["ID"] = aBooking.ID;
-            }
-
             aRow["Room_Number"] = aBooking.RoomNumber;
             aRow["Check_In"] = aBooking.CheckIn;
             aRow["Check_Out"] = aBooking.CheckOut;
