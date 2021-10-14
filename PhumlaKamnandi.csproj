@@ -80,11 +80,29 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Layer\Add Guest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\Add Guest.Designer.cs">
+      <DependentUpon>Add Guest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Layer\Booking Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation Layer\Booking Form.Designer.cs">
       <DependentUpon>Booking Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestDetails.Designer.cs">
+      <DependentUpon>GuestDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestListView.Designer.cs">
+      <DependentUpon>GuestListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation Layer\HomePage.cs">
       <SubType>Form</SubType>
@@ -103,8 +121,17 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\Add Guest.resx">
+      <DependentUpon>Add Guest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\Booking Form.resx">
       <DependentUpon>Booking Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\GuestDetails.resx">
+      <DependentUpon>GuestDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\GuestListView.resx">
+      <DependentUpon>GuestListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>

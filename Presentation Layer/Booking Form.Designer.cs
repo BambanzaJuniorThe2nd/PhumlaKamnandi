@@ -32,20 +32,22 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label1 = new System.Windows.Forms.Label();
             this.dtpCheckin = new System.Windows.Forms.DateTimePicker();
             this.dtpCheckout = new System.Windows.Forms.DateTimePicker();
-            this.cboRoomType = new System.Windows.Forms.ComboBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPerNight = new System.Windows.Forms.TextBox();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblGuestID = new System.Windows.Forms.Label();
             this.lblGuestName = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnContinue = new System.Windows.Forms.Button();
-            this.txtPerNight = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDeposit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboRoomNmbr = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,19 +80,10 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.dtpCheckout.Size = new System.Drawing.Size(200, 25);
             this.dtpCheckout.TabIndex = 4;
             // 
-            // cboRoomType
-            // 
-            this.cboRoomType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboRoomType.FormattingEnabled = true;
-            this.cboRoomType.Location = new System.Drawing.Point(425, 181);
-            this.cboRoomType.Name = "cboRoomType";
-            this.cboRoomType.Size = new System.Drawing.Size(200, 25);
-            this.cboRoomType.TabIndex = 5;
-            // 
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(425, 268);
+            this.txtTotal.Location = new System.Drawing.Point(425, 322);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(200, 25);
@@ -100,6 +93,10 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cboRoomNmbr);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtDeposit);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtPerNight);
             this.panel1.Controls.Add(this.btnContinue);
@@ -107,44 +104,116 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dtpCheckin);
             this.panel1.Controls.Add(this.txtTotal);
             this.panel1.Controls.Add(this.dtpCheckout);
-            this.panel1.Controls.Add(this.cboRoomType);
             this.panel1.Location = new System.Drawing.Point(226, 72);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(704, 447);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(243, 184);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(1);
+            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Cost Per Night";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtPerNight
+            // 
+            this.txtPerNight.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPerNight.ForeColor = System.Drawing.Color.White;
+            this.txtPerNight.Location = new System.Drawing.Point(425, 184);
+            this.txtPerNight.Name = "txtPerNight";
+            this.txtPerNight.ReadOnly = true;
+            this.txtPerNight.Size = new System.Drawing.Size(200, 25);
+            this.txtPerNight.TabIndex = 18;
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.Blue;
+            this.btnContinue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinue.ForeColor = System.Drawing.Color.White;
+            this.btnContinue.Location = new System.Drawing.Point(506, 389);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(119, 39);
+            this.btnContinue.TabIndex = 16;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancel.Location = new System.Drawing.Point(349, 389);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(119, 39);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lblGuestID);
+            this.groupBox1.Controls.Add(this.lblGuestName);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(24, 268);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 160);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Guest Details";
+            // 
+            // lblGuestID
+            // 
+            this.lblGuestID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblGuestID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuestID.ForeColor = System.Drawing.Color.White;
+            this.lblGuestID.Location = new System.Drawing.Point(27, 45);
+            this.lblGuestID.Name = "lblGuestID";
+            this.lblGuestID.Padding = new System.Windows.Forms.Padding(1);
+            this.lblGuestID.Size = new System.Drawing.Size(137, 23);
+            this.lblGuestID.TabIndex = 11;
+            this.lblGuestID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblGuestName
+            // 
+            this.lblGuestName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblGuestName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuestName.ForeColor = System.Drawing.Color.White;
+            this.lblGuestName.Location = new System.Drawing.Point(27, 101);
+            this.lblGuestName.Name = "lblGuestName";
+            this.lblGuestName.Padding = new System.Windows.Forms.Padding(1);
+            this.lblGuestName.Size = new System.Drawing.Size(137, 23);
+            this.lblGuestName.TabIndex = 12;
+            this.lblGuestName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(243, 268);
+            this.label8.Location = new System.Drawing.Point(243, 322);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(1);
             this.label8.Size = new System.Drawing.Size(137, 23);
             this.label8.TabIndex = 13;
             this.label8.Text = "Total Cost";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(243, 181);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(1);
-            this.label7.Size = new System.Drawing.Size(137, 23);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Room Type";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
@@ -173,91 +242,56 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // lblGuestID
+            // label3
             // 
-            this.lblGuestID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblGuestID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuestID.ForeColor = System.Drawing.Color.White;
-            this.lblGuestID.Location = new System.Drawing.Point(27, 45);
-            this.lblGuestID.Name = "lblGuestID";
-            this.lblGuestID.Padding = new System.Windows.Forms.Padding(1);
-            this.lblGuestID.Size = new System.Drawing.Size(137, 23);
-            this.lblGuestID.TabIndex = 11;
-            this.lblGuestID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(243, 277);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(1);
+            this.label3.Size = new System.Drawing.Size(137, 23);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Deposit";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblGuestName
+            // txtDeposit
             // 
-            this.lblGuestName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblGuestName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuestName.ForeColor = System.Drawing.Color.White;
-            this.lblGuestName.Location = new System.Drawing.Point(27, 101);
-            this.lblGuestName.Name = "lblGuestName";
-            this.lblGuestName.Padding = new System.Windows.Forms.Padding(1);
-            this.lblGuestName.Size = new System.Drawing.Size(137, 23);
-            this.lblGuestName.TabIndex = 12;
-            this.lblGuestName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtDeposit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeposit.Location = new System.Drawing.Point(425, 277);
+            this.txtDeposit.Name = "txtDeposit";
+            this.txtDeposit.ReadOnly = true;
+            this.txtDeposit.Size = new System.Drawing.Size(200, 25);
+            this.txtDeposit.TabIndex = 21;
             // 
-            // groupBox1
+            // label4
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.lblGuestID);
-            this.groupBox1.Controls.Add(this.lblGuestName);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(24, 268);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 160);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Guest Details";
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(243, 230);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(1);
+            this.label4.Size = new System.Drawing.Size(137, 23);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Room Number";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnCancel
+            // cboRoomNmbr
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancel.Location = new System.Drawing.Point(352, 369);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(119, 39);
-            this.btnCancel.TabIndex = 15;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnContinue
-            // 
-            this.btnContinue.BackColor = System.Drawing.Color.Blue;
-            this.btnContinue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinue.ForeColor = System.Drawing.Color.White;
-            this.btnContinue.Location = new System.Drawing.Point(512, 369);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(119, 39);
-            this.btnContinue.TabIndex = 16;
-            this.btnContinue.Text = "Continue";
-            this.btnContinue.UseVisualStyleBackColor = false;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
-            // 
-            // txtPerNight
-            // 
-            this.txtPerNight.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPerNight.ForeColor = System.Drawing.Color.White;
-            this.txtPerNight.Location = new System.Drawing.Point(425, 224);
-            this.txtPerNight.Name = "txtPerNight";
-            this.txtPerNight.ReadOnly = true;
-            this.txtPerNight.Size = new System.Drawing.Size(200, 25);
-            this.txtPerNight.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(243, 226);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(1);
-            this.label2.Size = new System.Drawing.Size(137, 23);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Cost Per Night";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cboRoomNmbr.AllowDrop = true;
+            this.cboRoomNmbr.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRoomNmbr.FormattingEnabled = true;
+            this.cboRoomNmbr.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cboRoomNmbr.Location = new System.Drawing.Point(425, 233);
+            this.cboRoomNmbr.Name = "cboRoomNmbr";
+            this.cboRoomNmbr.Size = new System.Drawing.Size(200, 25);
+            this.cboRoomNmbr.TabIndex = 23;
             // 
             // pictureBox1
             // 
@@ -292,11 +326,9 @@ namespace PhumlaKamnandi.Presentation_Layer
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboRoomType;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblGuestName;
         private System.Windows.Forms.Label lblGuestID;
@@ -309,5 +341,9 @@ namespace PhumlaKamnandi.Presentation_Layer
         public System.Windows.Forms.DateTimePicker dtpCheckin;
         public System.Windows.Forms.DateTimePicker dtpCheckout;
         public System.Windows.Forms.TextBox txtTotal;
+        public System.Windows.Forms.TextBox txtDeposit;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboRoomNmbr;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -70,16 +70,32 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            Booking_Form Booking_Form = new Booking_Form();
-
-            this.Hide();
-            Booking_Form.ShowDialog();
+            
            
         }
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
             MessageBox.Show("You currently have no new Notifications", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAddGuest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Booking_Form booking_Form = new Booking_Form();
+            this.Hide();
+            booking_Form.ShowDialog();
+        }
+
+        private void btnGuests_Click(object sender, EventArgs e)
+        {
+            GuestListView guestList = new GuestListView();
+            this.Hide();
+            guestList.ShowDialog();
         }
     }
 }

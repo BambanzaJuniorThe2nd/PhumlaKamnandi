@@ -28,7 +28,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             HomePage homePage = new HomePage();
             DialogResult dialogResult;
-            dialogResult = MessageBox.Show("Are you sure you wish to cancel this current booking?\n\n **All changes won't be saved**", "Cancel", MessageBoxButtons.YesNo);
+            dialogResult = MessageBox.Show("Are you sure you wish to cancel this current booking?\n\n **All changes won't be saved**", "Cancel", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Hide();
@@ -107,6 +107,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void Payment_Form_Load(object sender, EventArgs e)
         {
            
+
         }
     }
 }

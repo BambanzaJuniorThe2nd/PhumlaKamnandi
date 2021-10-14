@@ -50,6 +50,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cckDeposit = new System.Windows.Forms.CheckBox();
+            this.cckTotal = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblDeposit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,7 +74,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(74, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(902, 447);
+            this.panel1.Size = new System.Drawing.Size(902, 453);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -89,6 +94,9 @@ namespace PhumlaKamnandi.Presentation_Layer
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.cckTotal);
+            this.groupBox1.Controls.Add(this.cckDeposit);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCVC);
             this.groupBox1.Controls.Add(this.txtExpireDate);
             this.groupBox1.Controls.Add(this.txtCCnumber);
@@ -96,7 +104,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(573, 97);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 209);
+            this.groupBox1.Size = new System.Drawing.Size(289, 249);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credit Card Details";
@@ -147,6 +155,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.lblDeposit);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.lblGuestID);
             this.groupBox2.Controls.Add(this.lblRoomNO);
@@ -160,7 +170,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(233, 97);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 209);
+            this.groupBox2.Size = new System.Drawing.Size(321, 249);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Booking Details";
@@ -169,7 +179,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(165, 176);
+            this.lblTotal.Location = new System.Drawing.Point(165, 217);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(42, 15);
             this.lblTotal.TabIndex = 22;
@@ -219,7 +229,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 176);
+            this.label6.Location = new System.Drawing.Point(15, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 15);
             this.label6.TabIndex = 4;
@@ -310,6 +320,58 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label1.TabIndex = 2;
             this.label1.Text = "Finalize Booking";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 20);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Paymeny For:";
+            // 
+            // cckDeposit
+            // 
+            this.cckDeposit.AutoSize = true;
+            this.cckDeposit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cckDeposit.Location = new System.Drawing.Point(155, 188);
+            this.cckDeposit.Name = "cckDeposit";
+            this.cckDeposit.Size = new System.Drawing.Size(66, 19);
+            this.cckDeposit.TabIndex = 4;
+            this.cckDeposit.Text = "Deposit";
+            this.cckDeposit.UseVisualStyleBackColor = true;
+            // 
+            // cckTotal
+            // 
+            this.cckTotal.AutoSize = true;
+            this.cckTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cckTotal.Location = new System.Drawing.Point(155, 213);
+            this.cckTotal.Name = "cckTotal";
+            this.cckTotal.Size = new System.Drawing.Size(51, 19);
+            this.cckTotal.TabIndex = 5;
+            this.cckTotal.Text = "Total";
+            this.cckTotal.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 180);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 15);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Deposit";
+            // 
+            // lblDeposit
+            // 
+            this.lblDeposit.AutoSize = true;
+            this.lblDeposit.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeposit.Location = new System.Drawing.Point(165, 180);
+            this.lblDeposit.Name = "lblDeposit";
+            this.lblDeposit.Size = new System.Drawing.Size(42, 15);
+            this.lblDeposit.TabIndex = 24;
+            this.lblDeposit.Text = "label7";
+            // 
             // Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,10 +411,15 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.TextBox txtCVC;
         private System.Windows.Forms.TextBox txtExpireDate;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblGuestID;
-        private System.Windows.Forms.Label lblRoomNO;
-        private System.Windows.Forms.Label lblCheckout;
-        private System.Windows.Forms.Label lblCheckin;
+        private System.Windows.Forms.CheckBox cckTotal;
+        private System.Windows.Forms.CheckBox cckDeposit;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label lblRoomNO;
+        public System.Windows.Forms.Label lblCheckout;
+        public System.Windows.Forms.Label lblCheckin;
+        public System.Windows.Forms.Label lblTotal;
+        public System.Windows.Forms.Label lblDeposit;
     }
 }

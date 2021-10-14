@@ -34,12 +34,12 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnAddGuest = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtGuestID = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBooking = new System.Windows.Forms.Button();
             this.btnNotification = new System.Windows.Forms.Button();
             this.btnMonthlyReports = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnGuests = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +78,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnAddGuest.TabIndex = 7;
             this.btnAddGuest.Text = "New Guest";
             this.btnAddGuest.UseVisualStyleBackColor = false;
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
             // 
             // btnSearch
             // 
@@ -91,6 +92,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtGuestID
             // 
@@ -106,22 +108,12 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.txtGuestID.Enter += new System.EventHandler(this.txtGuestID_Enter);
             this.txtGuestID.Leave += new System.EventHandler(this.txtGuestID_Leave);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(277, 145);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(305, 246);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnBooking
             // 
             this.btnBooking.BackColor = System.Drawing.Color.Blue;
             this.btnBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnBooking.Location = new System.Drawing.Point(3, 77);
+            this.btnBooking.Location = new System.Drawing.Point(3, 86);
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(140, 46);
             this.btnBooking.TabIndex = 4;
@@ -134,7 +126,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnNotification.BackColor = System.Drawing.Color.Blue;
             this.btnNotification.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNotification.Location = new System.Drawing.Point(3, 124);
+            this.btnNotification.Location = new System.Drawing.Point(3, 210);
             this.btnNotification.Name = "btnNotification";
             this.btnNotification.Size = new System.Drawing.Size(140, 46);
             this.btnNotification.TabIndex = 5;
@@ -154,17 +146,18 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnMonthlyReports.Text = "Monthy Reports";
             this.btnMonthlyReports.UseVisualStyleBackColor = false;
             // 
-            // btnHelp
+            // btnGuests
             // 
-            this.btnHelp.BackColor = System.Drawing.Color.Blue;
-            this.btnHelp.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnHelp.Location = new System.Drawing.Point(3, 210);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(140, 46);
-            this.btnHelp.TabIndex = 8;
-            this.btnHelp.Text = "Help/Support";
-            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnGuests.BackColor = System.Drawing.Color.Blue;
+            this.btnGuests.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuests.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGuests.Location = new System.Drawing.Point(3, 126);
+            this.btnGuests.Name = "btnGuests";
+            this.btnGuests.Size = new System.Drawing.Size(140, 46);
+            this.btnGuests.TabIndex = 8;
+            this.btnGuests.Text = "Guests";
+            this.btnGuests.UseVisualStyleBackColor = false;
+            this.btnGuests.Click += new System.EventHandler(this.btnGuests_Click);
             // 
             // btnLogout
             // 
@@ -179,6 +172,16 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.button3_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(277, 145);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(305, 246);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,7 +190,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.ClientSize = new System.Drawing.Size(795, 450);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnGuests);
             this.Controls.Add(this.btnMonthlyReports);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNotification);
@@ -214,7 +217,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Button btnBooking;
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Button btnMonthlyReports;
-        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnGuests;
         private System.Windows.Forms.Button btnLogout;
     }
 }

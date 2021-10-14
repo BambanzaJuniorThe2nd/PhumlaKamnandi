@@ -48,9 +48,35 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnContinue_Click(object sender, EventArgs e)
         {
             Payment_Form payment_Form = new Payment_Form();
+            DateTime Checkin;
+            DateTime Checkout;
+            decimal CostNight;
+            decimal Deposit;
+            int RoomNo;
+            decimal Total;
+
+            Checkin = DateTime.Parse(dtpCheckin.Text);
+            Checkout = DateTime.Parse(dtpCheckout.Text);
+            //CostNight = decimal.Parse(txtPerNight.Text);
+            RoomNo = int.Parse(cboRoomNmbr.Text);
+            //Total = decimal.Parse(txtTotal.Text);
+            //Deposit = decimal.Parse(txtDeposit.Text);
+
+          
+
+            payment_Form.lblCheckin.Text = Checkin.ToString("f");
+            payment_Form.lblCheckout.Text = Checkout.ToString("f");
+            payment_Form.lblRoomNO.Text = RoomNo.ToString();
+           // payment_Form.lblDeposit.Text = Deposit.ToString("c");
+            //payment_Form.lblTotal.Text = Total.ToString("c");
 
             this.Hide();
             payment_Form.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
