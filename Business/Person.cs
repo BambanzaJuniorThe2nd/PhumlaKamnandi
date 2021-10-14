@@ -15,11 +15,12 @@ namespace PhumlaKamnandi
             //This base class will enable you to easily expand the system to include customer bookings at a later stage.   
 
         #region data members
-        private string id,personId, name, phone, email;
+        private string personId, name, phone, email;
+        private int id;
         #endregion
 
         #region Properties
-        public string ID
+        public int ID
             {
                 get { return id; }
                 set { id = value; }
@@ -53,7 +54,6 @@ namespace PhumlaKamnandi
         #region Construtor
         public Person()
         {
-                Id = "";
                 name = "";
                 Phone = "";
         }
