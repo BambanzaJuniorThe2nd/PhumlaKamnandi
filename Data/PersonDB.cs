@@ -15,14 +15,14 @@ namespace PhumlaKamnandi.Data
         private string table2 = "Clerk";
         private string sqlLocal1 = "SELECT * FROM Guest";
         private string sqlLocal2 = "SELECT * FROM Clerk";
-        private Collection<Person> guestsAndClerks;
+        private Collection<Person> people;
 
         #region Property Method: Collection
-        public Collection<Person> AllGuestsAndClerks
+        public Collection<Person> AllPeople
         {
             get
             {
-                return guestsAndClerks;
+                return people;
             }
         }
         #endregion
@@ -30,7 +30,7 @@ namespace PhumlaKamnandi.Data
         #region Constructor
         public PersonDB() : base()
         {
-            guestsAndClerks = new Collection<Person>();
+            people = new Collection<Person>();
             FillDataSet(sqlLocal1, table1);
             Add2Collection(table1);
             FillDataSet(sqlLocal2, table2);
@@ -70,24 +70,29 @@ namespace PhumlaKamnandi.Data
                 {
                     //Instantiate a new Person object
                     aPerson = new Person(roleValue);
+                    aPerson.ID = Convert.ToInt32(myRow["Name"]);
                     aPerson.Name = Convert.ToString(myRow["Name"]).TrimEnd();
-                    aPerson.PersonID = Convert.ToString(myRow["PersonalID"]).TrimEnd();
+                    aPerson.PersonalId = Convert.ToString(myRow["PersonalID"]).TrimEnd();
                     aPerson.Phone = Convert.ToString(myRow["Phone"]).TrimEnd();
                     aPerson.Email = Convert.ToString(myRow["Email"]).TrimEnd();
 
                     switch (table)
                     {
                         case "Guest":
+                            aPerson.ID = Convert.ToInt32(myRow["GuestID"]);
                             aGuest = (Guest)aPerson.role;
-                            aGuest.GuestID = Convert.ToInt32(myRow["GuestID"]);
+                            aGuest.CreditCardNu = Convert.ToString(myRow["CC_Number"]).TrimEnd();
+                            aGuest.Address = Convert.ToString(myRow["Address"]).TrimEnd();
                             break;
                         case "Clerk":
+                            aPerson.ID = Convert.ToInt32(myRow["ClerkID"]);
                             aClerk = (Clerk)aPerson.role;
                             aClerk.Username = Convert.ToString(myRow["Username"]).TrimEnd();
+                            aClerk.Password = Convert.ToString(myRow["Password"]).TrimEnd();
                             break;
                     }
 
-                    guestsAndClerks.Add(aPerson);
+                    people.Add(aPerson);
                 }
             }
         }
@@ -98,12 +103,17 @@ namespace PhumlaKamnandi.Data
             Clerk aClerk;
 
             aRow["Name"] = aPerson.Name;
-            aRow["PersonalID"] = aPerson.PersonalID;
+            aRow["PersonalID"] = aPerson.PersonalId;
             aRow["Phone"] = aPerson.Phone;
             aRow["Email"] = aPerson.Email;
             //*** For each role add the specific data variables
             switch (aPerson.role.getRoleValue)
             {
+                case Role.RoleType.Guest:
+                    aGuest = (Guest)aPerson.role;
+                    aRow["CC_Number"] = aGuest.CreditCardNu;
+                    aRow["Address"] = aGuest.Address;
+                    break;
                 case Role.RoleType.Clerk:
                     aClerk = (Clerk)aPerson.role;
                     aRow["Username"] = aClerk.Username;
@@ -123,8 +133,8 @@ namespace PhumlaKamnandi.Data
                 //Ignore rows marked as deleted in dataset
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
-                    if ((aPerson.role == Role.RoleType.Guest && aPerson.GuestID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["GuestID"])) ||
-                        (aPerson.role == Role.RoleType.Clerk && aPerson.ClerkID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["ClerkID"])))
+                    if ((aPerson.role == Role.RoleType.Guest && aPerson.ID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["GuestID"])) ||
+                        (aPerson.role == Role.RoleType.Clerk && aPerson.ID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["ClerkID"])))
                     {
                         returnValue = rowIndex;
                     }
@@ -188,6 +198,13 @@ namespace PhumlaKamnandi.Data
 
             switch (aPerson.role.getRoleValue)
             {
+                case Role.RoleType.Guest:
+                    param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
+                    daMain.InsertCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    daMain.InsertCommand.Parameters.Add(param);
+                    break;
                 case Role.RoleType.Clerk:
                     param = new SqlParameter("@Username", SqlDbType.NVarChar, 20, "Username");
                     daMain.InsertCommand.Parameters.Add(param);
@@ -220,6 +237,14 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
+                    param.SourceVersion = DataRowVersion.Current;
+                    daMain.UpdateCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    param.SourceVersion = DataRowVersion.Current;
+                    daMain.UpdateCommand.Parameters.Add(param);
+
                     param = new SqlParameter("@Original_GuestID", SqlDbType.NVarChar, 15, "GuestID");
                     param.SourceVersion = DataRowVersion.Original;
                     daMain.UpdateCommand.Parameters.Add(param);

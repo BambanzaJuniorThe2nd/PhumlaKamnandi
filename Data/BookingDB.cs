@@ -55,21 +55,21 @@ namespace PhumlaKamnandi.Data
                     aBooking = new Booking();
                     //Obtain each employee attribute from the specific field in the row in the table
                     aBooking.BookingID = Convert.ToInt32(myRow["BookingID"]);
-                    aBooking.GuestID = Convert.ToInt32(myRow["GuestID"]);
-                    aBooking.RoomNumber = Convert.ToInt32(myRow["Room_Number"]);
-                    aBooking.CheckIn = Convert.ToDateTime(myRow["Check_In"]);
-                    aBooking.CheckOut = Convert.ToDateTime(myRow["Check_Out"]);
-                    aBooking.TotalFee = Convert.ToDecimal(myRow["Total_Fee"]);
+                    aBooking.GuestId = Convert.ToInt32(myRow["GuestID"]);
+                    aBooking.RoomId = Convert.ToInt32(myRow["Room_Number"]);
+                    aBooking.Checkin = Convert.ToString(myRow["Check_In"]).TrimEnd();
+                    aBooking.CheckOut = Convert.ToString(myRow["Check_Out"]).TrimEnd();
+                    aBooking.TOTALFee = Convert.ToDecimal(myRow["Total_Fee"]);
                     bookings.Add(aBooking);
                 }
             }
         }
         private void FillRow(DataRow aRow, Booking aBooking, DB.DBOperation operation)
         {
-            aRow["Room_Number"] = aBooking.RoomNumber;
-            aRow["Check_In"] = aBooking.CheckIn;
+            aRow["Room_Number"] = aBooking.RoomId;
+            aRow["Check_In"] = aBooking.Checkin;
             aRow["Check_Out"] = aBooking.CheckOut;
-            aRow["Total_Fee"] = aBooking.TotalFee;
+            aRow["Total_Fee"] = aBooking.TOTALFee;
         }
 
         private int FindRow(Booking aBooking, string table)
