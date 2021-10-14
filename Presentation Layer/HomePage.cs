@@ -16,6 +16,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             InitializeComponent();
         }
+       
 
         private void HomePage_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,33 @@ namespace PhumlaKamnandi.Presentation_Layer
                 txtGuestID.Text = "Enter Guest ID";
                 txtGuestID.ForeColor = Color.White;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show("Are you sure you wish to Logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(dialogResult==DialogResult.Yes)
+            {
+                this.Hide();
+                login.Show();
+            }
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            Booking_Form Booking_Form = new Booking_Form();
+
+            this.Hide();
+            Booking_Form.ShowDialog();
+           
+        }
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You currently have no new Notifications", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -16,8 +16,8 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             InitializeComponent();
         }
-        Payment_Form payment_Form = new Payment_Form();
-        HomePage homePage = new HomePage();
+        
+  
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -26,6 +26,8 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            HomePage homePage = new HomePage();
+
             DialogResult dialogResult;
 
             dialogResult = MessageBox.Show("Are you sure you wish to cancel and return\n to the home page?", "Cancel", MessageBoxButtons.YesNo,
@@ -45,6 +47,8 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            Payment_Form payment_Form = new Payment_Form();
+
             this.Hide();
             payment_Form.Show();
         }

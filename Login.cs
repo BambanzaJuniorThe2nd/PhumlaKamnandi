@@ -21,7 +21,7 @@ namespace PhumlaKamnandi
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void UserNametxt_TextChanged(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace PhumlaKamnandi
                if((UserNametxt.Text!="")&&(Passwordtxt.Text!=""))
                 {
                     this.Hide();
-                    homePage.ShowDialog();
+                homePage.ShowDialog();
                   
                 }
                 else

@@ -16,7 +16,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             InitializeComponent();
         }
-        HomePage homePage = new HomePage();
+      
         Booking_Form booking_Form = new Booking_Form();
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -26,8 +26,15 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            homePage.Show();
+            HomePage homePage = new HomePage();
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show("Are you sure you wish to cancel this current booking?\n\n **All changes won't be saved**", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                homePage.Show();
+            }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -90,6 +97,16 @@ namespace PhumlaKamnandi.Presentation_Layer
                 txtCVC.Text = "CVC";
                 txtCVC.ForeColor = Color.Silver;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

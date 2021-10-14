@@ -41,15 +41,15 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label6 = new System.Windows.Forms.Label();
             this.lblGuestID = new System.Windows.Forms.Label();
             this.lblGuestName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
             this.txtPerNight = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -197,16 +197,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.lblGuestName.TabIndex = 12;
             this.lblGuestName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 71);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
@@ -269,6 +259,16 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label2.Text = "Cost Per Night";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 71);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // Booking_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,8 +283,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Load += new System.EventHandler(this.Booking_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,10 +292,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpCheckin;
-        private System.Windows.Forms.DateTimePicker dtpCheckout;
         private System.Windows.Forms.ComboBox cboRoomType;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -307,7 +304,10 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtPerNight;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox txtPerNight;
+        public System.Windows.Forms.DateTimePicker dtpCheckin;
+        public System.Windows.Forms.DateTimePicker dtpCheckout;
+        public System.Windows.Forms.TextBox txtTotal;
     }
 }
