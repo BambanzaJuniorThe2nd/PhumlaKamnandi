@@ -111,8 +111,8 @@ namespace PhumlaKamnandi.Data
             {
                 case Role.RoleType.Guest:
                     aGuest = (Guest)aPerson.role;
-                    aRow["CC_Number"] = aGuest.CreditCardNu;
                     aRow["Address"] = aGuest.Address;
+                    aRow["CC_Number"] = aGuest.CreditCardNu;
                     break;
                 case Role.RoleType.Clerk:
                     aClerk = (Clerk)aPerson.role;

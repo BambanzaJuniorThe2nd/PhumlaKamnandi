@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,16 +64,19 @@ namespace PhumlaKamnandi.Data
             }
         }
 
-        private void FillRow(DataRow aRow, CreditCard aBooking, DB.DBOperation operation)
+        private void FillRow(DataRow aRow, CreditCard aCard, DB.DBOperation operation)
         {
-            aRow["Room_Number"] = aBooking.RoomId;
-            aRow["Room_Number"] = aBooking.RoomId;
-            aRow["Check_In"] = aBooking.Checkin;
-            aRow["Check_Out"] = aBooking.CheckOut;
-            aRow["Total_Fee"] = aBooking.TOTALFee;
+            if (operation.Equals(DB.DBOperation.Add))
+            {
+                aRow["CC_Number"] = aCard.CreditCardNum;
+            }
+
+            aRow["CCC_ID"] = aCard.CCCId;
+            aRow["Expiration_Month"] = aCard.ExperationM;
+            aRow["Expiration_Year"] = aCard.ExperationY;
         }
 
-        private int FindRow(Booking aBooking, string table)
+        private int FindRow(CreditCard aCard, string table)
         {
             int rowIndex = 0;
             DataRow myRow;
@@ -84,7 +88,7 @@ namespace PhumlaKamnandi.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //In c# there is no item property (but we use the 2-dim array) it is automatically known to the compiler when used as below
-                    if (aBooking.BookingID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
+                    if (aCard.CreditCardNum.Equals(Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["CC_Number"])))
                     {
                         returnValue = rowIndex;
                     }
@@ -93,5 +97,119 @@ namespace PhumlaKamnandi.Data
             }
             return returnValue;
         }
+
+        #region Database Operations CRUD
+        public void DataSetChange(CreditCard aCard, DB.DBOperation operation)
+        {
+            DataRow aRow = null;
+
+            switch (operation)
+            {
+                case DBOperation.Add:
+                    aRow = dsMain.Tables[table].NewRow();
+                    FillRow(aRow, aCard, DBOperation.Add);
+                    dsMain.Tables[table].Rows.Add(aRow);
+                    break;
+                case DBOperation.Edit:
+                    aRow = dsMain.Tables[table].Rows[FindRow(aCard, table)];
+                    FillRow(aRow, aCard, DBOperation.Edit);
+                    break;
+                case DBOperation.Delete:
+                    aRow = dsMain.Tables[table].Rows[FindRow(aCard, table)];
+                    aRow.Delete();
+                    break;
+            }
+        }
+        #endregion
+
+        #region Build Parameters, Create Commands & Update database
+        private void Build_INSERT_Parameters()
+        {
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CCC_ID", SqlDbType.Int);
+            param.SourceColumn = "CCC_ID";
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Expiration_Month", SqlDbType.Int);
+            param.SourceColumn = "Expiration_Month";
+            daMain.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Expiration_Year", SqlDbType.Int);
+            param.SourceColumn = "Expiration_Year";
+            daMain.InsertCommand.Parameters.Add(param);
+        }
+
+        private void Build_UPDATE_Parameters()
+        {
+            SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
+            daMain.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CCC_ID", SqlDbType.Int);
+            param.SourceColumn = "CCC_ID";
+            daMain.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Expiration_Month", SqlDbType.Int);
+            param.SourceColumn = "Expiration_Month";
+            daMain.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Expiration_Year", SqlDbType.Int);
+            param.SourceColumn = "Expiration_Year";
+            daMain.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Original_CC_Number", SqlDbType.NChar, 16, "CC_Number");
+            param.SourceVersion = DataRowVersion.Original;
+            daMain.UpdateCommand.Parameters.Add(param);
+        }
+
+        private void Create_INSERT_Command()
+        {
+            daMain.InsertCommand = new SqlCommand("INSERT into Credit_Card (CC_Number, CCC_ID, Expiration_Month, Expiration_Year) VALUES (@CC_Number, @CCC_ID, @Expiration_Month, @Expiration_Year)", cnMain);
+            Build_INSERT_Parameters();
+        }
+
+        private void Create_UPDATE_Command()
+        {
+            daMain.UpdateCommand = new SqlCommand("UPDATE Credit_Card SET CC_Number=@CC_Number, CCC_ID=@CCC_ID, Expiration_Month=@Expiration_Month, Expiration_Year=@Expiration_Year, WHERE CC_Number=@Original_CC_Number", cnMain);
+            Build_UPDATE_Parameters();
+        }
+
+        private void Create_DELETE_Command()
+        {
+            daMain.DeleteCommand = new SqlCommand("DELETE FROM Credit_Card WHERE CC_Number=@CC_Number", cnMain);
+            Build_DELETE_Parameters();
+        }
+
+        private void Build_DELETE_Parameters()
+        {
+            SqlParameter param = default(SqlParameter);
+
+            param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
+            param.SourceVersion = DataRowVersion.Current;
+            daMain.DeleteCommand.Parameters.Add(param);
+        }
+
+        public bool UpdateDataSource(DB.DBOperation operation)
+        {
+            switch (operation)
+            {
+                case DBOperation.Add:
+                    Create_INSERT_Command();
+                    break;
+                case DBOperation.Edit:
+                    Create_UPDATE_Command();
+                    break;
+                case DBOperation.Delete:
+                    Create_DELETE_Command();
+                    break;
+            }
+
+            return UpdateDataSource(sqlLocal, table);
+        }
+
+        #endregion
     }
 }
