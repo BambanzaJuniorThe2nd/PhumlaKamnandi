@@ -68,6 +68,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Business\Booking.cs" />
+    <Compile Include="Business\BookingController.cs" />
+    <Compile Include="Business\Clerk.cs" />
+    <Compile Include="Business\CreditCardController.cs" />
+    <Compile Include="Business\PersonController.cs" />
+    <Compile Include="Business\Reserve.cs" />
+    <Compile Include="Business\CreditCard.cs" />
+    <Compile Include="Business\Guest.cs" />
+    <Compile Include="Business\Role.cs" />
+    <Compile Include="Business\Room.cs" />
+    <Compile Include="Business\RoomFee.cs" />
     <Compile Include="Data\BookingDB.cs" />
     <Compile Include="Data\CreditCardDB.cs" />
     <Compile Include="Data\DB.cs" />
@@ -78,6 +89,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -122,6 +134,7 @@
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Folder Include="Business\" />
     <Folder Include="Database backup\" />
