@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
+    <Folder Include="Database backup\" />
     <Folder Include="Presentation\" />
   </ItemGroup>
   <ItemGroup>
