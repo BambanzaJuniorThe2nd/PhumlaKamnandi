@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -53,12 +54,12 @@ namespace PhumlaKamnandi.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //Instantiate a new Booking object
-                    aCard = new CreditCard();
-                    //Obtain each employee attribute from the specific field in the row in the table
-                    aCard.CreditCardNum = Convert.ToString(myRow["CC_Number"]).TrimEnd();
-                    aCard.CCCId = Convert.ToInt32(myRow["CCC_ID"]);
-                    aCard.ExperationM = Convert.ToInt32(myRow["Expiration_Month"]);
-                    aCard.ExperationY = Convert.ToInt32(myRow["Expiration_Year"]);
+                    String ccNum = Convert.ToString(myRow["CC_Number"]).TrimEnd();
+                    int cccId = Convert.ToInt32(myRow["CCC_ID"]);
+                    int expirationMonth = Convert.ToInt32(myRow["Expiration_Month"]);
+                    int expirationYear = Convert.ToInt32(myRow["Expiration_Year"]);
+                    aCard = new CreditCard(ccNum, cccId, expirationMonth, expirationYear);
+
                     cards.Add(aCard);
                 }
             }

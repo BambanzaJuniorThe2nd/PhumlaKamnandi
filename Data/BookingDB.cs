@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -52,14 +53,15 @@ namespace PhumlaKamnandi.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //Instantiate a new Booking object
-                    aBooking = new Booking();
-                    //Obtain each employee attribute from the specific field in the row in the table
-                    aBooking.BookingID = Convert.ToInt32(myRow["BookingID"]);
-                    aBooking.GuestId = Convert.ToInt32(myRow["GuestID"]);
-                    aBooking.RoomId = Convert.ToInt32(myRow["Room_Number"]);
-                    aBooking.Checkin = Convert.ToString(myRow["Check_In"]).TrimEnd();
-                    aBooking.CheckOut = Convert.ToString(myRow["Check_Out"]).TrimEnd();
-                    aBooking.TOTALFee = Convert.ToDecimal(myRow["Total_Fee"]);
+                    int bookingID = Convert.ToInt32(myRow["BookingID"]);
+                    int guestID = Convert.ToInt32(myRow["GuestID"]);
+                    int roomID = Convert.ToInt32(myRow["Room_Number"]);
+                    String checkin = Convert.ToString(myRow["Check_In"]).TrimEnd();
+                    String checkout = Convert.ToString(myRow["Check_Out"]).TrimEnd();
+                    decimal totalFee = Convert.ToDecimal(myRow["Total_Fee"]);
+
+                    aBooking = new Booking(bookingID, guestID, roomID, checkin, checkout, totalFee);
+
                     bookings.Add(aBooking);
                 }
             }
@@ -84,7 +86,7 @@ namespace PhumlaKamnandi.Data
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //In c# there is no item property (but we use the 2-dim array) it is automatically known to the compiler when used as below
-                    if (aBooking.BookingID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
+                    if (aBooking.BookingID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
                     {
                         returnValue = rowIndex;
                     }

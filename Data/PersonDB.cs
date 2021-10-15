@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -70,7 +71,6 @@ namespace PhumlaKamnandi.Data
                 {
                     //Instantiate a new Person object
                     aPerson = new Person(roleValue);
-                    aPerson.ID = Convert.ToInt32(myRow["Name"]);
                     aPerson.Name = Convert.ToString(myRow["Name"]).TrimEnd();
                     aPerson.PersonalId = Convert.ToString(myRow["PersonalID"]).TrimEnd();
                     aPerson.Phone = Convert.ToString(myRow["Phone"]).TrimEnd();
@@ -79,13 +79,13 @@ namespace PhumlaKamnandi.Data
                     switch (table)
                     {
                         case "Guest":
-                            aPerson.ID = Convert.ToInt32(myRow["GuestID"]);
+                            aPerson.ID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                             aGuest = (Guest)aPerson.role;
                             aGuest.CreditCardNu = Convert.ToString(myRow["CC_Number"]).TrimEnd();
                             aGuest.Address = Convert.ToString(myRow["Address"]).TrimEnd();
                             break;
                         case "Clerk":
-                            aPerson.ID = Convert.ToInt32(myRow["ClerkID"]);
+                            aPerson.ID = Convert.ToString(myRow["ClerkID"]).TrimEnd();
                             aClerk = (Clerk)aPerson.role;
                             aClerk.Username = Convert.ToString(myRow["Username"]).TrimEnd();
                             aClerk.Password = Convert.ToString(myRow["Password"]).TrimEnd();
@@ -133,8 +133,8 @@ namespace PhumlaKamnandi.Data
                 //Ignore rows marked as deleted in dataset
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
-                    if ((aPerson.role == Role.RoleType.Guest && aPerson.ID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["GuestID"])) ||
-                        (aPerson.role == Role.RoleType.Clerk && aPerson.ID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["ClerkID"])))
+                    if ((aPerson.role.getRoleValue == Role.RoleType.Guest && aPerson.ID.Equals(Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["GuestID"]))) ||
+                        (aPerson.role.getRoleValue == Role.RoleType.Clerk && aPerson.ID.Equals(Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["ClerkID"]))))
                     {
                         returnValue = rowIndex;
                     }
@@ -316,7 +316,7 @@ namespace PhumlaKamnandi.Data
         {
             SqlParameter param = default(SqlParameter);
 
-            switch(aPerson.getRoleValue)
+            switch(aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
                     param = new SqlParameter("@GuestID", SqlDbType.Int);
