@@ -79,6 +79,10 @@
     <Compile Include="Business\Role.cs" />
     <Compile Include="Business\Room.cs" />
     <Compile Include="Business\RoomFee.cs" />
+    <Compile Include="Data\BookingDB.cs" />
+    <Compile Include="Data\CreditCardDB.cs" />
+    <Compile Include="Data\DB.cs" />
+    <Compile Include="Data\PersonDB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +135,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Business\" />
+    <Folder Include="Database backup\" />
+    <Folder Include="Presentation\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
