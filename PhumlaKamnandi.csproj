@@ -199,7 +199,6 @@
   <ItemGroup>
     <Folder Include="Business\" />
     <Folder Include="Data\" />
-    <Folder Include="Presentation\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
