@@ -105,6 +105,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.txtGuestID.TabIndex = 7;
             this.txtGuestID.Text = "Enter Guest ID";
             this.txtGuestID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtGuestID.TextChanged += new System.EventHandler(this.txtGuestID_TextChanged);
             this.txtGuestID.Enter += new System.EventHandler(this.txtGuestID_Enter);
             this.txtGuestID.Leave += new System.EventHandler(this.txtGuestID_Leave);
             // 

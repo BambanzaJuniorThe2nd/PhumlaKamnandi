@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Business
 {
-    class Role
+    public class Role
     {
 
         #region Dat Members
