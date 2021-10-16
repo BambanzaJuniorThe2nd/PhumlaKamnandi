@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi.Presentation_Layer
 {
     public partial class HomePage : Form
     {
+        private Collection<Guest> guests = new Collection<Guest>();
+        private Reserve guest;
         public HomePage()
         {
             InitializeComponent();
+            guest = new Reserve();
         }
        
 
@@ -83,11 +88,47 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
-
+            Add_Guest add_Guest = new Add_Guest();
+            this.Hide();
+            add_Guest.ShowDialog();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            Person person;
+            string id = txtGuestID.Text;
+            GuestDetails guestDetails = new GuestDetails();
+            
+
+            person=guest.FindGuest(id);
+            Guest aguest = (Guest)person.role;
+            if (person==null)
+            {
+                MessageBox.Show("Guest doens't exist within our system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                guestDetails.txtGuestID.Text = person.ID; 
+                guestDetails.txtEmail.Text = person.Email;
+                guestDetails.txtName.Text = person.Name;
+                guestDetails.txtTelephone.Text = person.Phone;
+                guestDetails.txtAddress.Text = aguest.Address;
+                
+                this.Hide();
+                guestDetails.ShowDialog();
+            }
+
+
+            
+
+
+
+
+
+            
+            
+         
+            
             Booking_Form booking_Form = new Booking_Form();
             this.Hide();
             booking_Form.ShowDialog();
@@ -98,6 +139,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             GuestListView guestList = new GuestListView();
             this.Hide();
             guestList.ShowDialog();
+        }
+
+        private void txtGuestID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

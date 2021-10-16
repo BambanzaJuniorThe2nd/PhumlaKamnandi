@@ -7,7 +7,7 @@ using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi
 {
-    class Person
+   public class Person
     {
             //Create an abstract Person base class with an ID, Name and Phone. 
             //Include a default and a parametrised constructor. 
@@ -15,7 +15,7 @@ namespace PhumlaKamnandi
             //This base class will enable you to easily expand the system to include customer bookings at a later stage.   
 
         #region data members
-        private string id, personId, name, phone, email;
+        protected string id, personId, name, phone, email;
         #endregion
 
         #region Properties

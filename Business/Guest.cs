@@ -11,10 +11,10 @@ namespace PhumlaKamnandi.Business
     {
         #region data members
 
-        String email;
-        String creditCardNu;
+         String email;
+         String creditCardNu;
      //   bool creditcardstatus = false;
-        String address;
+         String address;
         #endregion
 
 

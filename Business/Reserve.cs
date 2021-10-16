@@ -15,8 +15,15 @@ namespace PhumlaKamnandi.Business
         decimal Total_Fee;
         static Collection<Room> bookedRooms;
         static Collection<Booking> bookings;
-
+        private Collection<Person> people;
+        PersonController person = new PersonController();
         #endregion
+
+
+        public Reserve()
+        {
+            people = person.AllPeople;
+        }
 
         #region Utility Method
 
@@ -25,7 +32,24 @@ namespace PhumlaKamnandi.Business
 
         }*/
 
-       
+       public Person FindGuest(string id)
+        {
+            Person guest=null;//=new Person();
+            foreach (Person person in people)
+            {
+                if (person.role.getRoleValue == Role.RoleType.Guest)
+                {
+                    if (person.ID.Equals(id))
+                    {
+                        guest = person;
+                    }
+                }
+            }
+
+            return guest;
+        }
+
+
            
         #endregion
 

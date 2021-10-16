@@ -42,8 +42,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -193,16 +193,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label2.TabIndex = 2;
             this.label2.Text = "Full Name";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(317, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Guest Found";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
@@ -212,6 +202,16 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Guest Found";
             // 
             // GuestDetails
             // 
@@ -234,17 +234,17 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtGuestID;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtEmail;
+        public System.Windows.Forms.TextBox txtTelephone;
+        public System.Windows.Forms.TextBox txtAddress;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtGuestID;
     }
 }
