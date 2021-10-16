@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PhumlaKamnandi.Data;
 
 namespace PhumlaKamnandi.Business
 {
@@ -27,7 +29,7 @@ namespace PhumlaKamnandi.Business
         #endregion
 
         #region Constructor
-        public PersonController()
+        public CreditCardController()
         {
             //***instantiate the EmployeeDB object to communicate with the database
             creditCardDB = new CreditCardDB();
@@ -41,7 +43,7 @@ namespace PhumlaKamnandi.Business
         public void DataMaintenance(CreditCard aCard, DB.DBOperation operation)
         {
             int index = 0;
-            BookingDB.DataSetChange(aCard, operation);
+            creditCardDB.DataSetChange(aCard, operation);
 
             switch (operation)
             {
@@ -62,15 +64,15 @@ namespace PhumlaKamnandi.Business
             }
         }
 
-        public bool FinalizeChanges(CreditCard aCard)
+        public bool FinalizeChanges(DB.DBOperation operation)
         {
-            return creditCardDB.UpdateDataSource(aCard);
+            return creditCardDB.UpdateDataSource(operation);
         }
         #endregion
 
         #region Searching through a collection
 
-        public Person Find(string CreditCardNum)
+        public CreditCard Find(string CreditCardNum)
         {
             int index = 0;
             bool found = (cards[index].CreditCardNum.Equals(CreditCardNum));
@@ -91,7 +93,7 @@ namespace PhumlaKamnandi.Business
             while (!(found) & counter < cards.Count - 1)
             {
                 counter += 1;
-                found = (acard.CreditCardNum.Equals(acard[counter].CreditCardNum));
+                found = (acard.CreditCardNum.Equals(cards[counter].CreditCardNum));
             }
             if (found)
             {

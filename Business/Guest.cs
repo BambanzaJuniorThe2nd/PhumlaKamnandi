@@ -12,7 +12,7 @@ namespace PhumlaKamnandi.Business
         #region data members
 
         String email;
-        int creditCardNu;
+        String creditCardNu;
      //   bool creditcardstatus = false;
         String address;
         #endregion
@@ -34,7 +34,7 @@ namespace PhumlaKamnandi.Business
             get { return address; }
         }
 
-        public int CreditCardNu
+        public String CreditCardNu
         {
             set { creditCardNu = value; }
             get { return creditCardNu; }

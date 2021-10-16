@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using PhumlaKamnandi.Data;
 
 namespace PhumlaKamnandi.Business
 {
@@ -33,7 +34,7 @@ namespace PhumlaKamnandi.Business
         {
             //***instantiate the EmployeeDB object to communicate with the database
             personDB = new PersonDB();
-            people = personBD.AllPeople;
+             people=personDB.AllPeople;
         }
 
         #endregion
@@ -43,7 +44,7 @@ namespace PhumlaKamnandi.Business
         public void DataMaintenance(Person aPerson, DB.DBOperation operation)
         {
             int index = 0;
-            PersonDB.DataSetChange(aPerson, operation);
+            personDB.DataSetChange(aPerson, operation);
 
             switch (operation)
             {
@@ -64,10 +65,9 @@ namespace PhumlaKamnandi.Business
             }
         }
 
-        public bool FinalizeChanges(Person aperson)
+        public bool FinalizeChanges(Person person, DB.DBOperation operation)
         {
-            //***call the EmployeeDB method that will commit the changes to the database
-            return personDB.UpdateDataSource(aperson);
+            return personDB.UpdateDataSource(person, operation);
         }
         #endregion
 
