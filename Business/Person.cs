@@ -45,9 +45,10 @@ namespace PhumlaKamnandi
             get { return personId; }
         }
 
-        
+
 
         public Role role;
+      
             #endregion
 
         #region Construtor
@@ -75,6 +76,7 @@ namespace PhumlaKamnandi
             }
         }
             
+       
                 
             #endregion
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Business
 {
-    class Guest : Role
+    public class Guest : Role
     {
         #region data members
 

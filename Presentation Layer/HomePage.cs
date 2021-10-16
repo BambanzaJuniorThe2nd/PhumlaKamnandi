@@ -88,7 +88,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
-            Add_Guest add_Guest = new Add_Guest();
+            Add_Guest add_Guest = new Add_Guest(guest);
             this.Hide();
             add_Guest.ShowDialog();
         }
