@@ -89,9 +89,81 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\Add Guest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\Add Guest.Designer.cs">
+      <DependentUpon>Add Guest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\Booking Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\Booking Form.Designer.cs">
+      <DependentUpon>Booking Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\BookingsListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\BookingsListView.Designer.cs">
+      <DependentUpon>BookingsListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestDetails.Designer.cs">
+      <DependentUpon>GuestDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\GuestListView.Designer.cs">
+      <DependentUpon>GuestListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\Payment Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\Payment Form.Designer.cs">
+      <DependentUpon>Payment Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\Add Guest.resx">
+      <DependentUpon>Add Guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\Booking Form.resx">
+      <DependentUpon>Booking Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\BookingsListView.resx">
+      <DependentUpon>BookingsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\GuestDetails.resx">
+      <DependentUpon>GuestDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\GuestListView.resx">
+      <DependentUpon>GuestListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\Payment Form.resx">
+      <DependentUpon>Payment Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +172,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="BookingDatabaseDataSet.xsc">
       <DependentUpon>BookingDatabaseDataSet.xsd</DependentUpon>
@@ -133,10 +206,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\435-4352019_search-icon-small-small-search-icon-png-transparent.png" />
+    <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d %281%29.png" />
+    <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d.png" />
+    <None Include="Resources\Loginpic2.png" />
+    <None Include="Resources\LoginPic.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Business\" />
+    <Folder Include="Data\" />
     <Folder Include="Database backup\" />
     <Folder Include="Presentation\" />
   </ItemGroup>
