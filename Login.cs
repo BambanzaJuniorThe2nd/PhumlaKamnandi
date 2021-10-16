@@ -62,5 +62,13 @@ namespace PhumlaKamnandi
             
            
         }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                Loginbtn.PerformClick();
+            }
+        }
     }
 }

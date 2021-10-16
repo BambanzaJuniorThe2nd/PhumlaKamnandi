@@ -22,6 +22,9 @@ namespace PhumlaKamnandi.Presentation_Layer
             txtEmail.Clear();
             txtName.Clear();
             txtTelephone.Clear();
+            txtSuburb.Clear();
+            txtZip.Clear();
+            txtCity.Clear();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -40,6 +43,11 @@ namespace PhumlaKamnandi.Presentation_Layer
                 this.Hide();
                 homePage.Show();
             }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
