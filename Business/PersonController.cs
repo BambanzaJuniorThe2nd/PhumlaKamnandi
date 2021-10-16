@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using PhumlaKamnandi.Data;
 
 namespace PhumlaKamnandi.Business
 {
@@ -33,7 +34,7 @@ namespace PhumlaKamnandi.Business
         {
             //***instantiate the EmployeeDB object to communicate with the database
             personDB = new PersonDB();
-            people = personBD.AllPeople;
+             people=personDB.AllPeople;
         }
 
         #endregion
