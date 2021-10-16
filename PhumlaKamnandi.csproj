@@ -212,13 +212,10 @@
     <None Include="Resources\Loginpic2.png" />
     <None Include="Resources\LoginPic.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="Data\" />
     <Folder Include="Database backup\" />
-    <Folder Include="Presentation\" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
