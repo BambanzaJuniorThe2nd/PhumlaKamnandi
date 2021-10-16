@@ -22,7 +22,6 @@ namespace PhumlaKamnandi.Business
         #region Constructor
         public Booking(int bookingId, int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
         {
-            this.bookingId = bookingId;
             this.checkIn = checkIn;
             this.checkout = checkout;
             this.roomId = roomId;

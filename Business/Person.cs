@@ -19,7 +19,7 @@ namespace PhumlaKamnandi
         #endregion
 
         #region Properties
-        public int ID
+        public String ID
             {
                 get { return id; }
                 set { id = value; }
@@ -54,7 +54,7 @@ namespace PhumlaKamnandi
         #region Construtor
         public Person()
         {
-                Id = "";
+                id = "";
                 name = "";
                 Phone = "";
         }
