@@ -29,11 +29,11 @@ namespace PhumlaKamnandi.Business
         #endregion
 
         #region Constructor
-        public PersonController()
+        public BookingController()
         {
             //***instantiate the EmployeeDB object to communicate with the database
             bookingDB = new BookingDB();
-            bookings = bookingBD.AllPeople;
+            bookings = bookingDB.AllBookings;
         }
 
         #endregion
@@ -43,7 +43,7 @@ namespace PhumlaKamnandi.Business
         public void DataMaintenance(Booking aBook, DB.DBOperation operation)
         {
             int index = 0;
-            BookingDB.DataSetChange(aBook, operation);
+            bookingDB.DataSetChange(aBook, operation);
 
             switch (operation)
             {
@@ -64,38 +64,25 @@ namespace PhumlaKamnandi.Business
             }
         }
 
-        public bool FinalizeChanges(Booking aBook)
+        public bool FinalizeChanges(DB.DBOperation operation)
         {
             //***call the EmployeeDB method that will commit the changes to the database
-            return BookingDB.UpdateDataSource(aBook);
+            return bookingDB.UpdateDataSource(operation);
         }
         #endregion
 
         #region Searching through a collection
-
-        public Collection<Booking> FindByRole(Collection<Booking> Bookings, Role.RoleType roleVal)
-        {
-            Collection<Booking> matches = new Collection<Booking>();
-            foreach (Booking book in bookings)
-            {
-                if (book.role.getRoleValue == roleVal)
-                {
-                    matches.Add(book);
-                }
-            }
-            return matches;
-        }
-
-        public Person Find(string ID)
+        public Booking Find(string ID)
         {
             int index = 0;
-            bool found = (bookings[index].ID == ID);
+            bool found = (bookings[index].BookingID == Convert.ToInt32(ID));
             int count = bookings.Count;
             while (!(found) && (index < bookings.Count - 1))
             {
                 index = index + 1;
-                found = (bookings[index].ID == ID);
+                found = (bookings[index].BookingID == Convert.ToInt32(ID));
             }
+
             return bookings[index];
         }
 
@@ -103,11 +90,11 @@ namespace PhumlaKamnandi.Business
         {
             int counter = 0;
             bool found = false;
-            found = (abook.ID == bookings[counter].ID);   //using a Boolean Expression to initialise found
+            found = (abook.BookingID == bookings[counter].BookingID);   //using a Boolean Expression to initialise found
             while (!(found) & counter < bookings.Count - 1)
             {
                 counter += 1;
-                found = (abook.ID == abook[counter].ID);
+                found = (abook.BookingID == bookings[counter].BookingID);
             }
             if (found)
             {
