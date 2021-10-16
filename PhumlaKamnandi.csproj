@@ -92,6 +92,12 @@
     <Compile Include="Presentation Layer\Booking Form.Designer.cs">
       <DependentUpon>Booking Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Layer\BookingsListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\BookingsListView.Designer.cs">
+      <DependentUpon>BookingsListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Layer\GuestDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\Booking Form.resx">
       <DependentUpon>Booking Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\BookingsListView.resx">
+      <DependentUpon>BookingsListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\GuestDetails.resx">
       <DependentUpon>GuestDetails.cs</DependentUpon>

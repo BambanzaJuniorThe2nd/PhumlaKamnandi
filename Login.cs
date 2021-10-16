@@ -21,7 +21,7 @@ namespace PhumlaKamnandi
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            this.KeyPreview = true;
         }
 
         private void UserNametxt_TextChanged(object sender, EventArgs e)

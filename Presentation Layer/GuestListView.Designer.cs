@@ -146,7 +146,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Suburblbl.Size = new System.Drawing.Size(56, 20);
             this.Suburblbl.TabIndex = 51;
             this.Suburblbl.Text = "Suburb";
-            this.Suburblbl.Click += new System.EventHandler(this.label7_Click);
+//            this.Suburblbl.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtSuburb
             // 

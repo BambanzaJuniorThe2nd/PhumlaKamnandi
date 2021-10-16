@@ -70,7 +70,9 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            
+            BookingsListView bookingsList = new BookingsListView();
+            this.Hide();
+            bookingsList.ShowDialog();
            
         }
 
