@@ -71,6 +71,8 @@
     <Compile Include="Business\Booking.cs" />
     <Compile Include="Business\BookingController.cs" />
     <Compile Include="Business\Clerk.cs" />
+    <Compile Include="Business\CreditCardCompany.cs" />
+    <Compile Include="Business\CreditCardCompanyController.cs" />
     <Compile Include="Business\CreditCardController.cs" />
     <Compile Include="Business\PersonController.cs" />
     <Compile Include="Business\Reserve.cs" />

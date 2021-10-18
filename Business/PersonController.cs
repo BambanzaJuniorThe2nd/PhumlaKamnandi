@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using PhumlaKamnandi.Data;
+using System.Diagnostics;
 
 namespace PhumlaKamnandi.Business
 {
@@ -43,12 +44,14 @@ namespace PhumlaKamnandi.Business
 
         public void DataMaintenance(Person aPerson, DB.DBOperation operation)
         {
+            Debug.WriteLine("Inside DataMaintenance");
             int index = 0;
             personDB.DataSetChange(aPerson, operation);
 
             switch (operation)
             {
                 case DB.DBOperation.Add:
+                    Debug.WriteLine("operation is Add");
                     people.Add(aPerson);
                     break;
 
@@ -67,6 +70,7 @@ namespace PhumlaKamnandi.Business
 
         public bool FinalizeChanges(Person person, DB.DBOperation operation)
         {
+            Debug.WriteLine("Inside FinalizeChanges");
             return personDB.UpdateDataSource(person, operation);
         }
         #endregion
