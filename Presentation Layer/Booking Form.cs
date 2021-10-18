@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi.Presentation_Layer
 {
     public partial class Booking_Form : Form
     {
+        RoomFee roomFee;
+        private Reserve reserve;
         public Booking_Form()
         {
             InitializeComponent();
@@ -48,33 +51,67 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnContinue_Click(object sender, EventArgs e)
         {
             Payment_Form payment_Form = new Payment_Form();
-            DateTime Checkin;
-            DateTime Checkout;
+            Person person;
+            string id = lblGuestID.Text;
+            person = reserve.FindGuest(id);
+            DateTime Checkin=DateTime.Now;
+            DateTime Checkout=DateTime.Now;
             decimal CostNight;
-            decimal Deposit;
-            int RoomNo;
-            decimal Total;
+            int RoomNo=0;
+            int Days = 0;
+            decimal Total=0;
+            Room room;
+            try
+            {
 
-            Checkin = DateTime.Parse(dtpCheckin.Text);
-            Checkout = DateTime.Parse(dtpCheckout.Text);
-            //CostNight = decimal.Parse(txtPerNight.Text);
-            RoomNo = int.Parse(cboRoomNmbr.Text);
-            //Total = decimal.Parse(txtTotal.Text);
-            //Deposit = decimal.Parse(txtDeposit.Text);
 
+                if (Checkin.Date > Checkout.Date)
+                {
+                    MessageBox.Show("Checkin date cannot be set to after the checkout date", "Date Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    dtpCheckin.Focus();
+                }
+                else if (RoomNo == 0)
+                {
+                    MessageBox.Show("Please select an availble room to continue", "Room Selection", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    cboRoomNmbr.Focus();
+                }
+
+                else
+                {
+                    CostNight = roomFee.TotalFee(Checkin);
+                    Days = Convert.ToInt32((Checkout.Date) - (Checkin.Date));
+                    Total = CostNight * Days;
+                    txtPerNight.Text = CostNight.ToString("c");
+                    txtTotal.Text = Total.ToString("c");
+                    payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
+                    payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
+                    payment_Form.lblTotal.Text = Total.ToString("c");
+                    payment_Form.lblRoomNO.Text = RoomNo.ToString();
+                    payment_Form.lblGuestID.Text = person.ID.ToString();
+                    this.Hide();
+                    payment_Form.ShowDialog();
+
+
+
+                }
+            }catch(FormatException)
+            {
+                MessageBox.Show("Please make sure you've completed all fields with correct data", "Input error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            
+                   
           
-
-            payment_Form.lblCheckin.Text = Checkin.ToString("f");
-            payment_Form.lblCheckout.Text = Checkout.ToString("f");
-            payment_Form.lblRoomNO.Text = RoomNo.ToString();
-           // payment_Form.lblDeposit.Text = Deposit.ToString("c");
-            //payment_Form.lblTotal.Text = Total.ToString("c");
-
-            this.Hide();
-            payment_Form.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblGuestID_Click(object sender, EventArgs e)
         {
 
         }

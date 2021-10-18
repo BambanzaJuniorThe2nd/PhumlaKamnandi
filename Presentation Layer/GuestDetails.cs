@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi.Presentation_Layer
 {
@@ -15,7 +16,9 @@ namespace PhumlaKamnandi.Presentation_Layer
         // we have setup this page as a precautionary measure to ensure that the guest details match the guest's description
         // gathered from the clerk over the phone to avoid bookings for incorrect guestID as a result of a typo made by the clerk\
         // whilst entering the guest ID
+       
     {
+        Reserve reserve;
         public GuestDetails()
         {
             InitializeComponent();
@@ -36,8 +39,11 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnCreate_Click(object sender, EventArgs e)
         {
             Booking_Form booking_Form = new Booking_Form();
+           
+            booking_Form.lblGuestID.Text = txtGuestID.Text;
+            booking_Form.lblGuestName.Text = txtName.Text;
             this.Hide();
-            booking_Form.Show();
+            booking_Form.ShowDialog();
 
         }
     }
