@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Business
 {
-    class Guest : Role
+    public class Guest : Role
     {
         #region data members
 
-        String email;
-        String creditCardNu;
+         String email;
+         String creditCardNu;
      //   bool creditcardstatus = false;
-        String address;
+         String address;
         #endregion
 
 

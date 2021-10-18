@@ -89,12 +89,12 @@ namespace PhumlaKamnandi.Business
         public Person Find(string ID)
         {
             int index = 0;
-            bool found = (people[index].ID == ID);
+            bool found = (people[index].ID.Equals(ID));
             int count = people.Count;
             while (!(found) && (index < people.Count - 1))
             {
                 index = index + 1;
-                found = (people[index].ID == ID);
+                found = (people[index].ID.Equals(ID));
             }
             return people[index];
         }
@@ -103,11 +103,11 @@ namespace PhumlaKamnandi.Business
         {
             int counter = 0;
             bool found = false;
-            found = (aPerson.ID == people[counter].ID);   //using a Boolean Expression to initialise found
+            found = (aPerson.ID.Equals(people[counter].ID));   //using a Boolean Expression to initialise found
             while (!(found) & counter < people.Count - 1)
             {
                 counter += 1;
-                found = (aPerson.ID == people[counter].ID);
+                found = (aPerson.ID.Equals(people[counter].ID));
             }
             if (found)
             {

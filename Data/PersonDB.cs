@@ -272,7 +272,7 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (Name, PersonalID, Phone, Email) VALUES (@Name, @PersonalID, @Phone, @Email)", cnMain);
+                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (Name, PersonalID, Phone, Email, Address) VALUES (@Name, @PersonalID, @Phone, @Email, @Address)", cnMain);
                     break;
                 case Role.RoleType.Clerk:
                     daMain.InsertCommand = new SqlCommand("INSERT into Clerk (Name, Username, Password, PersonalID, Phone, Email) VALUES (@Name, @Username, @Password, @PersonalID, @Phone, @Email)", cnMain);

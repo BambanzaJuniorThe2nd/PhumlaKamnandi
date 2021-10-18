@@ -7,7 +7,7 @@ using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi
 {
-    class Person
+   public class Person
     {
             //Create an abstract Person base class with an ID, Name and Phone. 
             //Include a default and a parametrised constructor. 
@@ -19,7 +19,7 @@ namespace PhumlaKamnandi
         #endregion
 
         #region Properties
-        public string ID
+        public String ID
             {
                 get { return id; }
                 set { id = value; }
@@ -45,9 +45,10 @@ namespace PhumlaKamnandi
             get { return personId; }
         }
 
-        
+
 
         public Role role;
+      
             #endregion
 
         #region Construtor
@@ -75,6 +76,7 @@ namespace PhumlaKamnandi
             }
         }
             
+       
                 
             #endregion
 
