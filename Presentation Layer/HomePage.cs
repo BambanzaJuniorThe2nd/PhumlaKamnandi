@@ -16,6 +16,7 @@ namespace PhumlaKamnandi.Presentation_Layer
     {
         private Collection<Guest> guests = new Collection<Guest>();
         private Reserve guest;
+        private BookingController booking;
         public HomePage()
         {
             InitializeComponent();
@@ -75,7 +76,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            BookingsListView bookingsList = new BookingsListView();
+            BookingsListView bookingsList = new BookingsListView(booking);
             this.Hide();
             bookingsList.ShowDialog();
            

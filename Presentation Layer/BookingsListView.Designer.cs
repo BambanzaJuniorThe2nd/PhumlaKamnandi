@@ -34,9 +34,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.listViewBookings = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CityLbl = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtRoomNo = new System.Windows.Forms.TextBox();
             this.txtCheckout = new System.Windows.Forms.TextBox();
             this.txCheckin = new System.Windows.Forms.TextBox();
@@ -47,9 +49,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.CheckinLbl = new System.Windows.Forms.Label();
             this.GuestIDlbl = new System.Windows.Forms.Label();
             this.BookingIDlbl = new System.Windows.Forms.Label();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,14 +72,14 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.listViewBookings.Size = new System.Drawing.Size(765, 280);
             this.listViewBookings.TabIndex = 12;
             this.listViewBookings.UseCompatibleStateImageBehavior = false;
+            this.listViewBookings.SelectedIndexChanged += new System.EventHandler(this.listViewBookings_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.CityLbl);
-            this.groupBox1.Controls.Add(this.txtCity);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.deleteButton);
-            this.groupBox1.Controls.Add(this.editButton);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnConfirm);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -102,6 +101,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Booking Details";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // CityLbl
             // 
@@ -109,17 +109,29 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.CityLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CityLbl.Location = new System.Drawing.Point(10, 220);
             this.CityLbl.Name = "CityLbl";
-            this.CityLbl.Size = new System.Drawing.Size(34, 20);
+            this.CityLbl.Size = new System.Drawing.Size(42, 20);
             this.CityLbl.TabIndex = 53;
-            this.CityLbl.Text = "City";
+            this.CityLbl.Text = "Total";
             // 
-            // txtCity
+            // txtTotal
             // 
-            this.txtCity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(123, 220);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(217, 25);
-            this.txtCity.TabIndex = 52;
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(123, 220);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(217, 25);
+            this.txtTotal.TabIndex = 52;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.BackgroundImage")));
+            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deleteButton.Location = new System.Drawing.Point(413, 39);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(45, 34);
+            this.deleteButton.TabIndex = 49;
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // btnCancel
             // 
@@ -144,6 +156,17 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnConfirm.TabIndex = 18;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(521, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 180);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // txtRoomNo
             // 
@@ -235,38 +258,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.BookingIDlbl.TabIndex = 0;
             this.BookingIDlbl.Text = "BookingID";
             // 
-            // deleteButton
-            // 
-            this.deleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.BackgroundImage")));
-            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.deleteButton.Location = new System.Drawing.Point(450, 40);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(45, 34);
-            this.deleteButton.TabIndex = 49;
-            this.deleteButton.UseVisualStyleBackColor = true;
-            // 
-            // editButton
-            // 
-            this.editButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editButton.BackgroundImage")));
-            this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editButton.Location = new System.Drawing.Point(385, 41);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(45, 34);
-            this.editButton.TabIndex = 48;
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(521, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 180);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // BookingsListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +269,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Controls.Add(this.label6);
             this.Name = "BookingsListView";
             this.Text = "Bookings View";
+            this.Activated += new System.EventHandler(this.BookingsListView_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookingsListView_FormClosed);
             this.Load += new System.EventHandler(this.BookingsListView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -293,9 +286,8 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.ListView listViewBookings;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label CityLbl;
-        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.PictureBox pictureBox1;

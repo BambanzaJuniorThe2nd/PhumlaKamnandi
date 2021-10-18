@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Business
 {
-    class Booking
+    public class Booking
     {
 
         #region Data Members

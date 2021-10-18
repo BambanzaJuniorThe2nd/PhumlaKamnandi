@@ -32,6 +32,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboCCC = new System.Windows.Forms.ComboBox();
             this.txtExpireDate = new System.Windows.Forms.TextBox();
             this.txtCCnumber = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,8 +51,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboCCC = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,6 +103,33 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credit Card Details";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(26, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(157, 20);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Credit Card Company";
+            // 
+            // cboCCC
+            // 
+            this.cboCCC.AllowDrop = true;
+            this.cboCCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cboCCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCCC.ForeColor = System.Drawing.Color.White;
+            this.cboCCC.FormattingEnabled = true;
+            this.cboCCC.Items.AddRange(new object[] {
+            "Visa",
+            "Mastercard",
+            "American Express",
+            "Barclaycard"});
+            this.cboCCC.Location = new System.Drawing.Point(193, 151);
+            this.cboCCC.Name = "cboCCC";
+            this.cboCCC.Size = new System.Drawing.Size(134, 29);
+            this.cboCCC.TabIndex = 2;
             // 
             // txtExpireDate
             // 
@@ -298,31 +325,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label1.Size = new System.Drawing.Size(203, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Finalize Booking";
-            // 
-            // cboCCC
-            // 
-            this.cboCCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cboCCC.ForeColor = System.Drawing.Color.White;
-            this.cboCCC.FormattingEnabled = true;
-            this.cboCCC.Items.AddRange(new object[] {
-            "Visa",
-            "Mastercard",
-            "American Express",
-            "Barclaycard"});
-            this.cboCCC.Location = new System.Drawing.Point(193, 151);
-            this.cboCCC.Name = "cboCCC";
-            this.cboCCC.Size = new System.Drawing.Size(134, 29);
-            this.cboCCC.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 20);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Credit Card Company";
             // 
             // Payment_Form
             // 

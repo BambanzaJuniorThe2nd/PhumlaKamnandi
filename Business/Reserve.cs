@@ -67,10 +67,7 @@ namespace PhumlaKamnandi.Business
             Bcontroller.FinalizeChanges(Data.DB.DBOperation.Add);
        }
        
-        public decimal getFee(String checkIn, String checkOut)
-        {
-           return RoomFee.getTotalFee(checkIn, checkOut);
-        }
+        
 
         public Person FindGuest(string id)
         {

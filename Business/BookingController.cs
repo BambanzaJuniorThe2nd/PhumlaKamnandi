@@ -8,7 +8,7 @@ using PhumlaKamnandi.Data;
 
 namespace PhumlaKamnandi.Business
 {
-    class BookingController
+   public class BookingController
     {
         #region Data Members
 

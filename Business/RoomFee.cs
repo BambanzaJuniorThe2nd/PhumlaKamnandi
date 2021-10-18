@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 namespace PhumlaKamnandi.Business
 {
-    class RoomFee
+    public class RoomFee
     {
         public enum Season
         {
@@ -67,17 +67,17 @@ namespace PhumlaKamnandi.Business
             if (checkin.Date == lowcheckin)
             { 
                 price = 550;
-                season = Season.LowSeason;
+              
             }
             else if (checkin.Date == midcheckin)
             {
                 price = 750;
-                season = Season.MidSeason;
+                
             }
             else if (checkin.Date == Highcheckin)
             {
                 price = 995;
-                season = Season.HighSeason;
+                
             }
             return price;
 
