@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace PhumlaKamnandi.Business
 {
@@ -14,11 +15,13 @@ namespace PhumlaKamnandi.Business
         int periodOfStay;
         decimal Total_Fee;
    
-        static Collection<Booking> bookings;
-        private Collection<Person> people;
-        private Collection<int> rooms;
-        PersonController controller = new PersonController();
-        BookingController Bcontroller = new BookingController();
+        Collection<Booking> bookings;
+        Collection<Person> people;
+        Collection<int> rooms;
+        Collection<CreditCardCompany> companies;
+        PersonController personController;
+        BookingController bookingController;
+        CreditCardCompanyController cccController;
 
         #endregion
 
@@ -26,10 +29,13 @@ namespace PhumlaKamnandi.Business
         public Reserve()
         {
             rooms = new Collection<int>();
-            people = controller.AllPeople;
-            bookings = Bcontroller.AllBookings;
+            personController = new PersonController();
+            bookingController = new BookingController();
+            cccController = new CreditCardCompanyController();
+            people = personController.AllPeople;
+            bookings = bookingController.AllBookings;
+            companies = cccController.AllCompanies;
             UpdateRooms();
-            
         }
 
         #region Utility Method
@@ -63,8 +69,8 @@ namespace PhumlaKamnandi.Business
         public void AddBooking(int bookingId, int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
        {
             Booking booking = new Booking( bookingId,guestId, roomId, checkIn, checkout, Total_Fee);
-            Bcontroller.DataMaintenance(booking, Data.DB.DBOperation.Add);
-            Bcontroller.FinalizeChanges(Data.DB.DBOperation.Add);
+            bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
+            bookingController.FinalizeChanges(Data.DB.DBOperation.Add);
        }
        
         
@@ -88,10 +94,10 @@ namespace PhumlaKamnandi.Business
 
 
         public void AddGuest(Person person)
-        {   
-            controller.DataMaintenance(person, Data.DB.DBOperation.Add);
-            controller.FinalizeChanges(person, Data.DB.DBOperation.Add);
-
+        {
+            Debug.WriteLine("Inside AddGuest");
+            personController.DataMaintenance(person, Data.DB.DBOperation.Add);
+            personController.FinalizeChanges(person, Data.DB.DBOperation.Add);
         }
 
 
@@ -106,11 +112,13 @@ namespace PhumlaKamnandi.Business
                     }
             }
 
-                    return id;
+            return id;
         }
 
-    
-        
+        public Collection<CreditCardCompany> AllCreditCardCompanies()
+        {
+            return companies;
+        }
         #endregion
 
     }
