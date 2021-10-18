@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhumlaKamnandi.Business;
+using PhumlaKamnandi.Data;
 
 namespace PhumlaKamnandi.Presentation_Layer
 {
@@ -15,6 +16,7 @@ namespace PhumlaKamnandi.Presentation_Layer
     public partial class Payment_Form : Form
     {
         Booking Booking;
+        BookingController bookingController;
         public Payment_Form()
         {
             InitializeComponent();
@@ -125,10 +127,15 @@ namespace PhumlaKamnandi.Presentation_Layer
                 total = Convert.ToDecimal(lblTotal.Text);
 
                 Booking = new Booking(bookingid, guestid, roomno, checkin, checkout, total);
+                DB.DBOperation operation = DB.DBOperation.Add;
+                bookingController.DataMaintenance(Booking, operation);
+                //bookingController.FinalizeChanges(Booking);
+                
                 dialogResult = MessageBox.Show("New booking has been created for " + " " + guestid.ToString() + "\n" + "for " + " " +
                     checkin + " " + "\n with the BookingID of: " + bookingid.ToString(), "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)//makes sure all possibillities are attended too
                 {
+
                     this.Hide();
                     home.ShowDialog();
                 }
