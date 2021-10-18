@@ -120,6 +120,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(421, 67);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(241, 25);
             this.txtID.TabIndex = 22;
             // 
@@ -308,6 +309,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             // cboCCC
             // 
+            this.cboCCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCCC.FormattingEnabled = true;
             this.cboCCC.Location = new System.Drawing.Point(421, 337);
             this.cboCCC.Name = "cboCCC";

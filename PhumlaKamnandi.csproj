@@ -82,6 +82,7 @@
     <Compile Include="Business\Room.cs" />
     <Compile Include="Business\RoomFee.cs" />
     <Compile Include="Data\BookingDB.cs" />
+    <Compile Include="Data\CreditCardCompanyDB.cs" />
     <Compile Include="Data\CreditCardDB.cs" />
     <Compile Include="Data\DB.cs" />
     <Compile Include="Data\PersonDB.cs" />

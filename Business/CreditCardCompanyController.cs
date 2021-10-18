@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Data;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,8 +11,43 @@ namespace PhumlaKamnandi.Business
     class CreditCardCompanyController
     {
         #region
-        CreditCardCompanyDB creditCardDB;
-        Collection<CreditCardCompany> cccs;
+        CreditCardCompanyDB creditCardCompanyDB;
+        Collection<CreditCardCompany> companies;
+        #endregion
+
+        #region Properties
+        public Collection<CreditCardCompany> AllCompanies
+        {
+            get
+            {
+                return companies;
+            }
+        }
+        #endregion
+
+        #region Constructor
+        public CreditCardCompanyController()
+        {
+            //***instantiate the EmployeeDB object to communicate with the database
+            creditCardCompanyDB = new CreditCardCompanyDB();
+            companies = creditCardCompanyDB.AllCompanies;
+        }
+        #endregion
+
+        #region Searching through a collection
+        public CreditCardCompany Find(int cccId)
+        {
+            int index = 0;
+            bool found = (companies[index].CCCID == cccId);
+            int count = companies.Count;
+            while (!(found) && (index < companies.Count - 1))
+            {
+                index = index + 1;
+                found = (companies[index].CCCID == cccId);
+            }
+
+            return companies[index];
+        }
         #endregion
     }
 }

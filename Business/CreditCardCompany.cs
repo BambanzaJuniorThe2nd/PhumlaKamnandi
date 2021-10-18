@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Business
 {
-    class CreditCardCompany
+    public class CreditCardCompany
     {
         private int cccId;
         private String cccName;

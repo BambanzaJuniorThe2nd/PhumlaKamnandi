@@ -15,12 +15,13 @@ namespace PhumlaKamnandi.Business
         int periodOfStay;
         decimal Total_Fee;
    
-        static Collection<Booking> bookings;
-        private Collection<Person> people;
-        private Collection<int> rooms;
-        PersonController personController = new PersonController();
-        BookingController bookingController = new BookingController();
-        CreditCardCompanyController cccController = new CreditCardCompanyController();
+        Collection<Booking> bookings;
+        Collection<Person> people;
+        Collection<int> rooms;
+        Collection<CreditCardCompany> companies;
+        PersonController personController;
+        BookingController bookingController;
+        CreditCardCompanyController cccController;
 
         #endregion
 
@@ -28,10 +29,13 @@ namespace PhumlaKamnandi.Business
         public Reserve()
         {
             rooms = new Collection<int>();
+            personController = new PersonController();
+            bookingController = new BookingController();
+            cccController = new CreditCardCompanyController();
             people = personController.AllPeople;
             bookings = bookingController.AllBookings;
+            companies = cccController.AllCompanies;
             UpdateRooms();
-            
         }
 
         #region Utility Method
@@ -111,7 +115,12 @@ namespace PhumlaKamnandi.Business
                     }
             }
 
-                    return id;
+            return id;
+        }
+
+        public Collection<CreditCardCompany> AllCreditCardCompanies()
+        {
+            return companies;
         }
         #endregion
 
