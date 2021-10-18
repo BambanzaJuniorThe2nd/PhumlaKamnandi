@@ -34,6 +34,10 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.dtpCheckout = new System.Windows.Forms.DateTimePicker();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboRoomNmbr = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDeposit = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPerNight = new System.Windows.Forms.TextBox();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -42,13 +46,9 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.lblGuestID = new System.Windows.Forms.Label();
             this.lblGuestName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtDeposit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cboRoomNmbr = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,6 +115,57 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.Size = new System.Drawing.Size(704, 447);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cboRoomNmbr
+            // 
+            this.cboRoomNmbr.AllowDrop = true;
+            this.cboRoomNmbr.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRoomNmbr.FormattingEnabled = true;
+            this.cboRoomNmbr.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cboRoomNmbr.Location = new System.Drawing.Point(425, 233);
+            this.cboRoomNmbr.Name = "cboRoomNmbr";
+            this.cboRoomNmbr.Size = new System.Drawing.Size(200, 25);
+            this.cboRoomNmbr.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(243, 230);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(1);
+            this.label4.Size = new System.Drawing.Size(137, 23);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Room Number";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtDeposit
+            // 
+            this.txtDeposit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeposit.Location = new System.Drawing.Point(425, 277);
+            this.txtDeposit.Name = "txtDeposit";
+            this.txtDeposit.ReadOnly = true;
+            this.txtDeposit.Size = new System.Drawing.Size(200, 25);
+            this.txtDeposit.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(243, 277);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(1);
+            this.label3.Size = new System.Drawing.Size(137, 23);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Deposit";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -189,6 +240,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.lblGuestID.Size = new System.Drawing.Size(137, 23);
             this.lblGuestID.TabIndex = 11;
             this.lblGuestID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblGuestID.Click += new System.EventHandler(this.lblGuestID_Click);
             // 
             // lblGuestName
             // 
@@ -214,6 +266,16 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label8.TabIndex = 13;
             this.label8.Text = "Total Cost";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 71);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -242,67 +304,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(243, 277);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(1);
-            this.label3.Size = new System.Drawing.Size(137, 23);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Deposit";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtDeposit
-            // 
-            this.txtDeposit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeposit.Location = new System.Drawing.Point(425, 277);
-            this.txtDeposit.Name = "txtDeposit";
-            this.txtDeposit.ReadOnly = true;
-            this.txtDeposit.Size = new System.Drawing.Size(200, 25);
-            this.txtDeposit.TabIndex = 21;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(243, 230);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(1);
-            this.label4.Size = new System.Drawing.Size(137, 23);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Room Number";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cboRoomNmbr
-            // 
-            this.cboRoomNmbr.AllowDrop = true;
-            this.cboRoomNmbr.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboRoomNmbr.FormattingEnabled = true;
-            this.cboRoomNmbr.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cboRoomNmbr.Location = new System.Drawing.Point(425, 233);
-            this.cboRoomNmbr.Name = "cboRoomNmbr";
-            this.cboRoomNmbr.Size = new System.Drawing.Size(200, 25);
-            this.cboRoomNmbr.TabIndex = 23;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 71);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // Booking_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,8 +331,6 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblGuestName;
-        private System.Windows.Forms.Label lblGuestID;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnContinue;
@@ -345,5 +344,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboRoomNmbr;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label lblGuestName;
+        public System.Windows.Forms.Label lblGuestID;
     }
 }
