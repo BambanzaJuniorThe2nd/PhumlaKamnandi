@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Data
 {
-    class BookingDB: DB
+    public class BookingDB: DB
     {
         #region  Data members        
         private string table = "Booking";

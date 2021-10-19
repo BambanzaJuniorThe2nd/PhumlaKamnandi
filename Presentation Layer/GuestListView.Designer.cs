@@ -32,12 +32,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuestListView));
             this.listViewGuests = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtZip = new System.Windows.Forms.TextBox();
-            this.ZipLbl = new System.Windows.Forms.Label();
-            this.CityLbl = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.Suburblbl = new System.Windows.Forms.Label();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
+            this.CCnoLbl = new System.Windows.Forms.Label();
+            this.txtCCNumber = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.brnCancel = new System.Windows.Forms.Button();
@@ -70,12 +66,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.txtZip);
-            this.groupBox1.Controls.Add(this.ZipLbl);
-            this.groupBox1.Controls.Add(this.CityLbl);
-            this.groupBox1.Controls.Add(this.txtCity);
-            this.groupBox1.Controls.Add(this.Suburblbl);
-            this.groupBox1.Controls.Add(this.txtSuburb);
+            this.groupBox1.Controls.Add(this.CCnoLbl);
+            this.groupBox1.Controls.Add(this.txtCCNumber);
             this.groupBox1.Controls.Add(this.deleteButton);
             this.groupBox1.Controls.Add(this.editButton);
             this.groupBox1.Controls.Add(this.brnCancel);
@@ -101,60 +93,23 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox1.Text = "Guest Details";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // txtZip
+            // CCnoLbl
             // 
-            this.txtZip.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZip.Location = new System.Drawing.Point(397, 201);
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(94, 25);
-            this.txtZip.TabIndex = 55;
+            this.CCnoLbl.AutoSize = true;
+            this.CCnoLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CCnoLbl.Location = new System.Drawing.Point(10, 246);
+            this.CCnoLbl.Name = "CCnoLbl";
+            this.CCnoLbl.Size = new System.Drawing.Size(142, 20);
+            this.CCnoLbl.TabIndex = 51;
+            this.CCnoLbl.Text = "Credit Card Number";
             // 
-            // ZipLbl
+            // txtCCNumber
             // 
-            this.ZipLbl.AutoSize = true;
-            this.ZipLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZipLbl.Location = new System.Drawing.Point(321, 202);
-            this.ZipLbl.Name = "ZipLbl";
-            this.ZipLbl.Size = new System.Drawing.Size(70, 20);
-            this.ZipLbl.TabIndex = 54;
-            this.ZipLbl.Text = "Zip Code";
-            // 
-            // CityLbl
-            // 
-            this.CityLbl.AutoSize = true;
-            this.CityLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CityLbl.Location = new System.Drawing.Point(10, 278);
-            this.CityLbl.Name = "CityLbl";
-            this.CityLbl.Size = new System.Drawing.Size(34, 20);
-            this.CityLbl.TabIndex = 53;
-            this.CityLbl.Text = "City";
-            // 
-            // txtCity
-            // 
-            this.txtCity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(121, 278);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(187, 25);
-            this.txtCity.TabIndex = 52;
-            // 
-            // Suburblbl
-            // 
-            this.Suburblbl.AutoSize = true;
-            this.Suburblbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Suburblbl.Location = new System.Drawing.Point(10, 246);
-            this.Suburblbl.Name = "Suburblbl";
-            this.Suburblbl.Size = new System.Drawing.Size(56, 20);
-            this.Suburblbl.TabIndex = 51;
-            this.Suburblbl.Text = "Suburb";
-//            this.Suburblbl.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuburb.Location = new System.Drawing.Point(121, 241);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(187, 25);
-            this.txtSuburb.TabIndex = 50;
+            this.txtCCNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCCNumber.Location = new System.Drawing.Point(158, 241);
+            this.txtCCNumber.Name = "txtCCNumber";
+            this.txtCCNumber.Size = new System.Drawing.Size(187, 25);
+            this.txtCCNumber.TabIndex = 50;
             // 
             // deleteButton
             // 
@@ -216,7 +171,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(121, 200);
+            this.txtAddress.Location = new System.Drawing.Point(158, 200);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(187, 25);
             this.txtAddress.TabIndex = 9;
@@ -224,7 +179,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(121, 158);
+            this.txtPhone.Location = new System.Drawing.Point(158, 158);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(187, 25);
             this.txtPhone.TabIndex = 8;
@@ -232,7 +187,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(121, 118);
+            this.txtEmail.Location = new System.Drawing.Point(158, 118);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(187, 25);
             this.txtEmail.TabIndex = 7;
@@ -240,7 +195,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(121, 80);
+            this.txtName.Location = new System.Drawing.Point(158, 80);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(187, 25);
             this.txtName.TabIndex = 6;
@@ -248,7 +203,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtGuestID
             // 
             this.txtGuestID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuestID.Location = new System.Drawing.Point(121, 41);
+            this.txtGuestID.Location = new System.Drawing.Point(158, 41);
             this.txtGuestID.Name = "txtGuestID";
             this.txtGuestID.Size = new System.Drawing.Size(100, 25);
             this.txtGuestID.TabIndex = 5;
@@ -326,6 +281,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "GuestListView";
             this.Text = "Guest View";
+            this.Activated += new System.EventHandler(this.GuestListView_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GuestListView_FormClosed);
             this.Load += new System.EventHandler(this.GuestListView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -355,11 +312,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button brnCancel;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label CityLbl;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.Label Suburblbl;
-        private System.Windows.Forms.TextBox txtSuburb;
-        private System.Windows.Forms.TextBox txtZip;
-        private System.Windows.Forms.Label ZipLbl;
+        private System.Windows.Forms.Label CCnoLbl;
+        private System.Windows.Forms.TextBox txtCCNumber;
     }
 }

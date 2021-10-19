@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,7 @@ namespace PhumlaKamnandi.Data
 
         private void FillRow(DataRow aRow, Person aPerson, DB.DBOperation operation)
         {
+            Debug.WriteLine("Inside FillRow");
             Guest aGuest;
             Clerk aClerk;
 
@@ -110,6 +112,7 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    Debug.WriteLine("Assigning guest attribute values");
                     aGuest = (Guest)aPerson.role;
                     aRow["Address"] = aGuest.Address;
                     aRow["CC_Number"] = aGuest.CreditCardNu;
@@ -149,11 +152,13 @@ namespace PhumlaKamnandi.Data
         #region Database Operations CRUD
         public void DataSetChange(Person aPerson, DB.DBOperation operation)
         {
+            Debug.WriteLine("Inside DataSetChange");
             DataRow aRow = null;
             string dataTable = table1;
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    Debug.WriteLine("Role is Guest");
                     dataTable = table1;
                     break;
                 case Role.RoleType.Clerk:
@@ -164,6 +169,7 @@ namespace PhumlaKamnandi.Data
             switch (operation)
             {
                 case DBOperation.Add:
+                    Debug.WriteLine("Operation is Add");
                     aRow = dsMain.Tables[dataTable].NewRow();
                     FillRow(aRow, aPerson, DBOperation.Add);
                     dsMain.Tables[dataTable].Rows.Add(aRow);
@@ -183,6 +189,7 @@ namespace PhumlaKamnandi.Data
         #region Build Parameters, Create Commands & Update database
         private void Build_INSERT_Parameters(Person aPerson)
         {
+            Debug.WriteLine("Invoke Build_INSERT_Parameters");
             SqlParameter param = default(SqlParameter);
             param = new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name");
             daMain.InsertCommand.Parameters.Add(param);
@@ -269,6 +276,7 @@ namespace PhumlaKamnandi.Data
 
         private void Create_INSERT_Command(Person aPerson)
         {
+            Debug.WriteLine("Inside Create_INSERT_Command");
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
@@ -335,12 +343,14 @@ namespace PhumlaKamnandi.Data
 
         public bool UpdateDataSource(Person aPerson, DB.DBOperation operation)
         {
+            Debug.WriteLine("Inside UpdateDataSource");
             String sqlLocal = "";
             String table = "";
 
             switch (operation)
             {
                 case DBOperation.Add:
+                    Debug.WriteLine("Invoke Create_INSERT_Command");
                     Create_INSERT_Command(aPerson);
                     break;
                 case DBOperation.Edit:

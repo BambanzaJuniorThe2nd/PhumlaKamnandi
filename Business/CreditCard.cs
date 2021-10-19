@@ -49,7 +49,6 @@ namespace PhumlaKamnandi.Business
             this.CCCID = CCCID;
             this.experationM = experationM;
             this.experationY = experationY;
-
         }
 
         #endregion
