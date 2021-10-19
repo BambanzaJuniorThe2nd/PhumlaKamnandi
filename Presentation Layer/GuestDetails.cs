@@ -22,6 +22,8 @@ namespace PhumlaKamnandi.Presentation_Layer
         public GuestDetails()
         {
             InitializeComponent();
+            reserve = new Reserve();
+            
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -38,12 +40,18 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Booking_Form booking_Form = new Booking_Form();
+            Booking_Form booking_Form = new Booking_Form(reserve);
            
             booking_Form.lblGuestID.Text = txtGuestID.Text;
             booking_Form.lblGuestName.Text = txtName.Text;
             this.Hide();
-            booking_Form.ShowDialog();
+            booking_Form.Show();
+            
+
+        }
+
+        private void GuestDetails_Load(object sender, EventArgs e)
+        {
 
         }
     }
