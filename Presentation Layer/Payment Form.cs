@@ -15,15 +15,16 @@ namespace PhumlaKamnandi.Presentation_Layer
     
     public partial class Payment_Form : Form
     {
-        Booking Booking;
+        Booking booking;
         BookingController bookingController;
-        public Payment_Form()
+        Reserve reserve;
+        public Payment_Form(Reserve Reserve)
         {
             InitializeComponent();
+            reserve = Reserve;
         }
        
       
-        Booking_Form booking_Form = new Booking_Form();
         
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -46,8 +47,10 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Booking_Form booking_Form = new Booking_Form(reserve);
             this.Hide();
-            booking_Form.Show();
+            booking_Form.ShowDialog();
+            
         }
 
         private void txtCCnumber_Enter(object sender, EventArgs e)
@@ -105,32 +108,30 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnContinue_Click(object sender, EventArgs e)
         {
             int bookingid;
-            string checkin;
-            string checkout;
-            int guestid;
-            int roomno;
-            decimal total;
+            string checkin =lblCheckin.Text;
+            string checkout=lblCheckout.Text;
+            int guestid=int.Parse(lblGuestID.Text);
+            int roomno=int.Parse(lblRoomNO.Text);
+            decimal total=decimal.Parse(lblTotal.Text);
             DialogResult dialogResult;
             HomePage home = new HomePage();
-            if(txtCCnumber.Text==""||txtExpireDate.Text==""||cboCCC.SelectedIndex<-1)
-            {
-                MessageBox.Show("Please make sure all fields in the Credit card details box\n is correctly completed before creating a booking.","Input Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                bookingid = Booking.GetBookingID();
-                checkin = lblCheckin.Text;
-                checkout = lblCheckout.Text;
-                guestid = Convert.ToInt32(lblGuestID.Text);
-                roomno = Convert.ToInt32(lblRoomNO.Text);
-                total = Convert.ToDecimal(lblTotal.Text);
-
-                Booking = new Booking(bookingid, guestid, roomno, checkin, checkout, total);
-                DB.DBOperation operation = DB.DBOperation.Add;
-                bookingController.DataMaintenance(Booking, operation);
-                //bookingController.FinalizeChanges(Booking);
+            //if(txtCCnumber.Text==""||txtExpireDate.Text==""||cboCCC.SelectedIndex<-1)
+            //{
+            //    MessageBox.Show("Please make sure all fields in the Credit card details box\n is correctly completed before creating a booking.","Input Erro",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+          //  else
+          //  {
+               
                 
+               
+
+                
+                bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
+
+              
+
+
                 dialogResult = MessageBox.Show("New booking has been created for " + " " + guestid.ToString() + "\n" + "for " + " " +
                     checkin + " " + "\n with the BookingID of: " + bookingid.ToString(), "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)//makes sure all possibillities are attended too
@@ -141,7 +142,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                 }
                 
                 
-            }
+           // }
         }
     }
 }

@@ -222,6 +222,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Controls.Add(this.panel1);
             this.Name = "GuestDetails";
             this.Text = "Guest Details";
+            this.Load += new System.EventHandler(this.GuestDetails_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
