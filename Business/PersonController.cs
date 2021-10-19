@@ -64,7 +64,6 @@ namespace PhumlaKamnandi.Business
                     index = FindIndex(aPerson);
                     people.RemoveAt(index);
                     break;
-
             }
         }
 

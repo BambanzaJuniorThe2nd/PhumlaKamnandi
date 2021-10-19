@@ -68,6 +68,7 @@ namespace PhumlaKamnandi.Data
             try
             {
                 cnMain.Open();
+                Debug.WriteLine(dsMain.Tables[table].Rows[dsMain.Tables[table].Rows.Count - 1][1]);
                 daMain.Update(dsMain, table);
                 cnMain.Close();
                 FillDataSet(sqlLocal, table);
@@ -83,6 +84,8 @@ namespace PhumlaKamnandi.Data
             }
             return success;
         }
+
+        
         #endregion
     }
 }

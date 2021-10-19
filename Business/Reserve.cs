@@ -122,6 +122,24 @@ namespace PhumlaKamnandi.Business
         {
             return companies;
         }
+
+        public int GetLargestGuestID()
+        {
+            Person guest;
+            int largest = 0;
+            foreach (Person person in people)
+            {
+                if (person.role.getRoleValue == Role.RoleType.Guest)
+                {
+                    if (Convert.ToInt32(person.ID) > largest)
+                    {
+                        largest = Convert.ToInt32(person.ID);
+                    }
+                }
+            }
+
+            return largest;
+        }
         #endregion
 
     }

@@ -24,7 +24,18 @@ namespace PhumlaKamnandi.Presentation_Layer
 
             InitializeComponent();
             this.reserve = reserve;
+            InitializeComponentsWithDefaultValues();
+        }
+
+        private void InitializeComponentsWithDefaultValues()
+        {
+            SetUpTxtID();
             SetUpCboCCC();
+        }
+
+        private void SetUpTxtID()
+        {
+            txtID.Text = Convert.ToString(reserve.GetLargestGuestID() + 1);
         }
 
         private void SetUpCboCCC()
@@ -78,6 +89,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             {
                 Debug.WriteLine("Inside btnConfirm_Click");
                 Person person = new Person(Role.RoleType.Guest);
+                string id = txtID.Text;
                 string Name = txtName.Text;
                 string Phone = txtPhone.Text;
                 string email = txtEmail.Text;
@@ -90,14 +102,19 @@ namespace PhumlaKamnandi.Presentation_Layer
 
                 Debug.WriteLine("cccId: " + cccId);
 
-                //person.Name = Name;
-                //person.Phone = Phone;
-                //person.Email = email;
-                //person.PersonalId = personalID;
+                person.ID = id;
+                person.Name = Name;
+                person.Phone = Phone;
+                person.Email = email;
+                person.PersonalId = personalID;
 
-                //Guest aguest = (Guest)person.role;
-                //aguest.Address = address;
-                //reserve.AddGuest(person);
+                Guest aguest = (Guest)person.role;
+                aguest.Address = address;
+                aguest.CreditCardNu = ccNum;
+                aguest.CCCID = cccId;
+                aguest.ExpirationMonth = expirationMonth;
+                aguest.ExpirationYear = expirationYear;
+                reserve.AddGuest(person);
 
                 //DialogResult dialogResult;
                 //dialogResult= MessageBox.Show("A new Guest has successfully been Created with the details of:\n" + reserve.GetId(person) + "\n" +person.PersonalId+

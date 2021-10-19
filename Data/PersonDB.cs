@@ -111,11 +111,11 @@ namespace PhumlaKamnandi.Data
             aRow["PersonalID"] = aPerson.PersonalId;
             aRow["Phone"] = aPerson.Phone;
             aRow["Email"] = aPerson.Email;
-            //*** For each role add the specific data variables
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
                     Debug.WriteLine("Assigning guest attribute values");
+                    aRow["GuestID"] = aPerson.ID;
                     aGuest = (Guest)aPerson.role;
                     aRow["Address"] = aGuest.Address;
                     aRow["CC_Number"] = aGuest.CreditCardNu;
@@ -124,11 +124,14 @@ namespace PhumlaKamnandi.Data
                     aRow["Expiration_Year"] = aGuest.ExpirationYear;
                     break;
                 case Role.RoleType.Clerk:
+                    aRow["ClerkID"] = aPerson.ID;
                     aClerk = (Clerk)aPerson.role;
                     aRow["Username"] = aClerk.Username;
                     aRow["Password"] = aClerk.Password;
                     break;
             }
+
+            Debug.WriteLine("aRow: " + aRow.ItemArray);
         }
 
         private int FindRow(Person aPerson, string table)
@@ -165,10 +168,11 @@ namespace PhumlaKamnandi.Data
             {
                 case Role.RoleType.Guest:
                     Debug.WriteLine("Role is Guest");
-                    dataTable = table1;
+                    FillDataSet(sqlLocal1, dataTable);
                     break;
                 case Role.RoleType.Clerk:
                     dataTable = table2;
+                    FillDataSet(sqlLocal2, dataTable);
                     break;
             }
 
@@ -179,6 +183,16 @@ namespace PhumlaKamnandi.Data
                     aRow = dsMain.Tables[dataTable].NewRow();
                     FillRow(aRow, aPerson, DBOperation.Add);
                     dsMain.Tables[dataTable].Rows.Add(aRow);
+                    Debug.WriteLine("aRow[0]: " + aRow[0]);
+                    Debug.WriteLine("aRow[1]: " + aRow[1]);
+                    Debug.WriteLine("aRow[2]: " + aRow[2]);
+                    Debug.WriteLine("aRow[3]: " + aRow[3]);
+                    Debug.WriteLine("aRow[4]: " + aRow[4]);
+                    Debug.WriteLine("aRow[5]: " + aRow[5]);
+                    Debug.WriteLine("aRow[6]: " + aRow[6]);
+                    Debug.WriteLine("aRow[7]: " + aRow[7]);
+                    Debug.WriteLine("aRow[8]: " + aRow[8]);
+                    Debug.WriteLine("aRow[9]: " + aRow[9]);
                     break;
                 case DBOperation.Edit:
                     aRow = dsMain.Tables[dataTable].Rows[FindRow(aPerson, dataTable)];
@@ -212,6 +226,10 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    param = new SqlParameter("@GuestID", SqlDbType.Int);
+                    param.SourceColumn = "GuestID";
+                    daMain.InsertCommand.Parameters.Add(param);
+
                     param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
                     daMain.InsertCommand.Parameters.Add(param);
 
@@ -231,6 +249,9 @@ namespace PhumlaKamnandi.Data
                     daMain.InsertCommand.Parameters.Add(param);
                     break;
                 case Role.RoleType.Clerk:
+                    param = new SqlParameter("@ClerkID", SqlDbType.Int);
+                    param.SourceColumn = "ClerkID";
+                    daMain.InsertCommand.Parameters.Add(param);
                     param = new SqlParameter("@Username", SqlDbType.NVarChar, 20, "Username");
                     daMain.InsertCommand.Parameters.Add(param);
 
@@ -238,6 +259,8 @@ namespace PhumlaKamnandi.Data
                     daMain.InsertCommand.Parameters.Add(param);
                     break;
             }
+
+            Debug.WriteLine("daMain.InsertCommand.CommandText: " + daMain.InsertCommand.CommandText);
         }
 
         private void Build_UPDATE_Parameters(Person aPerson)
@@ -301,9 +324,10 @@ namespace PhumlaKamnandi.Data
                     param = new SqlParameter("@Original_ClerkID", SqlDbType.NVarChar, 15, "ClerkID");
                     param.SourceVersion = DataRowVersion.Original;
                     daMain.UpdateCommand.Parameters.Add(param);
-
                     break;
             }
+
+            Debug.WriteLine("daMain: " + daMain.UpdateCommand.CommandText);
         }
 
 
@@ -313,10 +337,10 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (Name, PersonalID, Phone, Email, Address, CC_Number, CCC_ID, Expiration_Month, Expiration_Year) VALUES (@Name, @PersonalID, @Phone, @Email, @Address, @CC_Number, @CCC_ID, @Expiration_Month, @Expiration_Year)", cnMain);
+                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (GuestID, Name, PersonalID, Phone, Email, Address, CC_Number, CCC_ID, Expiration_Month, Expiration_Year) VALUES (@GuestID, @Name, @PersonalID, @Phone, @Email, @Address, @CC_Number, @CCC_ID, @Expiration_Month, @Expiration_Year)", cnMain);
                     break;
                 case Role.RoleType.Clerk:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Clerk (Name, Username, Password, PersonalID, Phone, Email) VALUES (@Name, @Username, @Password, @PersonalID, @Phone, @Email)", cnMain);
+                    daMain.InsertCommand = new SqlCommand("INSERT into Clerk (ClerkID, Name, Username, Password, PersonalID, Phone, Email) VALUES (ClerkID, @Name, @Username, @Password, @PersonalID, @Phone, @Email)", cnMain);
                     break;
             }
 
