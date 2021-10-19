@@ -42,17 +42,22 @@ namespace PhumlaKamnandi.Business
 
         public void UpdateRooms()
         {
-            for (int num = 1; num < 6; num++)
-            {
-                rooms.Add(num);
-            }
+            //for (int num = 1; num < 6; num++)
+            //{
+            //    rooms.Add(num);
+            //}
+            rooms.Add(1);
+            rooms.Add(2);
+            rooms.Add(3);
+            rooms.Add(4);
+            rooms.Add(5);
         }
-        public Collection<int> makeBooking(String checkIn, String checkout)
+        public Collection<int> makeBooking(DateTime checkIn, DateTime checkout)
        {
             Collection<int> AvailableRooms = new Collection<int>() ;
             foreach(Booking book in bookings)
             {
-                if((int.Parse(checkIn) >= int.Parse(book.Checkin)) && (int.Parse(checkIn) < int.Parse(book.CheckOut)))
+                if((checkIn.Day >= int.Parse(book.Checkin)) && (checkIn.Day < int.Parse(book.CheckOut)))
                 {
                     rooms.Remove(book.RoomId);
                 }
@@ -66,17 +71,15 @@ namespace PhumlaKamnandi.Business
             return AvailableRooms;
        }
 
-        public void AddBooking(int bookingId, int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
+        public int AddBooking (int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
        {
-            Booking booking = new Booking( bookingId,guestId, roomId, checkIn, checkout, Total_Fee);
+            Booking booking = new Booking(guestId, roomId, checkIn, checkout, Total_Fee);
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
             bookingController.FinalizeChanges(Data.DB.DBOperation.Add);
+            return booking.BookingID;
        }
        
-        public decimal getFee(String checkIn, String checkOut)
-        {
-           return RoomFee.getTotalFee(checkIn, checkOut);
-        }
+        
 
         public Person FindGuest(string id)
         {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PhumlaKamnandi.Data
 {
-    class BookingDB: DB
+    public class BookingDB: DB
     {
         #region  Data members        
         private string table = "Booking";
@@ -60,7 +60,8 @@ namespace PhumlaKamnandi.Data
                     String checkout = Convert.ToString(myRow["Check_Out"]).TrimEnd();
                     decimal totalFee = Convert.ToDecimal(myRow["Total_Fee"]);
 
-                    aBooking = new Booking(bookingID, guestID, roomID, checkin, checkout, totalFee);
+                    aBooking = new Booking( guestID, roomID, checkin, checkout, totalFee);
+                    aBooking.BookingID = bookingID;
 
                     bookings.Add(aBooking);
                 }
@@ -68,6 +69,8 @@ namespace PhumlaKamnandi.Data
         }
         private void FillRow(DataRow aRow, Booking aBooking, DB.DBOperation operation)
         {
+            aRow["BookingID"] = aBooking.BookingID;
+            aRow["GuestID"] = aBooking.GuestId;
             aRow["Room_Number"] = aBooking.RoomId;
             aRow["Check_In"] = aBooking.Checkin;
             aRow["Check_Out"] = aBooking.CheckOut;
@@ -124,6 +127,10 @@ namespace PhumlaKamnandi.Data
         private void Build_INSERT_Parameters()
         {
             SqlParameter param = default(SqlParameter);
+            param = new SqlParameter("@BookingID", SqlDbType.Int);
+            param.SourceColumn = "BookingID";
+            daMain.InsertCommand.Parameters.Add(param);
+
             param = new SqlParameter("@GuestID", SqlDbType.Int);
             param.SourceColumn = "GuestID";
             daMain.InsertCommand.Parameters.Add(param);
@@ -176,7 +183,7 @@ namespace PhumlaKamnandi.Data
 
         private void Create_INSERT_Command()
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Booking (GuestID, Room_Number, Check_In, Check_Out, Total_Fee) VALUES (@GuestID, @Room_Number, @Check_In, @Check_Out, @Total_Fee)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Booking (BookingID,GuestID, Room_Number, Check_In, Check_Out, Total_Fee) VALUES (@BookingID, @GuestID, @Room_Number, @Check_In, @Check_Out, @Total_Fee)", cnMain);
             Build_INSERT_Parameters();
         }
 

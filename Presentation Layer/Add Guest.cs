@@ -77,7 +77,9 @@ namespace PhumlaKamnandi.Presentation_Layer
             if (isValidInput())
             {
                 Debug.WriteLine("Inside btnConfirm_Click");
+               
                 Person person = new Person(Role.RoleType.Guest);
+                Guest aguest = (Guest)person.role;
                 string Name = txtName.Text;
                 string Phone = txtPhone.Text;
                 string email = txtEmail.Text;
@@ -87,6 +89,17 @@ namespace PhumlaKamnandi.Presentation_Layer
                 int cccId = ((KeyValuePair<int, string>)cboCCC.SelectedItem).Key;
                 int expirationMonth = Convert.ToInt32(txtExpMonth.Text);
                 int expirationYear = Convert.ToInt32(txtExpYear.Text);
+
+                person.Name = Name;
+                person.Phone = Phone;
+                person.Email = email;
+                person.PersonalId = personalID;
+                aguest.Address = address;
+                aguest.CreditCardNu = ccNum;
+               
+
+                reserve.AddGuest(person);
+                
 
                 //person.Name = Name;
                 //person.Phone = Phone;
@@ -254,7 +267,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
             else if (ccNum.Length != 16)
             {
-                MessageBox.Show("Credit card number  must be 13 digits in length", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Credit card number  must be 16 digits in length", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace PhumlaKamnandi.Business
 {
-    class PersonController
+   public class PersonController
     {
 
         #region Data Members

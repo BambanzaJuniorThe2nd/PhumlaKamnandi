@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 namespace PhumlaKamnandi.Business
 {
-    class RoomFee
+    public class RoomFee
     {
         public enum Season
         {
@@ -64,20 +64,20 @@ namespace PhumlaKamnandi.Business
             DateTime midcheckin = new DateTime(2021, 12, 08);
             DateTime Highcheckin = new DateTime(2021, 12, 16);
 
-            if (checkin.Date == lowcheckin)
+            if (checkin.Date < midcheckin.Date)
             { 
                 price = 550;
-                season = Season.LowSeason;
+              
             }
-            else if (checkin.Date == midcheckin)
+            else if ((checkin.Date >= midcheckin.Date)&&(checkin.Date<Highcheckin.Date))
             {
                 price = 750;
-                season = Season.MidSeason;
+                
             }
-            else if (checkin.Date == Highcheckin)
+            else if (checkin.Date <= Highcheckin.Date)
             {
                 price = 995;
-                season = Season.HighSeason;
+                
             }
             return price;
 
