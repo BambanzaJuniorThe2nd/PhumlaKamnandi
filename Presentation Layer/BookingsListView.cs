@@ -171,7 +171,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             string checkin = txCheckin.Text;
             string checkout = txtCheckout.Text;
             decimal total = decimal.Parse(txtTotal.Text);
-            Booking = new Booking(Bookingid, guestid, Roomno, checkin, checkout, total);
+            Booking = new Booking( guestid, Roomno, checkin, checkout, total);
 
             
 
