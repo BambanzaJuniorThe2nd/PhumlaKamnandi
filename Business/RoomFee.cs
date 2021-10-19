@@ -64,17 +64,17 @@ namespace PhumlaKamnandi.Business
             DateTime midcheckin = new DateTime(2021, 12, 08);
             DateTime Highcheckin = new DateTime(2021, 12, 16);
 
-            if (checkin.Date == lowcheckin)
+            if (checkin.Date < midcheckin.Date)
             { 
                 price = 550;
               
             }
-            else if (checkin.Date == midcheckin)
+            else if ((checkin.Date >= midcheckin.Date)&&(checkin.Date<Highcheckin.Date))
             {
                 price = 750;
                 
             }
-            else if (checkin.Date == Highcheckin)
+            else if (checkin.Date <= Highcheckin.Date)
             {
                 price = 995;
                 

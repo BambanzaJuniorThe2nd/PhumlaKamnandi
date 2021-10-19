@@ -36,8 +36,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1 = new System.Windows.Forms.Panel();
             this.cboRoomNmbr = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDeposit = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPerNight = new System.Windows.Forms.TextBox();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -71,6 +69,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.dtpCheckin.Name = "dtpCheckin";
             this.dtpCheckin.Size = new System.Drawing.Size(200, 25);
             this.dtpCheckin.TabIndex = 3;
+            this.dtpCheckin.ValueChanged += new System.EventHandler(this.dtpCheckin_ValueChanged);
             // 
             // dtpCheckout
             // 
@@ -79,11 +78,12 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.dtpCheckout.Name = "dtpCheckout";
             this.dtpCheckout.Size = new System.Drawing.Size(200, 25);
             this.dtpCheckout.TabIndex = 4;
+            this.dtpCheckout.ValueChanged += new System.EventHandler(this.dtpCheckout_ValueChanged);
             // 
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(425, 322);
+            this.txtTotal.Location = new System.Drawing.Point(425, 291);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(200, 25);
@@ -95,8 +95,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.cboRoomNmbr);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtDeposit);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtPerNight);
             this.panel1.Controls.Add(this.btnContinue);
@@ -121,16 +119,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.cboRoomNmbr.AllowDrop = true;
             this.cboRoomNmbr.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRoomNmbr.FormattingEnabled = true;
-            this.cboRoomNmbr.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
             this.cboRoomNmbr.Location = new System.Drawing.Point(425, 233);
             this.cboRoomNmbr.Name = "cboRoomNmbr";
             this.cboRoomNmbr.Size = new System.Drawing.Size(200, 25);
             this.cboRoomNmbr.TabIndex = 23;
+            this.cboRoomNmbr.SelectedIndexChanged += new System.EventHandler(this.cboRoomNmbr_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -144,28 +137,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label4.TabIndex = 22;
             this.label4.Text = "Room Number";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtDeposit
-            // 
-            this.txtDeposit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeposit.Location = new System.Drawing.Point(425, 277);
-            this.txtDeposit.Name = "txtDeposit";
-            this.txtDeposit.ReadOnly = true;
-            this.txtDeposit.Size = new System.Drawing.Size(200, 25);
-            this.txtDeposit.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(243, 277);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(1);
-            this.label3.Size = new System.Drawing.Size(137, 23);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Deposit";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -189,13 +160,14 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.txtPerNight.ReadOnly = true;
             this.txtPerNight.Size = new System.Drawing.Size(200, 25);
             this.txtPerNight.TabIndex = 18;
+            this.txtPerNight.TextChanged += new System.EventHandler(this.txtPerNight_TextChanged);
             // 
             // btnContinue
             // 
             this.btnContinue.BackColor = System.Drawing.Color.Blue;
             this.btnContinue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinue.ForeColor = System.Drawing.Color.White;
-            this.btnContinue.Location = new System.Drawing.Point(506, 389);
+            this.btnContinue.Location = new System.Drawing.Point(506, 369);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(119, 39);
             this.btnContinue.TabIndex = 16;
@@ -208,7 +180,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancel.Location = new System.Drawing.Point(349, 389);
+            this.btnCancel.Location = new System.Drawing.Point(349, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(119, 39);
             this.btnCancel.TabIndex = 15;
@@ -259,7 +231,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(243, 322);
+            this.label8.Location = new System.Drawing.Point(243, 291);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(1);
             this.label8.Size = new System.Drawing.Size(137, 23);
@@ -340,8 +312,6 @@ namespace PhumlaKamnandi.Presentation_Layer
         public System.Windows.Forms.DateTimePicker dtpCheckin;
         public System.Windows.Forms.DateTimePicker dtpCheckout;
         public System.Windows.Forms.TextBox txtTotal;
-        public System.Windows.Forms.TextBox txtDeposit;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboRoomNmbr;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label lblGuestName;

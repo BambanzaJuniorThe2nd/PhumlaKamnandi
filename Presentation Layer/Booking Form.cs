@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,10 +16,19 @@ namespace PhumlaKamnandi.Presentation_Layer
     {
         RoomFee roomFee;
         private Reserve reserve;
-        public Booking_Form()
+        private Collection<int> rooms;
+        decimal Total = 0;
+        decimal PerNight = 0;
+        int Days = 0;
+
+        public Booking_Form(Reserve Reserve)
         {
             InitializeComponent();
+            reserve = Reserve;
+
         }
+       
+       
         
   
 
@@ -45,62 +55,75 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void Booking_Form_Load(object sender, EventArgs e)
         {
+        //    RoomFee aRoomfee = new RoomFee();
+        //    Reserve areserve = new Reserve();
+        //    dtpCheckin.Text = DateTime.Now.ToString();
+        //    dtpCheckout.Text = DateTime.Now.ToString();
+        //    DateTime checkin;
+        //    DateTime checkout;
+        //    checkin = DateTime.Parse(dtpCheckin.Text);
+        //    checkout = DateTime.Parse(dtpCheckout.Text);
+        //    rooms = areserve.makeBooking(checkin, checkout);
+        //    foreach(int room in rooms)
+        //    {
+        //        cboRoomNmbr.Items.Add(room);
+        //    }
+        //    PerNight = aRoomfee.TotalFee(checkin);
+        //    Days = Convert.ToInt32((checkout.Date) - (checkin.Date));
+        //    Total = PerNight * Days;
+        //    txtPerNight.Text = PerNight.ToString("c");
+        //    txtTotal.Text = Total.ToString("c");
+
+
+
 
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Payment_Form payment_Form = new Payment_Form();
-            Person person;
+            Payment_Form payment_Form = new Payment_Form(reserve);
+           
+          
             string id = lblGuestID.Text;
-            person = reserve.FindGuest(id);
-            DateTime Checkin=DateTime.Now;
-            DateTime Checkout=DateTime.Now;
-            decimal CostNight;
-            int RoomNo=0;
-            int Days = 0;
-            decimal Total=0;
-            Room room;
-            try
+            
+            DateTime Checkin = DateTime.Parse(dtpCheckin.Text);
+            DateTime Checkout = DateTime.Parse(dtpCheckout.Text);
+
+
+            int RoomNo = int.Parse(cboRoomNmbr.SelectedItem.ToString());
+
+
+
+
+
+            if (Checkin.Date > Checkout.Date)
             {
-
-
-                if (Checkin.Date > Checkout.Date)
-                {
-                    MessageBox.Show("Checkin date cannot be set to after the checkout date", "Date Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    dtpCheckin.Focus();
-                }
-                else if (RoomNo == 0)
-                {
-                    MessageBox.Show("Please select an availble room to continue", "Room Selection", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    cboRoomNmbr.Focus();
-                }
-
-                else
-                {
-                    CostNight = roomFee.TotalFee(Checkin);
-                    Days = Convert.ToInt32((Checkout.Date) - (Checkin.Date));
-                    Total = CostNight * Days;
-                    txtPerNight.Text = CostNight.ToString("c");
-                    txtTotal.Text = Total.ToString("c");
-                    payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
-                    payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
-                    payment_Form.lblTotal.Text = Total.ToString("c");
-                    payment_Form.lblRoomNO.Text = RoomNo.ToString();
-                    payment_Form.lblGuestID.Text = person.ID.ToString();
-                    this.Hide();
-                    payment_Form.ShowDialog();
-
-
-
-                }
-            }catch(FormatException)
-            {
-                MessageBox.Show("Please make sure you've completed all fields with correct data", "Input error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Checkin date cannot be set to after the checkout date", "Date Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                dtpCheckin.Focus();
             }
+            else if (cboRoomNmbr.SelectedIndex < -1)
+            {
+                MessageBox.Show("Please select an availble room to continue", "Room Selection", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                cboRoomNmbr.Focus();
+            }
+
+            else
+            {
+
+                payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
+                payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
+                payment_Form.lblTotal.Text = Total.ToString();
+                payment_Form.lblRoomNO.Text = RoomNo.ToString();
+                payment_Form.lblGuestID.Text = id;
+                this.Hide();
+                payment_Form.ShowDialog();
+
+
+
+            }
+           
             
                    
           
@@ -113,6 +136,61 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void lblGuestID_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cboRoomNmbr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtPerNight_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpCheckout_ValueChanged(object sender, EventArgs e)
+        {
+            cboRoomNmbr.Items.Clear();
+            RoomFee aRoomfee = new RoomFee();
+            Reserve areserve = new Reserve();
+           
+            DateTime checkin;
+            DateTime checkout;
+            checkin = DateTime.Parse(dtpCheckin.Text);
+            checkout = DateTime.Parse(dtpCheckout.Text);
+            rooms = areserve.makeBooking(checkin, checkout);
+            foreach (int room in rooms)
+            {
+                cboRoomNmbr.Items.Add(room);
+            }
+            PerNight = aRoomfee.TotalFee(checkin);
+            Days =checkout.Subtract(checkin).Days;
+            Total = PerNight * Days;
+            txtPerNight.Text = PerNight.ToString();
+            txtTotal.Text = Total.ToString();
+        }
+
+        private void dtpCheckin_ValueChanged(object sender, EventArgs e)
+        {
+            cboRoomNmbr.Items.Clear();
+            Reserve areserve = new Reserve();
+            RoomFee aRoomfee = new RoomFee();
+            DateTime checkin;
+            DateTime checkout;
+            checkin = DateTime.Parse(dtpCheckin.Text);
+            checkout = DateTime.Parse(dtpCheckout.Text);
+            rooms = areserve.makeBooking(checkin, checkout);
+            foreach (int room in rooms)
+            {
+                cboRoomNmbr.Items.Add(room);
+            }
+            PerNight = aRoomfee.TotalFee(checkin);
+            Days = checkout.Subtract(checkin).Days;
+            Total = PerNight * Days;
+            txtPerNight.Text = PerNight.ToString("c");
+            txtTotal.Text = Total.ToString("c");
+
 
         }
     }
