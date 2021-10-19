@@ -73,10 +73,10 @@ namespace PhumlaKamnandi.Business
             bookingController.FinalizeChanges(Data.DB.DBOperation.Add);
        }
        
-        public decimal getFee(String checkIn, String checkOut)
-        {
-           return RoomFee.getTotalFee(checkIn, checkOut);
-        }
+        //public decimal getFee(String checkIn, String checkOut)
+        //{
+        //   return RoomFee.TotalFee(checkIn, checkOut);
+        //}
 
         public Person FindGuest(string id)
         {

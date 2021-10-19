@@ -88,6 +88,8 @@ namespace PhumlaKamnandi.Presentation_Layer
                 int expirationMonth = Convert.ToInt32(txtExpMonth.Text);
                 int expirationYear = Convert.ToInt32(txtExpYear.Text);
 
+                Debug.WriteLine("cccId: " + cccId);
+
                 //person.Name = Name;
                 //person.Phone = Phone;
                 //person.Email = email;
