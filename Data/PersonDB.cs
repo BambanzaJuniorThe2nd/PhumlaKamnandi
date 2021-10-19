@@ -82,8 +82,11 @@ namespace PhumlaKamnandi.Data
                         case "Guest":
                             aPerson.ID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                             aGuest = (Guest)aPerson.role;
-                            aGuest.CreditCardNu = Convert.ToString(myRow["CC_Number"]).TrimEnd();
                             aGuest.Address = Convert.ToString(myRow["Address"]).TrimEnd();
+                            aGuest.CreditCardNu = Convert.ToString(myRow["CC_Number"]).TrimEnd();
+                            aGuest.CCCID = Convert.ToInt32(myRow["CCC_ID"]);
+                            aGuest.ExpirationMonth = Convert.ToInt32(myRow["Expiration_Month"]);
+                            aGuest.ExpirationYear = Convert.ToInt32(myRow["Expiration_Year"]);
                             break;
                         case "Clerk":
                             aPerson.ID = Convert.ToString(myRow["ClerkID"]).TrimEnd();
@@ -116,6 +119,9 @@ namespace PhumlaKamnandi.Data
                     aGuest = (Guest)aPerson.role;
                     aRow["Address"] = aGuest.Address;
                     aRow["CC_Number"] = aGuest.CreditCardNu;
+                    aRow["CCC_ID"] = aGuest.CCCID;
+                    aRow["Expiration_Month"] = aGuest.ExpirationMonth;
+                    aRow["Expiration_Year"] = aGuest.ExpirationYear;
                     break;
                 case Role.RoleType.Clerk:
                     aClerk = (Clerk)aPerson.role;
@@ -206,10 +212,22 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    daMain.InsertCommand.Parameters.Add(param);
+
                     param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
                     daMain.InsertCommand.Parameters.Add(param);
 
-                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    param = new SqlParameter("@CCC_ID", SqlDbType.Int);
+                    param.SourceColumn = "CCC_ID";
+                    daMain.InsertCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Expiration_Month", SqlDbType.Int);
+                    param.SourceColumn = "Expiration_Month";
+                    daMain.InsertCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Expiration_Year", SqlDbType.Int);
+                    param.SourceColumn = "Expiration_Year";
                     daMain.InsertCommand.Parameters.Add(param);
                     break;
                 case Role.RoleType.Clerk:
@@ -244,11 +262,26 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
+                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    param.SourceVersion = DataRowVersion.Current;
+                    daMain.UpdateCommand.Parameters.Add(param);
+
                     param = new SqlParameter("@CC_Number", SqlDbType.NChar, 16, "CC_Number");
                     param.SourceVersion = DataRowVersion.Current;
                     daMain.UpdateCommand.Parameters.Add(param);
 
-                    param = new SqlParameter("@Address", SqlDbType.NVarChar, 50, "Address");
+                    param = new SqlParameter("@CCC_ID", SqlDbType.Int);
+                    param.SourceColumn = "CCC_ID";
+                    param.SourceVersion = DataRowVersion.Current;
+                    daMain.UpdateCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Expiration_Month", SqlDbType.Int);
+                    param.SourceColumn = "Expiration_Month";
+                    param.SourceVersion = DataRowVersion.Current;
+                    daMain.UpdateCommand.Parameters.Add(param);
+
+                    param = new SqlParameter("@Expiration_Year", SqlDbType.Int);
+                    param.SourceColumn = "Expiration_Year";
                     param.SourceVersion = DataRowVersion.Current;
                     daMain.UpdateCommand.Parameters.Add(param);
 
@@ -280,7 +313,7 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
-                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (Name, PersonalID, Phone, Email, Address) VALUES (@Name, @PersonalID, @Phone, @Email, @Address)", cnMain);
+                    daMain.InsertCommand = new SqlCommand("INSERT into Guest (Name, PersonalID, Phone, Email, Address, CC_Number, CCC_ID, Expiration_Month, Expiration_Year) VALUES (@Name, @PersonalID, @Phone, @Email, @Address, @CC_Number, @CCC_ID, @Expiration_Month, @Expiration_Year)", cnMain);
                     break;
                 case Role.RoleType.Clerk:
                     daMain.InsertCommand = new SqlCommand("INSERT into Clerk (Name, Username, Password, PersonalID, Phone, Email) VALUES (@Name, @Username, @Password, @PersonalID, @Phone, @Email)", cnMain);
@@ -295,7 +328,7 @@ namespace PhumlaKamnandi.Data
             switch (aPerson.role.getRoleValue)
             {
                 case Role.RoleType.Guest:
-                    daMain.UpdateCommand = new SqlCommand("UPDATE Guest SET Name=@Name, PersonalID=@PersonalID, Phone=@Phone, Email=@Email WHERE GuestID=@Original_GuestID", cnMain);
+                    daMain.UpdateCommand = new SqlCommand("UPDATE Guest SET Name=@Name, PersonalID=@PersonalID, Phone=@Phone, Email=@Email, Address=@Address, CC_Number=@CC_Number, CCC_ID=@CCC_ID, Expiration_Month=@Expiration_Month, Expiration_Year=@Expiration_Year WHERE GuestID=@Original_GuestID", cnMain);
                     break;
                 case Role.RoleType.Clerk:
                     daMain.UpdateCommand = new SqlCommand("UPDATE Clerk SET Name=@Name, Username=@Username, Password=@Password, PersonalID=@PersonalID, Phone=@Phone, Email=@Email WHERE ClerkID=@Original_ClerkID", cnMain);
@@ -328,7 +361,7 @@ namespace PhumlaKamnandi.Data
             {
                 case Role.RoleType.Guest:
                     param = new SqlParameter("@GuestID", SqlDbType.Int);
-                    param.SourceColumn = "ClerkID";
+                    param.SourceColumn = "GuestID";
                     param.SourceVersion = DataRowVersion.Current;
                     break;
                 case Role.RoleType.Clerk:
