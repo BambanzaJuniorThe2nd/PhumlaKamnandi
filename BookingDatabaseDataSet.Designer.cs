@@ -38,13 +38,13 @@ namespace PhumlaKamnandi {
         
         private SeasonDataTable tableSeason;
         
-        private global::System.Data.DataRelation relationFK__Booking__GuestID__2E1BDC42;
+        private global::System.Data.DataRelation relationFK__Booking__GuestID__30F848ED;
         
-        private global::System.Data.DataRelation relationFK__Booking__Room_Nu__2F10007B;
+        private global::System.Data.DataRelation relationFK__Booking__Room_Nu__31EC6D26;
         
-        private global::System.Data.DataRelation relationFK__Guest__CCC_ID__2B3F6F97;
+        private global::System.Data.DataRelation relationFK__Guest__CCC_ID__29572725;
         
-        private global::System.Data.DataRelation relationFK__Login__ClerkID__32E0915F;
+        private global::System.Data.DataRelation relationFK__Login__ClerkID__2E1BDC42;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -346,10 +346,10 @@ namespace PhumlaKamnandi {
                     this.tableSeason.InitVars();
                 }
             }
-            this.relationFK__Booking__GuestID__2E1BDC42 = this.Relations["FK__Booking__GuestID__2E1BDC42"];
-            this.relationFK__Booking__Room_Nu__2F10007B = this.Relations["FK__Booking__Room_Nu__2F10007B"];
-            this.relationFK__Guest__CCC_ID__2B3F6F97 = this.Relations["FK__Guest__CCC_ID__2B3F6F97"];
-            this.relationFK__Login__ClerkID__32E0915F = this.Relations["FK__Login__ClerkID__32E0915F"];
+            this.relationFK__Booking__GuestID__30F848ED = this.Relations["FK__Booking__GuestID__30F848ED"];
+            this.relationFK__Booking__Room_Nu__31EC6D26 = this.Relations["FK__Booking__Room_Nu__31EC6D26"];
+            this.relationFK__Guest__CCC_ID__29572725 = this.Relations["FK__Guest__CCC_ID__29572725"];
+            this.relationFK__Login__ClerkID__2E1BDC42 = this.Relations["FK__Login__ClerkID__2E1BDC42"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -374,22 +374,22 @@ namespace PhumlaKamnandi {
             base.Tables.Add(this.tableRoom);
             this.tableSeason = new SeasonDataTable();
             base.Tables.Add(this.tableSeason);
-            this.relationFK__Booking__GuestID__2E1BDC42 = new global::System.Data.DataRelation("FK__Booking__GuestID__2E1BDC42", new global::System.Data.DataColumn[] {
+            this.relationFK__Booking__GuestID__30F848ED = new global::System.Data.DataRelation("FK__Booking__GuestID__30F848ED", new global::System.Data.DataColumn[] {
                         this.tableGuest.GuestIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableBooking.GuestIDColumn}, false);
-            this.Relations.Add(this.relationFK__Booking__GuestID__2E1BDC42);
-            this.relationFK__Booking__Room_Nu__2F10007B = new global::System.Data.DataRelation("FK__Booking__Room_Nu__2F10007B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Booking__GuestID__30F848ED);
+            this.relationFK__Booking__Room_Nu__31EC6D26 = new global::System.Data.DataRelation("FK__Booking__Room_Nu__31EC6D26", new global::System.Data.DataColumn[] {
                         this.tableRoom.Room_NumberColumn}, new global::System.Data.DataColumn[] {
                         this.tableBooking.Room_NumberColumn}, false);
-            this.Relations.Add(this.relationFK__Booking__Room_Nu__2F10007B);
-            this.relationFK__Guest__CCC_ID__2B3F6F97 = new global::System.Data.DataRelation("FK__Guest__CCC_ID__2B3F6F97", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Booking__Room_Nu__31EC6D26);
+            this.relationFK__Guest__CCC_ID__29572725 = new global::System.Data.DataRelation("FK__Guest__CCC_ID__29572725", new global::System.Data.DataColumn[] {
                         this.tableCredit_Card_Company.CCC_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableGuest.CCC_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Guest__CCC_ID__2B3F6F97);
-            this.relationFK__Login__ClerkID__32E0915F = new global::System.Data.DataRelation("FK__Login__ClerkID__32E0915F", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Guest__CCC_ID__29572725);
+            this.relationFK__Login__ClerkID__2E1BDC42 = new global::System.Data.DataRelation("FK__Login__ClerkID__2E1BDC42", new global::System.Data.DataColumn[] {
                         this.tableClerk.ClerkIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableLogin.ClerkIDColumn}, false);
-            this.Relations.Add(this.relationFK__Login__ClerkID__32E0915F);
+            this.Relations.Add(this.relationFK__Login__ClerkID__2E1BDC42);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -647,7 +647,7 @@ namespace PhumlaKamnandi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BookingRow AddBookingRow(int BookingID, GuestRow parentGuestRowByFK__Booking__GuestID__2E1BDC42, RoomRow parentRoomRowByFK__Booking__Room_Nu__2F10007B, System.DateTime Check_In, System.DateTime Check_Out, decimal Total_Fee) {
+            public BookingRow AddBookingRow(int BookingID, GuestRow parentGuestRowByFK__Booking__GuestID__30F848ED, RoomRow parentRoomRowByFK__Booking__Room_Nu__31EC6D26, System.DateTime Check_In, System.DateTime Check_Out, decimal Total_Fee) {
                 BookingRow rowBookingRow = ((BookingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BookingID,
@@ -656,11 +656,11 @@ namespace PhumlaKamnandi {
                         Check_In,
                         Check_Out,
                         Total_Fee};
-                if ((parentGuestRowByFK__Booking__GuestID__2E1BDC42 != null)) {
-                    columnValuesArray[1] = parentGuestRowByFK__Booking__GuestID__2E1BDC42[0];
+                if ((parentGuestRowByFK__Booking__GuestID__30F848ED != null)) {
+                    columnValuesArray[1] = parentGuestRowByFK__Booking__GuestID__30F848ED[0];
                 }
-                if ((parentRoomRowByFK__Booking__Room_Nu__2F10007B != null)) {
-                    columnValuesArray[2] = parentRoomRowByFK__Booking__Room_Nu__2F10007B[0];
+                if ((parentRoomRowByFK__Booking__Room_Nu__31EC6D26 != null)) {
+                    columnValuesArray[2] = parentRoomRowByFK__Booking__Room_Nu__31EC6D26[0];
                 }
                 rowBookingRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBookingRow);
@@ -1300,10 +1300,10 @@ namespace PhumlaKamnandi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Credit_Card_CompanyRow AddCredit_Card_CompanyRow(string CCC_Name) {
+            public Credit_Card_CompanyRow AddCredit_Card_CompanyRow(int CCC_ID, string CCC_Name) {
                 Credit_Card_CompanyRow rowCredit_Card_CompanyRow = ((Credit_Card_CompanyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        CCC_ID,
                         CCC_Name};
                 rowCredit_Card_CompanyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCredit_Card_CompanyRow);
@@ -1347,11 +1347,7 @@ namespace PhumlaKamnandi {
                 base.Columns.Add(this.columnCCC_Name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCCC_ID}, true));
-                this.columnCCC_ID.AutoIncrement = true;
-                this.columnCCC_ID.AutoIncrementSeed = -1;
-                this.columnCCC_ID.AutoIncrementStep = -1;
                 this.columnCCC_ID.AllowDBNull = false;
-                this.columnCCC_ID.ReadOnly = true;
                 this.columnCCC_ID.Unique = true;
                 this.columnCCC_Name.AllowDBNull = false;
                 this.columnCCC_Name.MaxLength = 50;
@@ -1658,7 +1654,7 @@ namespace PhumlaKamnandi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public GuestRow AddGuestRow(int GuestID, string Name, string PersonalID, string Phone, string Email, string Address, string CC_Number, Credit_Card_CompanyRow parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__2B3F6F97, int Expiration_Month, int Expiration_Year) {
+            public GuestRow AddGuestRow(int GuestID, string Name, string PersonalID, string Phone, string Email, string Address, string CC_Number, Credit_Card_CompanyRow parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__29572725, int Expiration_Month, int Expiration_Year) {
                 GuestRow rowGuestRow = ((GuestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         GuestID,
@@ -1671,8 +1667,8 @@ namespace PhumlaKamnandi {
                         null,
                         Expiration_Month,
                         Expiration_Year};
-                if ((parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__2B3F6F97 != null)) {
-                    columnValuesArray[7] = parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__2B3F6F97[0];
+                if ((parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__29572725 != null)) {
+                    columnValuesArray[7] = parentCredit_Card_CompanyRowByFK__Guest__CCC_ID__29572725[0];
                 }
                 rowGuestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGuestRow);
@@ -1990,14 +1986,14 @@ namespace PhumlaKamnandi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoginRow AddLoginRow(int LoginID, ClerkRow parentClerkRowByFK__Login__ClerkID__32E0915F, System.DateTime Time_Stamp) {
+            public LoginRow AddLoginRow(ClerkRow parentClerkRowByFK__Login__ClerkID__2E1BDC42, System.DateTime Time_Stamp) {
                 LoginRow rowLoginRow = ((LoginRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        LoginID,
+                        null,
                         null,
                         Time_Stamp};
-                if ((parentClerkRowByFK__Login__ClerkID__32E0915F != null)) {
-                    columnValuesArray[1] = parentClerkRowByFK__Login__ClerkID__32E0915F[0];
+                if ((parentClerkRowByFK__Login__ClerkID__2E1BDC42 != null)) {
+                    columnValuesArray[1] = parentClerkRowByFK__Login__ClerkID__2E1BDC42[0];
                 }
                 rowLoginRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLoginRow);
@@ -2044,7 +2040,11 @@ namespace PhumlaKamnandi {
                 base.Columns.Add(this.columnTime_Stamp);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnLoginID}, true));
+                this.columnLoginID.AutoIncrement = true;
+                this.columnLoginID.AutoIncrementSeed = -1;
+                this.columnLoginID.AutoIncrementStep = -1;
                 this.columnLoginID.AllowDBNull = false;
+                this.columnLoginID.ReadOnly = true;
                 this.columnLoginID.Unique = true;
                 this.columnClerkID.AllowDBNull = false;
                 this.columnTime_Stamp.AllowDBNull = false;
@@ -2321,7 +2321,7 @@ namespace PhumlaKamnandi {
                 this.columnRoom_Number.AllowDBNull = false;
                 this.columnRoom_Number.Unique = true;
                 this.columnRoom_Type.AllowDBNull = false;
-                this.columnRoom_Type.MaxLength = 10;
+                this.columnRoom_Type.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2555,10 +2555,10 @@ namespace PhumlaKamnandi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SeasonRow AddSeasonRow(string SeasonName, decimal SeasonRate) {
+            public SeasonRow AddSeasonRow(int SeasonID, string SeasonName, decimal SeasonRate) {
                 SeasonRow rowSeasonRow = ((SeasonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        SeasonID,
                         SeasonName,
                         SeasonRate};
                 rowSeasonRow.ItemArray = columnValuesArray;
@@ -2606,11 +2606,7 @@ namespace PhumlaKamnandi {
                 base.Columns.Add(this.columnSeasonRate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSeasonID}, true));
-                this.columnSeasonID.AutoIncrement = true;
-                this.columnSeasonID.AutoIncrementSeed = -1;
-                this.columnSeasonID.AutoIncrementStep = -1;
                 this.columnSeasonID.AllowDBNull = false;
-                this.columnSeasonID.ReadOnly = true;
                 this.columnSeasonID.Unique = true;
                 this.columnSeasonName.AllowDBNull = false;
                 this.columnSeasonName.MaxLength = 50;
@@ -2825,10 +2821,10 @@ namespace PhumlaKamnandi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public GuestRow GuestRow {
                 get {
-                    return ((GuestRow)(this.GetParentRow(this.Table.ParentRelations["FK__Booking__GuestID__2E1BDC42"])));
+                    return ((GuestRow)(this.GetParentRow(this.Table.ParentRelations["FK__Booking__GuestID__30F848ED"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Booking__GuestID__2E1BDC42"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Booking__GuestID__30F848ED"]);
                 }
             }
             
@@ -2836,10 +2832,10 @@ namespace PhumlaKamnandi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RoomRow RoomRow {
                 get {
-                    return ((RoomRow)(this.GetParentRow(this.Table.ParentRelations["FK__Booking__Room_Nu__2F10007B"])));
+                    return ((RoomRow)(this.GetParentRow(this.Table.ParentRelations["FK__Booking__Room_Nu__31EC6D26"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Booking__Room_Nu__2F10007B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Booking__Room_Nu__31EC6D26"]);
                 }
             }
         }
@@ -2938,11 +2934,11 @@ namespace PhumlaKamnandi {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public LoginRow[] GetLoginRows() {
-                if ((this.Table.ChildRelations["FK__Login__ClerkID__32E0915F"] == null)) {
+                if ((this.Table.ChildRelations["FK__Login__ClerkID__2E1BDC42"] == null)) {
                     return new LoginRow[0];
                 }
                 else {
-                    return ((LoginRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Login__ClerkID__32E0915F"])));
+                    return ((LoginRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Login__ClerkID__2E1BDC42"])));
                 }
             }
         }
@@ -2986,11 +2982,11 @@ namespace PhumlaKamnandi {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public GuestRow[] GetGuestRows() {
-                if ((this.Table.ChildRelations["FK__Guest__CCC_ID__2B3F6F97"] == null)) {
+                if ((this.Table.ChildRelations["FK__Guest__CCC_ID__29572725"] == null)) {
                     return new GuestRow[0];
                 }
                 else {
-                    return ((GuestRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Guest__CCC_ID__2B3F6F97"])));
+                    return ((GuestRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Guest__CCC_ID__29572725"])));
                 }
             }
         }
@@ -3123,21 +3119,21 @@ namespace PhumlaKamnandi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Credit_Card_CompanyRow Credit_Card_CompanyRow {
                 get {
-                    return ((Credit_Card_CompanyRow)(this.GetParentRow(this.Table.ParentRelations["FK__Guest__CCC_ID__2B3F6F97"])));
+                    return ((Credit_Card_CompanyRow)(this.GetParentRow(this.Table.ParentRelations["FK__Guest__CCC_ID__29572725"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Guest__CCC_ID__2B3F6F97"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Guest__CCC_ID__29572725"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BookingRow[] GetBookingRows() {
-                if ((this.Table.ChildRelations["FK__Booking__GuestID__2E1BDC42"] == null)) {
+                if ((this.Table.ChildRelations["FK__Booking__GuestID__30F848ED"] == null)) {
                     return new BookingRow[0];
                 }
                 else {
-                    return ((BookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Booking__GuestID__2E1BDC42"])));
+                    return ((BookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Booking__GuestID__30F848ED"])));
                 }
             }
         }
@@ -3193,10 +3189,10 @@ namespace PhumlaKamnandi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ClerkRow ClerkRow {
                 get {
-                    return ((ClerkRow)(this.GetParentRow(this.Table.ParentRelations["FK__Login__ClerkID__32E0915F"])));
+                    return ((ClerkRow)(this.GetParentRow(this.Table.ParentRelations["FK__Login__ClerkID__2E1BDC42"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Login__ClerkID__32E0915F"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Login__ClerkID__2E1BDC42"]);
                 }
             }
         }
@@ -3240,11 +3236,11 @@ namespace PhumlaKamnandi {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BookingRow[] GetBookingRows() {
-                if ((this.Table.ChildRelations["FK__Booking__Room_Nu__2F10007B"] == null)) {
+                if ((this.Table.ChildRelations["FK__Booking__Room_Nu__31EC6D26"] == null)) {
                     return new BookingRow[0];
                 }
                 else {
-                    return ((BookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Booking__Room_Nu__2F10007B"])));
+                    return ((BookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Booking__Room_Nu__31EC6D26"])));
                 }
             }
         }
@@ -4471,20 +4467,22 @@ SELECT ClerkID, Name, Username, Password, PersonalID, Phone, Email FROM Clerk WH
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CCC_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Credit_Card_Company] ([CCC_Name]) VALUES (@CCC_Name);\r\nSELECT " +
-                "CCC_ID, CCC_Name FROM Credit_Card_Company WHERE (CCC_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Credit_Card_Company] ([CCC_ID], [CCC_Name]) VALUES (@CCC_ID, @" +
+                "CCC_Name);\r\nSELECT CCC_ID, CCC_Name FROM Credit_Card_Company WHERE (CCC_ID = @CC" +
+                "C_ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CCC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CCC_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Credit_Card_Company] SET [CCC_Name] = @CCC_Name WHERE (([CCC_ID] = " +
-                "@Original_CCC_ID) AND ([CCC_Name] = @Original_CCC_Name));\r\nSELECT CCC_ID, CCC_Na" +
-                "me FROM Credit_Card_Company WHERE (CCC_ID = @CCC_ID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Credit_Card_Company] SET [CCC_ID] = @CCC_ID, [CCC_Name] = @CCC_Name" +
+                " WHERE (([CCC_ID] = @Original_CCC_ID) AND ([CCC_Name] = @Original_CCC_Name));\r\nS" +
+                "ELECT CCC_ID, CCC_Name FROM Credit_Card_Company WHERE (CCC_ID = @CCC_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CCC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CCC_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CCC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CCC_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CCC_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CCC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4589,12 +4587,13 @@ SELECT ClerkID, Name, Username, Password, PersonalID, Phone, Email FROM Clerk WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string CCC_Name) {
+        public virtual int Insert(int CCC_ID, string CCC_Name) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CCC_ID));
             if ((CCC_Name == null)) {
                 throw new global::System.ArgumentNullException("CCC_Name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(CCC_Name));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CCC_Name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4616,21 +4615,21 @@ SELECT ClerkID, Name, Username, Password, PersonalID, Phone, Email FROM Clerk WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string CCC_Name, int Original_CCC_ID, string Original_CCC_Name, int CCC_ID) {
+        public virtual int Update(int CCC_ID, string CCC_Name, int Original_CCC_ID, string Original_CCC_Name) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CCC_ID));
             if ((CCC_Name == null)) {
                 throw new global::System.ArgumentNullException("CCC_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(CCC_Name));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(CCC_Name));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_CCC_ID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_CCC_ID));
             if ((Original_CCC_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_CCC_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_CCC_Name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_CCC_Name));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(CCC_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4652,7 +4651,7 @@ SELECT ClerkID, Name, Username, Password, PersonalID, Phone, Email FROM Clerk WH
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string CCC_Name, int Original_CCC_ID, string Original_CCC_Name) {
-            return this.Update(CCC_Name, Original_CCC_ID, Original_CCC_Name, Original_CCC_ID);
+            return this.Update(Original_CCC_ID, CCC_Name, Original_CCC_ID, Original_CCC_Name);
         }
     }
     
@@ -5321,24 +5320,23 @@ SELECT GuestID, Name, PersonalID, Phone, Email, Address, CC_Number, CCC_ID, Expi
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Stamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Stamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Login] ([LoginID], [ClerkID], [Time_Stamp]) VALUES (@LoginID, " +
-                "@ClerkID, @Time_Stamp);\r\nSELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (L" +
-                "oginID = @LoginID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Login] ([ClerkID], [Time_Stamp]) VALUES (@ClerkID, @Time_Stamp" +
+                ");\r\nSELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = SCOPE_IDENTI" +
+                "TY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoginID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoginID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClerkID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClerkID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Stamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Stamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Login] SET [LoginID] = @LoginID, [ClerkID] = @ClerkID, [Time_Stamp] = @Time_Stamp WHERE (([LoginID] = @Original_LoginID) AND ([ClerkID] = @Original_ClerkID) AND ([Time_Stamp] = @Original_Time_Stamp));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Login] SET [ClerkID] = @ClerkID, [Time_Stamp] = @Time_Stamp WHERE (([LoginID] = @Original_LoginID) AND ([ClerkID] = @Original_ClerkID) AND ([Time_Stamp] = @Original_Time_Stamp));
 SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoginID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoginID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClerkID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClerkID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time_Stamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Stamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoginID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoginID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClerkID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClerkID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time_Stamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time_Stamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoginID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LoginID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5439,10 +5437,9 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int LoginID, int ClerkID, System.DateTime Time_Stamp) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(LoginID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ClerkID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Time_Stamp));
+        public virtual int Insert(int ClerkID, System.DateTime Time_Stamp) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ClerkID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(Time_Stamp));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5463,13 +5460,13 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int LoginID, int ClerkID, System.DateTime Time_Stamp, int Original_LoginID, int Original_ClerkID, System.DateTime Original_Time_Stamp) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(LoginID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ClerkID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Time_Stamp));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_LoginID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ClerkID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_Time_Stamp));
+        public virtual int Update(int ClerkID, System.DateTime Time_Stamp, int Original_LoginID, int Original_ClerkID, System.DateTime Original_Time_Stamp, int LoginID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ClerkID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(Time_Stamp));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_LoginID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ClerkID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_Time_Stamp));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(LoginID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5491,7 +5488,7 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int ClerkID, System.DateTime Time_Stamp, int Original_LoginID, int Original_ClerkID, System.DateTime Original_Time_Stamp) {
-            return this.Update(Original_LoginID, ClerkID, Time_Stamp, Original_LoginID, Original_ClerkID, Original_Time_Stamp);
+            return this.Update(ClerkID, Time_Stamp, Original_LoginID, Original_ClerkID, Original_Time_Stamp, Original_LoginID);
         }
     }
     
@@ -5625,7 +5622,7 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
                 "m_Type] = @Original_Room_Type))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Room] ([Room_Number], [Room_Type]) VALUES (@Room_Number, @Room" +
@@ -5633,7 +5630,7 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
                 "er)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Room] SET [Room_Number] = @Room_Number, [Room_Type] = @Room_Type WH" +
@@ -5642,9 +5639,9 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
                 "r)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5952,23 +5949,24 @@ SELECT LoginID, ClerkID, Time_Stamp FROM Login WHERE (LoginID = @LoginID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeasonRate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Season] ([SeasonName], [SeasonRate]) VALUES (@SeasonName, @Sea" +
-                "sonRate);\r\nSELECT SeasonID, SeasonName, SeasonRate FROM Season WHERE (SeasonID =" +
-                " SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Season] ([SeasonID], [SeasonName], [SeasonRate]) VALUES (@Seas" +
+                "onID, @SeasonName, @SeasonRate);\r\nSELECT SeasonID, SeasonName, SeasonRate FROM S" +
+                "eason WHERE (SeasonID = @SeasonID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonRate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Season] SET [SeasonName] = @SeasonName, [SeasonRate] = @SeasonRate WHERE (([SeasonID] = @Original_SeasonID) AND ([SeasonName] = @Original_SeasonName) AND ([SeasonRate] = @Original_SeasonRate));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Season] SET [SeasonID] = @SeasonID, [SeasonName] = @SeasonName, [SeasonRate] = @SeasonRate WHERE (([SeasonID] = @Original_SeasonID) AND ([SeasonName] = @Original_SeasonName) AND ([SeasonRate] = @Original_SeasonRate));
 SELECT SeasonID, SeasonName, SeasonRate FROM Season WHERE (SeasonID = @SeasonID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonRate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeasonID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeasonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeasonRate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeasonID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SeasonID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6074,14 +6072,15 @@ SELECT SeasonID, SeasonName, SeasonRate FROM Season WHERE (SeasonID = @SeasonID)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string SeasonName, decimal SeasonRate) {
+        public virtual int Insert(int SeasonID, string SeasonName, decimal SeasonRate) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SeasonID));
             if ((SeasonName == null)) {
                 throw new global::System.ArgumentNullException("SeasonName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(SeasonName));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(SeasonName));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(SeasonRate));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(SeasonRate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6102,23 +6101,23 @@ SELECT SeasonID, SeasonName, SeasonRate FROM Season WHERE (SeasonID = @SeasonID)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SeasonName, decimal SeasonRate, int Original_SeasonID, string Original_SeasonName, decimal Original_SeasonRate, int SeasonID) {
+        public virtual int Update(int SeasonID, string SeasonName, decimal SeasonRate, int Original_SeasonID, string Original_SeasonName, decimal Original_SeasonRate) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SeasonID));
             if ((SeasonName == null)) {
                 throw new global::System.ArgumentNullException("SeasonName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(SeasonName));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(SeasonName));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(SeasonRate));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_SeasonID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(SeasonRate));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_SeasonID));
             if ((Original_SeasonName == null)) {
                 throw new global::System.ArgumentNullException("Original_SeasonName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_SeasonName));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_SeasonName));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Original_SeasonRate));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(SeasonID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_SeasonRate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6140,7 +6139,7 @@ SELECT SeasonID, SeasonName, SeasonRate FROM Season WHERE (SeasonID = @SeasonID)
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string SeasonName, decimal SeasonRate, int Original_SeasonID, string Original_SeasonName, decimal Original_SeasonRate) {
-            return this.Update(SeasonName, SeasonRate, Original_SeasonID, Original_SeasonName, Original_SeasonRate, Original_SeasonID);
+            return this.Update(Original_SeasonID, SeasonName, SeasonRate, Original_SeasonID, Original_SeasonName, Original_SeasonRate);
         }
     }
     

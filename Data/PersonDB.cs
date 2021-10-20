@@ -168,11 +168,10 @@ namespace PhumlaKamnandi.Data
             {
                 case Role.RoleType.Guest:
                     Debug.WriteLine("Role is Guest");
-                    FillDataSet(sqlLocal1, dataTable);
+                    dataTable = table1;
                     break;
                 case Role.RoleType.Clerk:
                     dataTable = table2;
-                    FillDataSet(sqlLocal2, dataTable);
                     break;
             }
 
@@ -183,6 +182,9 @@ namespace PhumlaKamnandi.Data
                     aRow = dsMain.Tables[dataTable].NewRow();
                     FillRow(aRow, aPerson, DBOperation.Add);
                     dsMain.Tables[dataTable].Rows.Add(aRow);
+                    Debug.WriteLine("dataTable: " + dataTable);
+                    Debug.WriteLine("dsMain.Tables[dataTable].TableName: " + dsMain.Tables[dataTable].TableName);
+                    Debug.WriteLine("dsMain.Tables[dataTable].Rows.Count: " + dsMain.Tables[dataTable].Rows.Count);
                     Debug.WriteLine("aRow[0]: " + aRow[0]);
                     Debug.WriteLine("aRow[1]: " + aRow[1]);
                     Debug.WriteLine("aRow[2]: " + aRow[2]);
@@ -199,6 +201,7 @@ namespace PhumlaKamnandi.Data
                     FillRow(aRow, aPerson, DBOperation.Edit);
                     break;
                 case DBOperation.Delete:
+                    Debug.WriteLine("Operation is Delete");
                     aRow = dsMain.Tables[dataTable].Rows[FindRow(aPerson, dataTable)];
                     aRow.Delete();
                     break;
@@ -260,7 +263,7 @@ namespace PhumlaKamnandi.Data
                     break;
             }
 
-            Debug.WriteLine("daMain.InsertCommand.CommandText: " + daMain.InsertCommand.CommandText);
+            Debug.WriteLine("daMain.InsertCommand.CommandText: " + daMain.InsertCommand.Parameters.ToString());
         }
 
         private void Build_UPDATE_Parameters(Person aPerson)
@@ -379,6 +382,7 @@ namespace PhumlaKamnandi.Data
 
         private void Build_DELETE_Parameters(Person aPerson)
         {
+            Debug.WriteLine("Inside Build_DELETE_Parameters");
             SqlParameter param = default(SqlParameter);
 
             switch(aPerson.role.getRoleValue)
@@ -414,6 +418,7 @@ namespace PhumlaKamnandi.Data
                     Create_UPDATE_Command(aPerson);
                     break;
                 case DBOperation.Delete:
+                    Debug.WriteLine("Invoke Create_DELETE_Command");
                     Create_DELETE_Command(aPerson);
                     break;
             }

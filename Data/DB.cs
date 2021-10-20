@@ -32,7 +32,7 @@ namespace PhumlaKamnandi.Data
         {
             try
             {
-                cnMain = new SqlConnection(strConn);
+                cnMain = new SqlConnection(@strConn);
                 dsMain = new DataSet();
             }
             catch (SystemException e)
@@ -64,11 +64,13 @@ namespace PhumlaKamnandi.Data
         protected bool UpdateDataSource(string sqlLocal, string table)
         {
             Debug.WriteLine("Inside UpdateDataSource");
+            Debug.WriteLine("table: " + table);
             bool success;
             try
             {
                 cnMain.Open();
-                Debug.WriteLine(dsMain.Tables[table].Rows[dsMain.Tables[table].Rows.Count - 1][1]);
+                Debug.WriteLine(dsMain.Tables.Count);
+                Debug.WriteLine(dsMain.Tables);
                 daMain.Update(dsMain, table);
                 cnMain.Close();
                 FillDataSet(sqlLocal, table);
