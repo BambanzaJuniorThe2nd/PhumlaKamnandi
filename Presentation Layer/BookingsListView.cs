@@ -18,7 +18,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private Formstates state;
         private Collection<Booking> bookings;
         private BookingController bookingController;
-        private Booking Booking;
+        private Booking booking;
         public enum Formstates
         {
             View = 0,
@@ -35,12 +35,23 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Activated += BookingsListView_Activated;
             state = Formstates.View;
         }
-
+        #region Form Events
         private void BookingsListView_Load(object sender, EventArgs e)
         {
             listViewBookings.View = View.Details;
         }
-       
+        private void BookingsListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            listformclosed = true;
+        }
+        private void BookingsListView_Activated(object sender, EventArgs e)
+        {
+            listViewBookings.View = View.Details;
+            setupBookingsListview();
+            Showall(false);
+        }
+        #endregion
+
         #region Utility Methods
         private void Showall(bool value)
         {
@@ -54,6 +65,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             txtBookingID.Visible = value;
             txtCheckout.Visible = value;
             txCheckin.Visible = value;
+            txtTotal.Visible = value;
             if(state==Formstates.Delete)
             {
                 btnConfirm.Visible = !value;
@@ -70,12 +82,8 @@ namespace PhumlaKamnandi.Presentation_Layer
         }
         private void EnableEntries(bool value)
         {
-          
-           
-            
-                txtGuestID.Enabled = value;
-                txtBookingID.Enabled = value;
-            
+            txtGuestID.Enabled = value;
+            txtBookingID.Enabled = value;           
             txtCheckout.Enabled = value;
             txCheckin.Enabled = value;
             txtRoomNo.Enabled = value;
@@ -90,6 +98,30 @@ namespace PhumlaKamnandi.Presentation_Layer
                 btnCancel.Visible = value;
             }
         }
+        private void ClearAll()
+        {
+            txtBookingID.Text = "";
+            txtCheckout.Text = "";
+            txCheckin.Text = "";
+            txtGuestID.Text = "";
+            txtRoomNo.Text = "";
+            txtTotal.Text = "";
+        }
+        private void Populatetextboxes(Booking anBooking)
+        {
+            txtBookingID.Text = Convert.ToString(anBooking.BookingID);
+            txtGuestID.Text = Convert.ToString(anBooking.GuestId);
+            txtRoomNo.Text = Convert.ToString(anBooking.RoomId);
+            txCheckin.Text = anBooking.Checkin;
+            txtCheckout.Text = anBooking.CheckOut;
+            txtTotal.Text = Convert.ToString(anBooking.TOTALFee);
+
+        }
+        //private void PopulateObject()
+        //{
+            
+        //}
+
         #endregion
         #region Listview Setup
         public void setupBookingsListview()
@@ -138,64 +170,51 @@ namespace PhumlaKamnandi.Presentation_Layer
             EnableEntries(false);
             if(listViewBookings.SelectedItems.Count>0)
             {
-                Booking = bookingController.Find(listViewBookings.SelectedItems[0].Text);
-                Populatetextboxes(Booking);
+                booking = bookingController.Find(listViewBookings.SelectedItems[0].Text);
+                Populatetextboxes(booking);
                 
             }
 
 
         }
 
-        private void BookingsListView_Activated(object sender, EventArgs e)
-        {
-            listViewBookings.View = View.Details;
-            setupBookingsListview();
-            Showall(false);
-       }
+     
 
-        private void BookingsListView_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            listformclosed = true;
-        }
+       
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             state = Formstates.Delete;
             EnableEntries(false);
         }
-        private void PopulateObject()
-        {
-            int Bookingid = int.Parse(txtBookingID.Text);
-            int guestid = int.Parse(txtGuestID.Text);
-            int Roomno = int.Parse(txtRoomNo.Text);
-            string checkin = txCheckin.Text;
-            string checkout = txtCheckout.Text;
-            decimal total = decimal.Parse(txtTotal.Text);
-            Booking = new Booking( guestid, Roomno, checkin, checkout, total);
-
-            
-
-        }
-        private void Populatetextboxes(Booking anBooking)
-        {
-            txtBookingID.Text = Convert.ToString(anBooking.BookingID);
-            txtGuestID.Text = Convert.ToString(anBooking.GuestId);
-            txtRoomNo.Text = Convert.ToString(anBooking.RoomId);
-            txCheckin.Text = Convert.ToString(anBooking.Checkin);
-            txtCheckout.Text = Convert.ToString(anBooking.CheckOut);
-            txtTotal.Text = Convert.ToString(anBooking.CheckOut);
-
-        }
+      
+        
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            PopulateObject();
+
+            Data.DB.DBOperation operation;
+
             if(state==Formstates.Delete)
             {
-                bookingController.DataMaintenance(Booking, Data.DB.DBOperation.Delete);
-                    
+                operation = Data.DB.DBOperation.Delete;
+                bookingController.DataMaintenance(booking, operation);
+                bookingController.FinalizeChanges(operation);
             }
+            ClearAll();
+            state = Formstates.View;
+            setupBookingsListview();
+
+
        
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+            Showall(false);
+            setupBookingsListview();
+
         }
     }
 }

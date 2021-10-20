@@ -57,7 +57,7 @@ namespace PhumlaKamnandi.Business
             Collection<int> AvailableRooms = new Collection<int>() ;
             foreach(Booking book in bookings)
             {
-                if((checkIn.Day >= int.Parse(book.Checkin)) && (checkIn.Day < int.Parse(book.CheckOut)))
+                if((checkIn >= DateTime.Parse(book.Checkin)) && (checkIn < DateTime.Parse(book.CheckOut)))
                 {
                     rooms.Remove(book.RoomId);
                 }

@@ -53,42 +53,13 @@ namespace PhumlaKamnandi.Presentation_Layer
             
         }
 
-        private void txtCCnumber_Enter(object sender, EventArgs e)
-        {
-            if(txtCCnumber.Text=="Credit Card Number")
-            {
-                txtCCnumber.Text = "";
-                txtCCnumber.ForeColor = Color.White;
+      
 
-            }
-        }
+        
 
-        private void txtCCnumber_Leave(object sender, EventArgs e)
-        {
-            if(txtCCnumber.Text=="")
-            {
-                txtCCnumber.Text = "Credit Card Number";
-                txtCCnumber.ForeColor = Color.Silver;
-            }
-        }
+      
 
-        private void txtExpireDate_Enter(object sender, EventArgs e)
-        {
-            if(txtExpireDate.Text=="Expiry Date")
-            {
-                txtExpireDate.Text = "";
-                txtExpireDate.ForeColor = Color.White;
-            }
-        }
-
-        private void txtExpireDate_Leave(object sender, EventArgs e)
-        {
-            if(txtExpireDate.Text=="")
-            {
-                txtExpireDate.Text = "Expiry Date";
-                txtExpireDate.ForeColor = Color.Silver;
-            }
-        }
+      
 
 
 
