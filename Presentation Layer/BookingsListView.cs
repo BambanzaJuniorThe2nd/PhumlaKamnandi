@@ -187,19 +187,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             state = Formstates.Delete;
             EnableEntries(false);
         }
-        //private void PopulateObject()
-        //{
-        //    int Bookingid = int.Parse(txtBookingID.Text);
-        //    int guestid = int.Parse(txtGuestID.Text);
-        //    int Roomno = int.Parse(txtRoomNo.Text);
-        //    string checkin = txCheckin.Text;
-        //    string checkout = txtCheckout.Text;
-        //    decimal total = decimal.Parse(txtTotal.Text);
-        //    Booking = new Booking( guestid, Roomno, checkin, checkout, total);
-
-            
-
-        //}
+      
         
 
         private void btnConfirm_Click(object sender, EventArgs e)

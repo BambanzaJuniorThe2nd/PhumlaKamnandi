@@ -20,11 +20,14 @@ namespace PhumlaKamnandi.Presentation_Layer
         decimal Total = 0;
         decimal PerNight = 0;
         int Days = 0;
+        
+        PersonController personController;
 
         public Booking_Form(Reserve Reserve)
         {
             InitializeComponent();
             reserve = Reserve;
+            personController = new PersonController();
 
         }
        
@@ -81,9 +84,10 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Payment_Form payment_Form = new Payment_Form(reserve);
-           
-          
+
+            Person person = new Person(Role.RoleType.Guest);
+            Guest guest;
+        
             string id = lblGuestID.Text;
             
             DateTime Checkin = DateTime.Parse(dtpCheckin.Text);
@@ -111,12 +115,18 @@ namespace PhumlaKamnandi.Presentation_Layer
 
             else
             {
+                Payment_Form payment_Form = new Payment_Form(reserve);
 
+
+                person = personController.Find(id);
+                guest = (Guest)(person.role);
+               
                 payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
                 payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
                 payment_Form.lblTotal.Text = Total.ToString();
                 payment_Form.lblRoomNO.Text = RoomNo.ToString();
                 payment_Form.lblGuestID.Text = id;
+                payment_Form.lblCCNu.Text = guest.CreditCardNu;
                 this.Hide();
                 payment_Form.ShowDialog();
 

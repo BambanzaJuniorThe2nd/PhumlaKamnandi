@@ -46,15 +46,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCCnumber = new System.Windows.Forms.TextBox();
-            this.txtExpireDate = new System.Windows.Forms.TextBox();
-            this.cboCCC = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCCNu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,15 +58,14 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnBack);
-            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btnConfirm);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(74, 82);
+            this.panel1.Location = new System.Drawing.Point(197, 97);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 453);
+            this.panel1.Size = new System.Drawing.Size(682, 453);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -79,7 +74,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnBack.Location = new System.Drawing.Point(68, 346);
+            this.btnBack.Location = new System.Drawing.Point(69, 378);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(119, 39);
             this.btnBack.TabIndex = 17;
@@ -87,81 +82,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cboCCC);
-            this.groupBox1.Controls.Add(this.txtExpireDate);
-            this.groupBox1.Controls.Add(this.txtCCnumber);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(573, 97);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 229);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Credit Card Details";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 20);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Credit Card Company";
-            // 
-            // cboCCC
-            // 
-            this.cboCCC.AllowDrop = true;
-            this.cboCCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cboCCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCCC.ForeColor = System.Drawing.Color.White;
-            this.cboCCC.FormattingEnabled = true;
-            this.cboCCC.Items.AddRange(new object[] {
-            "Visa",
-            "Mastercard",
-            "American Express",
-            "Barclaycard"});
-            this.cboCCC.Location = new System.Drawing.Point(193, 151);
-            this.cboCCC.Name = "cboCCC";
-            this.cboCCC.Size = new System.Drawing.Size(134, 29);
-            this.cboCCC.TabIndex = 2;
-            // 
-            // txtExpireDate
-            // 
-            this.txtExpireDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtExpireDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpireDate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtExpireDate.Location = new System.Drawing.Point(30, 82);
-            this.txtExpireDate.Name = "txtExpireDate";
-            this.txtExpireDate.Size = new System.Drawing.Size(119, 27);
-            this.txtExpireDate.TabIndex = 1;
-            this.txtExpireDate.Text = "Expiry Date";
-            this.txtExpireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtExpireDate.Enter += new System.EventHandler(this.txtExpireDate_Enter);
-            this.txtExpireDate.Leave += new System.EventHandler(this.txtExpireDate_Leave);
-            // 
-            // txtCCnumber
-            // 
-            this.txtCCnumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtCCnumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCCnumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCCnumber.Location = new System.Drawing.Point(30, 37);
-            this.txtCCnumber.Name = "txtCCnumber";
-            this.txtCCnumber.Size = new System.Drawing.Size(297, 27);
-            this.txtCCnumber.TabIndex = 0;
-            this.txtCCnumber.Text = "Credit Card Number";
-            this.txtCCnumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCCnumber.Enter += new System.EventHandler(this.txtCCnumber_Enter);
-            this.txtCCnumber.Leave += new System.EventHandler(this.txtCCnumber_Leave);
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.lblCCNu);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.lblGuestID);
             this.groupBox2.Controls.Add(this.lblRoomNO);
@@ -173,9 +98,9 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(233, 97);
+            this.groupBox2.Location = new System.Drawing.Point(265, 101);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 229);
+            this.groupBox2.Size = new System.Drawing.Size(372, 253);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Booking Details";
@@ -285,7 +210,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnConfirm.BackColor = System.Drawing.Color.Blue;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(725, 356);
+            this.btnConfirm.Location = new System.Drawing.Point(452, 378);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(152, 39);
             this.btnConfirm.TabIndex = 16;
@@ -298,7 +223,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancel.Location = new System.Drawing.Point(573, 356);
+            this.btnCancel.Location = new System.Drawing.Point(301, 378);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(119, 39);
             this.btnCancel.TabIndex = 15;
@@ -320,83 +245,31 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(428, 34);
+            this.label1.Location = new System.Drawing.Point(206, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Finalize Booking";
             // 
-            // txtCCnumber
-            // 
-            this.txtCCnumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtCCnumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCCnumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCCnumber.Location = new System.Drawing.Point(30, 37);
-            this.txtCCnumber.Name = "txtCCnumber";
-            this.txtCCnumber.Size = new System.Drawing.Size(297, 27);
-            this.txtCCnumber.TabIndex = 0;
-            this.txtCCnumber.Text = "Credit Card Number";
-            this.txtCCnumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCCnumber.Enter += new System.EventHandler(this.txtCCnumber_Enter);
-            this.txtCCnumber.Leave += new System.EventHandler(this.txtCCnumber_Leave);
-            // 
-            // txtExpireDate
-            // 
-            this.txtExpireDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtExpireDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpireDate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtExpireDate.Location = new System.Drawing.Point(30, 82);
-            this.txtExpireDate.Name = "txtExpireDate";
-            this.txtExpireDate.Size = new System.Drawing.Size(119, 27);
-            this.txtExpireDate.TabIndex = 1;
-            this.txtExpireDate.Text = "Expiry Date";
-            this.txtExpireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtExpireDate.Enter += new System.EventHandler(this.txtExpireDate_Enter);
-            this.txtExpireDate.Leave += new System.EventHandler(this.txtExpireDate_Leave);
-            // 
-            // cboCCC
-            // 
-            this.cboCCC.AllowDrop = true;
-            this.cboCCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cboCCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCCC.ForeColor = System.Drawing.Color.White;
-            this.cboCCC.FormattingEnabled = true;
-            this.cboCCC.Items.AddRange(new object[] {
-            "Visa",
-            "Mastercard",
-            "American Express",
-            "Barclaycard"});
-            this.cboCCC.Location = new System.Drawing.Point(193, 151);
-            this.cboCCC.Name = "cboCCC";
-            this.cboCCC.Size = new System.Drawing.Size(134, 29);
-            this.cboCCC.TabIndex = 2;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 155);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 215);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 20);
+            this.label7.Size = new System.Drawing.Size(118, 15);
             this.label7.TabIndex = 23;
-            this.label7.Text = "Credit Card Company";
+            this.label7.Text = "Credit Crad Number";
             // 
-            // groupBox1
+            // lblCCNu
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cboCCC);
-            this.groupBox1.Controls.Add(this.txtExpireDate);
-            this.groupBox1.Controls.Add(this.txtCCnumber);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(573, 97);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 229);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Credit Card Details";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.lblCCNu.AutoSize = true;
+            this.lblCCNu.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCCNu.Location = new System.Drawing.Point(165, 215);
+            this.lblCCNu.Name = "lblCCNu";
+            this.lblCCNu.Size = new System.Drawing.Size(42, 15);
+            this.lblCCNu.TabIndex = 24;
+            this.lblCCNu.Text = "label7";
             // 
             // Payment_Form
             // 
@@ -413,8 +286,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -438,10 +309,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         public System.Windows.Forms.Label lblCheckin;
         public System.Windows.Forms.Label lblTotal;
         public System.Windows.Forms.Label lblGuestID;
-        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label lblCCNu;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboCCC;
-        private System.Windows.Forms.TextBox txtExpireDate;
-        private System.Windows.Forms.TextBox txtCCnumber;
     }
 }

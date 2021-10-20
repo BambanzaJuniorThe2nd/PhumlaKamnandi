@@ -237,7 +237,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             PopulateObject(rolevalue);
-            Data.DB.DBOperation operation;
+            Data.PersonDB.DBOperation operation;
             if (txtGuestID.Text == " " || txtAddress.Text == "" || txtCCNumber.Text == "" || txtEmail.Text == "" || txtName.Text == "" || txtPhone.Text == "")
             {
                 MessageBox.Show("Please make sure all fields are completed before committing changes", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -246,14 +246,14 @@ namespace PhumlaKamnandi.Presentation_Layer
             {
                 if (state == FormStates.Edit)
                 {
-                    operation = Data.DB.DBOperation.Edit;
+                    operation = Data.PersonDB.DBOperation.Edit;
                     personController.DataMaintenance(person, operation);
 
                 }
                 else
                 {
-                    operation = Data.DB.DBOperation.Delete;
-                    personController.DataMaintenance(person, operation);
+                    operation = Data.PersonDB.DBOperation.Delete;
+                    personController.DataMaintenance(person, Data.PersonDB.DBOperation.Delete);
                 }
                 personController.FinalizeChanges(person, operation);
                 ClearAll();

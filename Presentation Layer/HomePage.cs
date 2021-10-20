@@ -113,9 +113,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             }
 
 
-            Booking_Form booking_Form = new Booking_Form(guest);
-            this.Hide();
-            booking_Form.ShowDialog();
+            
         }
         #endregion
 
