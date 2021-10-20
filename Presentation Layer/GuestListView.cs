@@ -238,21 +238,28 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             PopulateObject(rolevalue);
             Data.DB.DBOperation operation;
-            if(state==FormStates.Edit)
+            if (txtGuestID.Text == " " || txtAddress.Text == "" || txtCCNumber.Text == "" || txtEmail.Text == "" || txtName.Text == "" || txtPhone.Text == "")
             {
-                operation = Data.DB.DBOperation.Edit;
-                personController.DataMaintenance(person,operation);
-
+                MessageBox.Show("Please make sure all fields are completed before committing changes", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            { 
-                operation = Data.DB.DBOperation.Delete;
-                personController.DataMaintenance(person,operation );
+            {
+                if (state == FormStates.Edit)
+                {
+                    operation = Data.DB.DBOperation.Edit;
+                    personController.DataMaintenance(person, operation);
+
+                }
+                else
+                {
+                    operation = Data.DB.DBOperation.Delete;
+                    personController.DataMaintenance(person, operation);
+                }
+                personController.FinalizeChanges(person, operation);
+                ClearAll();
+                state = FormStates.View;
+                setGuestListview();
             }
-            personController.FinalizeChanges(person,operation);
-            ClearAll();
-            state = FormStates.View;
-            setGuestListview();
 
 
         }
@@ -260,15 +267,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void brnCancel_Click(object sender, EventArgs e)
         {
-            //HomePage homePage = new HomePage();
-            //DialogResult dialogResult;
-            //dialogResult = MessageBox.Show("Are you sure you wish to cancel and return to the homepage?\n\n **All changes won't be saved**",
-            //    "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if(dialogResult==DialogResult.Yes)
-            //{
-            //    this.Hide();
-            //    homePage.ShowDialog();
-            //}
+            
             ClearAll();
             state = FormStates.View;
             Showall(false);

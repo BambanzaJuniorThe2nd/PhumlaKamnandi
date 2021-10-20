@@ -86,11 +86,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             }
         }
 
-        private void btnBooking_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
+       
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Person person;
@@ -158,6 +154,27 @@ namespace PhumlaKamnandi.Presentation_Layer
             guestListView.Show();
         }
         #endregion
+        #region Booking ListForm
+        private void CreatenewBookingForm()
+        {
+            bookingsListView = new BookingsListView(bookingcontroller);
+        }
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+
+            if(bookingsListView==null)
+            {
+                CreatenewBookingForm();
+            }
+            if(bookingsListView.listformclosed)
+            {
+                CreatenewBookingForm();
+            }
+            bookingsListView.setupBookingsListview();
+            bookingsListView.Show();
+        }
+        #endregion
+
 
         private void txtGuestID_TextChanged(object sender, EventArgs e)
         {
