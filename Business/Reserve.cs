@@ -98,11 +98,8 @@ namespace PhumlaKamnandi.Business
 
         public void AddGuest(Person person)
         {
-            Debug.WriteLine("Inside AddGuest");
-            person = people[0];
-            Debug.WriteLine("people[0]: " + people[0]);
-            personController.DataMaintenance(person, Data.DB.DBOperation.Delete);
-            personController.FinalizeChanges(person, Data.DB.DBOperation.Delete);
+            personController.DataMaintenance(person, Data.DB.DBOperation.Add);
+            personController.FinalizeChanges(person, Data.DB.DBOperation.Add);
         }
 
 

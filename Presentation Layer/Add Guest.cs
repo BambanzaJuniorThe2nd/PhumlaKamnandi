@@ -40,7 +40,6 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void SetUpCboCCC()
         {
-            Debug.WriteLine("Setting up cboccc...");
             comboSource = new Dictionary<int, string>();
 
             // Retrieve and add all credit card companies
@@ -58,11 +57,18 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void ClearAll()
         {
-            txtAddress.Clear();
-            txtEmail.Clear();
+            SetUpTxtID();
             txtName.Clear();
+            txtEmail.Clear();
             txtPhone.Clear();
-            
+            txtPersonalID.Clear();
+            txtPersonalID.Clear();
+            txtPersonalID.Clear();
+            txtAddress.Clear();
+            txtCCNum.Clear();
+            txtExpMonth.Clear();
+            txtExpYear.Clear();
+            SetUpCboCCC();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -116,16 +122,11 @@ namespace PhumlaKamnandi.Presentation_Layer
                 aguest.ExpirationYear = expirationYear;
                 reserve.AddGuest(person);
 
-                //DialogResult dialogResult;
-                //dialogResult= MessageBox.Show("A new Guest has successfully been Created with the details of:\n" + reserve.GetId(person) + "\n" +person.PersonalId+
-                //    person.Name + "\n" + person.Phone + "\n" + person.Email + "\n" + aguest.Address + "\n", "New Guest", MessageBoxButtons.OK,
-                //    MessageBoxIcon.Information);
-
-                //if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)
-                //{
-                //    this.Hide();
-                //    new HomePage().ShowDialog();
-                //}
+                if (reserve.FindGuest(person.ID) != null)
+                {
+                    MessageBox.Show("Guest successfully added", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAll();
+                }
             }
 
         }

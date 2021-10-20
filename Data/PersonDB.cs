@@ -161,7 +161,6 @@ namespace PhumlaKamnandi.Data
         #region Database Operations CRUD
         public void DataSetChange(Person aPerson, DB.DBOperation operation)
         {
-            Debug.WriteLine("Inside DataSetChange");
             DataRow aRow = null;
             string dataTable = table1;
             switch (aPerson.role.getRoleValue)
@@ -178,7 +177,6 @@ namespace PhumlaKamnandi.Data
             switch (operation)
             {
                 case DBOperation.Add:
-                    Debug.WriteLine("Operation is Add");
                     aRow = dsMain.Tables[dataTable].NewRow();
                     FillRow(aRow, aPerson, DBOperation.Add);
                     dsMain.Tables[dataTable].Rows.Add(aRow);
@@ -201,7 +199,6 @@ namespace PhumlaKamnandi.Data
                     FillRow(aRow, aPerson, DBOperation.Edit);
                     break;
                 case DBOperation.Delete:
-                    Debug.WriteLine("Operation is Delete");
                     aRow = dsMain.Tables[dataTable].Rows[FindRow(aPerson, dataTable)];
                     aRow.Delete();
                     break;
