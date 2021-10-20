@@ -35,12 +35,23 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Activated += BookingsListView_Activated;
             state = Formstates.View;
         }
-
+        #region Form Events
         private void BookingsListView_Load(object sender, EventArgs e)
         {
             listViewBookings.View = View.Details;
         }
-       
+        private void BookingsListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            listformclosed = true;
+        }
+        private void BookingsListView_Activated(object sender, EventArgs e)
+        {
+            listViewBookings.View = View.Details;
+            setupBookingsListview();
+            Showall(false);
+        }
+        #endregion
+
         #region Utility Methods
         private void Showall(bool value)
         {
@@ -70,12 +81,8 @@ namespace PhumlaKamnandi.Presentation_Layer
         }
         private void EnableEntries(bool value)
         {
-          
-           
-            
-                txtGuestID.Enabled = value;
-                txtBookingID.Enabled = value;
-            
+            txtGuestID.Enabled = value;
+            txtBookingID.Enabled = value;           
             txtCheckout.Enabled = value;
             txCheckin.Enabled = value;
             txtRoomNo.Enabled = value;
@@ -90,6 +97,16 @@ namespace PhumlaKamnandi.Presentation_Layer
                 btnCancel.Visible = value;
             }
         }
+        private void ClearAll()
+        {
+            txtBookingID.Text = "";
+            txtCheckout.Text = "";
+            txCheckin.Text = "";
+            txtGuestID.Text = "";
+            txtRoomNo.Text = "";
+            txtTotal.Text = "";
+        }
+
         #endregion
         #region Listview Setup
         public void setupBookingsListview()
@@ -146,17 +163,9 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         }
 
-        private void BookingsListView_Activated(object sender, EventArgs e)
-        {
-            listViewBookings.View = View.Details;
-            setupBookingsListview();
-            Showall(false);
-       }
+     
 
-        private void BookingsListView_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            listformclosed = true;
-        }
+       
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

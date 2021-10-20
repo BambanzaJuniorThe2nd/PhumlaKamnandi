@@ -32,6 +32,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuestListView));
             this.listViewGuests = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPersonalID = new System.Windows.Forms.Label();
+            this.txtPersonalID = new System.Windows.Forms.TextBox();
             this.CCnoLbl = new System.Windows.Forms.Label();
             this.txtCCNumber = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -62,10 +64,13 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.listViewGuests.Size = new System.Drawing.Size(765, 280);
             this.listViewGuests.TabIndex = 0;
             this.listViewGuests.UseCompatibleStateImageBehavior = false;
+            this.listViewGuests.SelectedIndexChanged += new System.EventHandler(this.listViewGuests_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.Controls.Add(this.lblPersonalID);
+            this.groupBox1.Controls.Add(this.txtPersonalID);
             this.groupBox1.Controls.Add(this.CCnoLbl);
             this.groupBox1.Controls.Add(this.txtCCNumber);
             this.groupBox1.Controls.Add(this.deleteButton);
@@ -93,11 +98,29 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox1.Text = "Guest Details";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // lblPersonalID
+            // 
+            this.lblPersonalID.AutoSize = true;
+            this.lblPersonalID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonalID.Location = new System.Drawing.Point(10, 123);
+            this.lblPersonalID.Name = "lblPersonalID";
+            this.lblPersonalID.Size = new System.Drawing.Size(79, 20);
+            this.lblPersonalID.TabIndex = 53;
+            this.lblPersonalID.Text = "PersonalID";
+            // 
+            // txtPersonalID
+            // 
+            this.txtPersonalID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersonalID.Location = new System.Drawing.Point(158, 123);
+            this.txtPersonalID.Name = "txtPersonalID";
+            this.txtPersonalID.Size = new System.Drawing.Size(187, 25);
+            this.txtPersonalID.TabIndex = 52;
+            // 
             // CCnoLbl
             // 
             this.CCnoLbl.AutoSize = true;
             this.CCnoLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CCnoLbl.Location = new System.Drawing.Point(10, 246);
+            this.CCnoLbl.Location = new System.Drawing.Point(10, 278);
             this.CCnoLbl.Name = "CCnoLbl";
             this.CCnoLbl.Size = new System.Drawing.Size(142, 20);
             this.CCnoLbl.TabIndex = 51;
@@ -106,7 +129,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtCCNumber
             // 
             this.txtCCNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCCNumber.Location = new System.Drawing.Point(158, 241);
+            this.txtCCNumber.Location = new System.Drawing.Point(158, 278);
             this.txtCCNumber.Name = "txtCCNumber";
             this.txtCCNumber.Size = new System.Drawing.Size(187, 25);
             this.txtCCNumber.TabIndex = 50;
@@ -121,6 +144,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.deleteButton.Size = new System.Drawing.Size(45, 34);
             this.deleteButton.TabIndex = 49;
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -132,6 +156,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.editButton.Size = new System.Drawing.Size(45, 34);
             this.editButton.TabIndex = 48;
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // brnCancel
             // 
@@ -157,6 +182,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnConfirm.TabIndex = 18;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // pictureBox1
             // 
@@ -171,7 +197,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(158, 200);
+            this.txtAddress.Location = new System.Drawing.Point(158, 241);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(187, 25);
             this.txtAddress.TabIndex = 9;
@@ -179,7 +205,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(158, 158);
+            this.txtPhone.Location = new System.Drawing.Point(158, 199);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(187, 25);
             this.txtPhone.TabIndex = 8;
@@ -187,7 +213,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(158, 118);
+            this.txtEmail.Location = new System.Drawing.Point(158, 159);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(187, 25);
             this.txtEmail.TabIndex = 7;
@@ -212,7 +238,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.Addresslbl.AutoSize = true;
             this.Addresslbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addresslbl.Location = new System.Drawing.Point(10, 201);
+            this.Addresslbl.Location = new System.Drawing.Point(10, 242);
             this.Addresslbl.Name = "Addresslbl";
             this.Addresslbl.Size = new System.Drawing.Size(62, 20);
             this.Addresslbl.TabIndex = 4;
@@ -222,7 +248,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.Phonelbl.AutoSize = true;
             this.Phonelbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Phonelbl.Location = new System.Drawing.Point(10, 158);
+            this.Phonelbl.Location = new System.Drawing.Point(10, 199);
             this.Phonelbl.Name = "Phonelbl";
             this.Phonelbl.Size = new System.Drawing.Size(78, 20);
             this.Phonelbl.TabIndex = 3;
@@ -232,7 +258,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.Emaillbl.AutoSize = true;
             this.Emaillbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Emaillbl.Location = new System.Drawing.Point(10, 118);
+            this.Emaillbl.Location = new System.Drawing.Point(10, 159);
             this.Emaillbl.Name = "Emaillbl";
             this.Emaillbl.Size = new System.Drawing.Size(46, 20);
             this.Emaillbl.TabIndex = 2;
@@ -314,5 +340,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label CCnoLbl;
         private System.Windows.Forms.TextBox txtCCNumber;
+        private System.Windows.Forms.Label lblPersonalID;
+        private System.Windows.Forms.TextBox txtPersonalID;
     }
 }

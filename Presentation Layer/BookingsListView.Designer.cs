@@ -161,7 +161,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(521, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(521, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(217, 180);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
