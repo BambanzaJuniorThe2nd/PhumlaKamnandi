@@ -93,8 +93,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             DateTime Checkin = DateTime.Parse(dtpCheckin.Text);
             DateTime Checkout = DateTime.Parse(dtpCheckout.Text);
 
-
-            int RoomNo = int.Parse(cboRoomNmbr.SelectedItem.ToString());
+          
+            
 
 
 
@@ -106,7 +106,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                     MessageBoxIcon.Information);
                 dtpCheckin.Focus();
             }
-            else if (cboRoomNmbr.SelectedIndex < -1)
+            else if (cboRoomNmbr.SelectedIndex < 0)
             {
                 MessageBox.Show("Please select an availble room to continue", "Room Selection", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -120,7 +120,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
                 person = personController.Find(id);
                 guest = (Guest)(person.role);
-               
+                int RoomNo = int.Parse(cboRoomNmbr.SelectedItem.ToString());
                 payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
                 payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
                 payment_Form.lblTotal.Text = Total.ToString();

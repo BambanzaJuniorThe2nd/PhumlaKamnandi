@@ -32,6 +32,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblCCNu = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblGuestID = new System.Windows.Forms.Label();
             this.lblRoomNO = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblCCNu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +104,26 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Booking Details";
+            // 
+            // lblCCNu
+            // 
+            this.lblCCNu.AutoSize = true;
+            this.lblCCNu.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCCNu.Location = new System.Drawing.Point(165, 215);
+            this.lblCCNu.Name = "lblCCNu";
+            this.lblCCNu.Size = new System.Drawing.Size(42, 15);
+            this.lblCCNu.TabIndex = 24;
+            this.lblCCNu.Text = "label7";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 215);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 15);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Credit Crad Number";
             // 
             // lblTotal
             // 
@@ -250,26 +270,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.label1.Size = new System.Drawing.Size(203, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Finalize Booking";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 215);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 15);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Credit Crad Number";
-            // 
-            // lblCCNu
-            // 
-            this.lblCCNu.AutoSize = true;
-            this.lblCCNu.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCCNu.Location = new System.Drawing.Point(165, 215);
-            this.lblCCNu.Name = "lblCCNu";
-            this.lblCCNu.Size = new System.Drawing.Size(42, 15);
-            this.lblCCNu.TabIndex = 24;
-            this.lblCCNu.Text = "label7";
             // 
             // Payment_Form
             // 
