@@ -17,7 +17,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         public bool listformclosed;
         private Formstates state;
         private Collection<Booking> bookings;
-        private BookingController bookingController;
+        private Reserve reserve;
         private Booking booking;
         public enum Formstates
         {
@@ -26,10 +26,10 @@ namespace PhumlaKamnandi.Presentation_Layer
             Delete = 1,
         }
 
-        public BookingsListView(BookingController bookingcontroller)
+        public BookingsListView(Reserve reserve)
         {
             InitializeComponent();
-            bookingController = bookingcontroller;
+            this.reserve = reserve;
             this.Load += BookingsListView_Load;
             this.FormClosed += BookingsListView_FormClosed;
             this.Activated += BookingsListView_Activated;
@@ -135,7 +135,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             listViewBookings.Columns.Insert(3, "Checkin", 120, HorizontalAlignment.Left);
             listViewBookings.Columns.Insert(4, "Checkout", 120, HorizontalAlignment.Left);
             listViewBookings.Columns.Insert(5, "Total", 120, HorizontalAlignment.Left);
-            bookings = bookingController.AllBookings;
+            bookings = reserve.AllBookings;
 
             foreach(Booking booking in bookings)
             {
@@ -170,7 +170,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             EnableEntries(false);
             if(listViewBookings.SelectedItems.Count>0)
             {
-                booking = bookingController.Find(listViewBookings.SelectedItems[0].Text);
+                booking = reserve.FindBooking(listViewBookings.SelectedItems[0].Text);
                 Populatetextboxes(booking);
                 
             }
@@ -192,21 +192,13 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-
-            Data.DB.DBOperation operation;
-
             if(state==Formstates.Delete)
             {
-                operation = Data.DB.DBOperation.Delete;
-                bookingController.DataMaintenance(booking, operation);
-                bookingController.FinalizeChanges(operation);
+                reserve.DeleteBooking(booking.BookingID + "");
             }
             ClearAll();
             state = Formstates.View;
-            setupBookingsListview();
-
-
-       
+            setupBookingsListview();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

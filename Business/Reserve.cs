@@ -52,6 +52,11 @@ namespace PhumlaKamnandi.Business
             rooms.Add(4);
             rooms.Add(5);
         }
+
+        public Collection<Booking> AllBookings
+        {
+            get { return bookings; }
+        }
         public Collection<int> makeBooking(DateTime checkIn, DateTime checkout)
        {
             Collection<int> AvailableRooms = new Collection<int>() ;
@@ -69,17 +74,27 @@ namespace PhumlaKamnandi.Business
             }
             UpdateRooms();
             return AvailableRooms;
-       }
+        }
 
         public int AddBooking (int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
        {
             Booking booking = new Booking(guestId, roomId, checkIn, checkout, Total_Fee);
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
             bookingController.FinalizeChanges(Data.DB.DBOperation.Add);
+            //bookingController.AllBookings.Add(booking);
+            bookings = bookingController.AllBookings;
             return booking.BookingID;
        }
-       
-        
+
+
+        public void DeleteBooking(String bookingId)
+        {
+            bookingController.DataMaintenance(FindBooking(bookingId), Data.DB.DBOperation.Delete);
+            bookingController.FinalizeChanges(Data.DB.DBOperation.Delete);
+            bookings = bookingController.AllBookings;
+        }
+
+
 
         public Person FindGuest(string id)
         {
@@ -96,7 +111,12 @@ namespace PhumlaKamnandi.Business
             }
 
             return guest;
-       }
+        }
+
+        public Booking FindBooking(String id)
+        {
+            return bookingController.Find(id);
+        }
 
 
         public void AddGuest(Person person)

@@ -99,6 +99,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
                 
                 bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
+                
 
               
 

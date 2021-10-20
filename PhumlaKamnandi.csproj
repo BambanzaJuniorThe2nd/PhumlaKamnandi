@@ -207,11 +207,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookingDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BookingDatabase_log.ldf">
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\435-4352019_search-icon-small-small-search-icon-png-transparent.png" />
     <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d %281%29.png" />

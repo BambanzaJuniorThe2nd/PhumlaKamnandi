@@ -155,7 +155,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         #region Booking ListForm
         private void CreatenewBookingForm()
         {
-            bookingsListView = new BookingsListView(bookingcontroller);
+            bookingsListView = new BookingsListView(guest);
         }
         private void btnBooking_Click(object sender, EventArgs e)
         {
