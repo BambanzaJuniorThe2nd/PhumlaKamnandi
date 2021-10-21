@@ -90,26 +90,37 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Person person;
-            string id = txtGuestID.Text;
+            Guest aguest;
+            
             GuestDetails guestDetails = new GuestDetails();
-
-
-            person = guest.FindGuest(id);
-            Guest aguest = (Guest)person.role;
-            if (person == null)
+            try
             {
-                MessageBox.Show("Guest doens't exist within our system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                guestDetails.txtGuestID.Text = person.ID;
-                guestDetails.txtEmail.Text = person.Email;
-                guestDetails.txtName.Text = person.Name;
-                guestDetails.txtTelephone.Text = person.Phone;
-                guestDetails.txtAddress.Text = aguest.Address;
+                string id = txtGuestID.Text;
+                person = guest.FindGuest(id);
+                 aguest = (Guest)person.role;
+                if(id==null)
+                {
+                    MessageBox.Show("Please enter a GuestID to search", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if (guest.FindGuest(id)==null||aguest==null||person==null)
+                {
+                    MessageBox.Show("Guest doens't exist within our system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    guestDetails.txtGuestID.Text = person.ID;
+                    guestDetails.txtEmail.Text = person.Email;
+                    guestDetails.txtName.Text = person.Name;
+                    guestDetails.txtTelephone.Text = person.Phone;
+                    guestDetails.txtAddress.Text = aguest.Address;
 
-                this.Hide();
-                guestDetails.ShowDialog();
+                    this.Hide();
+                    guestDetails.ShowDialog();
+                }
+            }catch(FormatException)
+            {
+                MessageBox.Show("Please make sure all fields are correctly filled in before continuing", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
 
 

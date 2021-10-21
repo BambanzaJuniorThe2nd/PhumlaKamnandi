@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhumlaKamnandi.Business;
 
+
 namespace PhumlaKamnandi.Presentation_Layer
 {
     public partial class BookingsListView : Form
@@ -87,6 +88,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             txtCheckout.Enabled = value;
             txCheckin.Enabled = value;
             txtRoomNo.Enabled = value;
+            txtTotal.Enabled = value;
             if (state == Formstates.Delete)
             {
                 btnConfirm.Visible = !value;
@@ -197,7 +199,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
             if(state==Formstates.Delete)
             {
-                operation = Data.DB.DBOperation.Delete;
+                operation = Data.BookingDB.DBOperation.Delete;
                 bookingController.DataMaintenance(booking, operation);
                 bookingController.FinalizeChanges(operation);
             }

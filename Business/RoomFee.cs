@@ -27,34 +27,7 @@ namespace PhumlaKamnandi.Business
 
         }
 
-        //    public static decimal getTotalFee( String checkin, String checkout)
-        //    {
-
-        //        decimal price = 0; 
-
-        //       if (int.Parse(checkin.Substring(0,2)) <= 7)
-        //        {
-        //            price = 550;
-
-
-        //        }
-
-        //       else if ((int.Parse(checkin.Substring(0, 2)) >= 8) && (int.Parse(checkout.Substring(0, 2)) <= 15))
-        //        {
-        //            price = 750;
-        //        }
-
-        //       else if ((int.Parse(checkin.Substring(0, 2)) >= 16) && (int.Parse(checkout.Substring(0, 2)) <= 31))
-        //        {
-        //            price = 995;
-        //        }
-
-
-        //        return price;
-        //    }
-
-
-
+       
         //}
         public decimal TotalFee(DateTime checkin)
         {
@@ -74,7 +47,7 @@ namespace PhumlaKamnandi.Business
                 price = 750;
                 
             }
-            else if (checkin.Date <= Highcheckin.Date)
+            else if (checkin.Date >= Highcheckin.Date)
             {
                 price = 995;
                 
