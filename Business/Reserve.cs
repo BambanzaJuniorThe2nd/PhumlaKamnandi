@@ -58,7 +58,7 @@ namespace PhumlaKamnandi.Business
             get { return bookings; }
         }
         public Collection<int> makeBooking(DateTime checkIn, DateTime checkout)
-       {
+        {
             Collection<int> AvailableRooms = new Collection<int>() ;
             foreach(Booking book in bookings)
             {
@@ -112,6 +112,29 @@ namespace PhumlaKamnandi.Business
 
             return guest;
         }
+
+        public bool LogIn(string username, string password)
+        {
+            bool LogIn = false;
+            foreach (Person person in people)
+            {
+                if (person.role.getRoleValue == Role.RoleType.Clerk)
+                {
+                    Clerk clerk = (Clerk)person.role;
+                    if (clerk.Username.Equals(username))
+                    {
+                        if (clerk.Password.Equals(password))
+                        {
+                            LogIn = true;
+                        }
+                    }
+                }
+            }
+
+            return LogIn;
+        }
+
+
 
         public Booking FindBooking(String id)
         {
