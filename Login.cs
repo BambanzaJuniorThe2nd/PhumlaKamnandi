@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhumlaKamnandi.Presentation_Layer;
+using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi
 {
@@ -16,8 +17,11 @@ namespace PhumlaKamnandi
         public Login()
         {
             InitializeComponent();
+            
         }
         HomePage homePage = new HomePage();
+        Reserve reserve = new Reserve();
+        
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -48,17 +52,25 @@ namespace PhumlaKamnandi
         {
             
            
-               if((UserNametxt.Text!="")&&(Passwordtxt.Text!=""))
+            if((UserNametxt.Text!="")&&(Passwordtxt.Text!=""))
+            {   
+                if(reserve.LogIn(UserNametxt.Text, Passwordtxt.Text))
                 {
-                    this.Hide();
+                this.Hide();
                 homePage.ShowDialog();
-                  
+
                 }
                 else
                 {
-                MessageBox.Show("Please complete all fields before proceeding", "Incomplete Login", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter the correct UserName and Password.", "Incorrect LogIn Details", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+            MessageBox.Show("Please complete all fields before proceeding", "Incomplete Login", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
             
            
         }
