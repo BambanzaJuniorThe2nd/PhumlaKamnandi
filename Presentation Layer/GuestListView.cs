@@ -153,6 +153,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             
 
         }
+       
         private void PopulateObject(Role.RoleType roleType)
         {
             Guest guest;
@@ -255,7 +256,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                 {
                     operation = Data.PersonDB.DBOperation.Delete;
                     personController.DataMaintenance(person, Data.PersonDB.DBOperation.Delete);
-                    personController.FinalizeChanges(person, operation); ;
+                    personController.FinalizeChanges(person, Data.PersonDB.DBOperation.Delete); ;
                 }
               
                 ClearAll();
