@@ -53,7 +53,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.txtGuestID);
             this.panel1.Location = new System.Drawing.Point(-15, -4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 91);
             this.panel1.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnAddGuest);
             this.panel3.Location = new System.Drawing.Point(653, -7);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(878, 98);
             this.panel3.TabIndex = 7;
@@ -76,7 +76,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnAddGuest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddGuest.ForeColor = System.Drawing.Color.White;
             this.btnAddGuest.Location = new System.Drawing.Point(139, 31);
-            this.btnAddGuest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddGuest.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddGuest.Name = "btnAddGuest";
             this.btnAddGuest.Size = new System.Drawing.Size(173, 53);
             this.btnAddGuest.TabIndex = 7;
@@ -91,7 +91,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(408, 32);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(137, 36);
             this.btnSearch.TabIndex = 7;
@@ -105,7 +105,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.txtGuestID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGuestID.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtGuestID.Location = new System.Drawing.Point(59, 32);
-            this.txtGuestID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGuestID.Margin = new System.Windows.Forms.Padding(4);
             this.txtGuestID.Name = "txtGuestID";
             this.txtGuestID.Size = new System.Drawing.Size(281, 34);
             this.txtGuestID.TabIndex = 7;
@@ -121,7 +121,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBooking.Location = new System.Drawing.Point(4, 106);
-            this.btnBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBooking.Margin = new System.Windows.Forms.Padding(4);
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(187, 57);
             this.btnBooking.TabIndex = 4;
@@ -135,7 +135,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnNotification.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNotification.Location = new System.Drawing.Point(4, 258);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotification.Name = "btnNotification";
             this.btnNotification.Size = new System.Drawing.Size(187, 57);
             this.btnNotification.TabIndex = 5;
@@ -149,7 +149,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnMonthlyReports.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonthlyReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnMonthlyReports.Location = new System.Drawing.Point(4, 206);
-            this.btnMonthlyReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMonthlyReports.Margin = new System.Windows.Forms.Padding(4);
             this.btnMonthlyReports.Name = "btnMonthlyReports";
             this.btnMonthlyReports.Size = new System.Drawing.Size(187, 57);
             this.btnMonthlyReports.TabIndex = 6;
@@ -163,7 +163,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnGuests.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuests.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnGuests.Location = new System.Drawing.Point(4, 155);
-            this.btnGuests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuests.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuests.Name = "btnGuests";
             this.btnGuests.Size = new System.Drawing.Size(187, 57);
             this.btnGuests.TabIndex = 8;
@@ -177,7 +177,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnLogout.Location = new System.Drawing.Point(4, 311);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(187, 57);
             this.btnLogout.TabIndex = 7;
@@ -189,7 +189,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             // 
             this.pictureBox1.Image = global::PhumlaKamnandi.Properties.Resources._2cbdceb401ee446d991b1f3d0a74598d__1_;
             this.pictureBox1.Location = new System.Drawing.Point(369, 178);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(407, 303);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +209,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNotification);
             this.Controls.Add(this.btnBooking);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "HomePage";
             this.Text = "Home Page";
