@@ -27,7 +27,7 @@ namespace PhumlaKamnandi.Business
             this.bookingId = count;
             this.checkIn = checkIn;
             this.checkout = checkout;
-            
+
             this.roomId = roomId;
             this.Total_Fee = Total_Fee;
             this.guestId = guestId;

@@ -16,12 +16,19 @@ namespace PhumlaKamnandi.Presentation_Layer
     {
         private Collection<Guest> guests = new Collection<Guest>();
         private Reserve guest;
-        private BookingController booking;
+        private BookingController bookingcontroller;
+        private PersonController personController;
+        GuestListView guestListView;
+        BookingsListView bookingsListView;
       
         public HomePage()
         {
             InitializeComponent();
             guest = new Reserve();
+            personController = new PersonController();
+            bookingcontroller = new BookingController();
+            
+            
         }
        
 
@@ -44,24 +51,10 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         }
 
-        private void txtGuestID_Enter(object sender, EventArgs e)
-        {
-            if(txtGuestID.Text=="Enter Guest ID")
-            {
-                txtGuestID.Text = "";
-                txtGuestID.ForeColor = Color.White;
-            }
-        }
+      
 
-        private void txtGuestID_Leave(object sender, EventArgs e)
-        {
-            if(txtGuestID.Text=="")
-            {
-                txtGuestID.Text = "Enter Guest ID";
-                txtGuestID.ForeColor = Color.White;
-            }
-        }
-
+        
+        #region Logout
         private void button3_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -74,74 +67,113 @@ namespace PhumlaKamnandi.Presentation_Layer
                 login.Show();
             }
         }
-
-        private void btnBooking_Click(object sender, EventArgs e)
+        #endregion
+        #region New Booking
+        private void txtGuestID_Enter(object sender, EventArgs e)
         {
-            BookingsListView bookingsList = new BookingsListView(booking);
-            this.Hide();
-            bookingsList.ShowDialog();
-           
+            if (txtGuestID.Text == "Enter Guest ID")
+            {
+                txtGuestID.Text = "";
+                txtGuestID.ForeColor = Color.White;
+            }
+        }
+        private void txtGuestID_Leave(object sender, EventArgs e)
+        {
+            if (txtGuestID.Text == "")
+            {
+                txtGuestID.Text = "Enter Guest ID";
+                txtGuestID.ForeColor = Color.White;
+            }
         }
 
-        private void btnNotification_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("You currently have no new Notifications", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnAddGuest_Click(object sender, EventArgs e)
-        {
-            Add_Guest add_Guest = new Add_Guest(guest);
-            this.Hide();
-            add_Guest.ShowDialog();
-        }
-
+       
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Person person;
             string id = txtGuestID.Text;
             GuestDetails guestDetails = new GuestDetails();
-            
 
-            person=guest.FindGuest(id);
-            Guest aguest = (Guest)person.role;
-            if (person==null)
+
+            person = guest.FindGuest(id);
+            
+            if (person == null)
             {
                 MessageBox.Show("Guest doens't exist within our system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                guestDetails.txtGuestID.Text = person.ID; 
+                Guest aguest = (Guest)person.role;
+                guestDetails.txtGuestID.Text = person.ID;
                 guestDetails.txtEmail.Text = person.Email;
                 guestDetails.txtName.Text = person.Name;
                 guestDetails.txtTelephone.Text = person.Phone;
                 guestDetails.txtAddress.Text = aguest.Address;
-                
+
                 this.Hide();
                 guestDetails.ShowDialog();
             }
 
 
             
-
-
-
-
-
-            
-            
-         
-            
-            Booking_Form booking_Form = new Booking_Form(guest);
-            this.Hide();
-            booking_Form.ShowDialog();
         }
+        #endregion
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You currently have no new Notifications", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        #region Add Guest
+        private void btnAddGuest_Click(object sender, EventArgs e)
+        {
+            Add_Guest add_Guest = new Add_Guest(guest);
+            this.Hide();
+            add_Guest.ShowDialog();
+        }
+        #endregion
+        #region Guest Listform
+        private void CreatnewGuestForm()
+        {
+            guestListView = new GuestListView(personController);
+
+        }
+
 
         private void btnGuests_Click(object sender, EventArgs e)
         {
-            GuestListView guestList = new GuestListView();
-            this.Hide();
-            guestList.ShowDialog();
+            if(guestListView==null)
+            {
+                CreatnewGuestForm();
+            }
+            if(guestListView.listformClosed)
+            {
+                CreatnewGuestForm();
+            }
+            guestListView.role = Role.RoleType.Guest;
+            guestListView.setGuestListview();
+            guestListView.Show();
         }
+        #endregion
+        #region Booking ListForm
+        private void CreatenewBookingForm()
+        {
+            bookingsListView = new BookingsListView(guest);
+        }
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+
+            if(bookingsListView==null)
+            {
+                CreatenewBookingForm();
+            }
+            if(bookingsListView.listformclosed)
+            {
+                CreatenewBookingForm();
+            }
+            bookingsListView.setupBookingsListview();
+            bookingsListView.Show();
+        }
+        #endregion
+
 
         private void txtGuestID_TextChanged(object sender, EventArgs e)
         {

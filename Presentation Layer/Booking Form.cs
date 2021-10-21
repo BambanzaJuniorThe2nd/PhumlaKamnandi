@@ -20,11 +20,14 @@ namespace PhumlaKamnandi.Presentation_Layer
         decimal Total = 0;
         decimal PerNight = 0;
         int Days = 0;
+        
+        PersonController personController;
 
         public Booking_Form(Reserve Reserve)
         {
             InitializeComponent();
             reserve = Reserve;
+            personController = new PersonController();
 
         }
        
@@ -81,16 +84,17 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Payment_Form payment_Form = new Payment_Form(reserve);
-           
-          
+
+            Person person = new Person(Role.RoleType.Guest);
+            Guest guest;
+        
             string id = lblGuestID.Text;
             
             DateTime Checkin = DateTime.Parse(dtpCheckin.Text);
             DateTime Checkout = DateTime.Parse(dtpCheckout.Text);
 
-
-            int RoomNo = int.Parse(cboRoomNmbr.SelectedItem.ToString());
+          
+            
 
 
 
@@ -102,7 +106,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                     MessageBoxIcon.Information);
                 dtpCheckin.Focus();
             }
-            else if (cboRoomNmbr.SelectedIndex < -1)
+            else if (cboRoomNmbr.SelectedIndex < 0)
             {
                 MessageBox.Show("Please select an availble room to continue", "Room Selection", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -111,12 +115,18 @@ namespace PhumlaKamnandi.Presentation_Layer
 
             else
             {
+                Payment_Form payment_Form = new Payment_Form(reserve);
 
+
+                person = personController.Find(id);
+                guest = (Guest)(person.role);
+                int RoomNo = int.Parse(cboRoomNmbr.SelectedItem.ToString());
                 payment_Form.lblCheckin.Text = Checkin.Date.ToString("f");
                 payment_Form.lblCheckout.Text = Checkout.Date.ToString("f");
                 payment_Form.lblTotal.Text = Total.ToString();
                 payment_Form.lblRoomNO.Text = RoomNo.ToString();
                 payment_Form.lblGuestID.Text = id;
+                payment_Form.lblCCNu.Text = guest.CreditCardNu;
                 this.Hide();
                 payment_Form.ShowDialog();
 
@@ -191,6 +201,11 @@ namespace PhumlaKamnandi.Presentation_Layer
             txtPerNight.Text = PerNight.ToString("c");
             txtTotal.Text = Total.ToString("c");
 
+
+        }
+
+        private void Booking_Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
 
         }
     }

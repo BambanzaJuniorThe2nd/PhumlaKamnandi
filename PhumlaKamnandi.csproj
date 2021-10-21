@@ -67,6 +67,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingDatabaseDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Business\Booking.cs" />
     <Compile Include="Business\BookingController.cs" />
@@ -179,14 +180,17 @@
     </Compile>
     <None Include="BookingDatabaseDataSet.xsc">
       <DependentUpon>BookingDatabaseDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="BookingDatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BookingDatabaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="BookingDatabaseDataSet.xss">
       <DependentUpon>BookingDatabaseDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -203,11 +207,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookingDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BookingDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\435-4352019_search-icon-small-small-search-icon-png-transparent.png" />
     <None Include="Resources\2cbdceb401ee446d991b1f3d0a74598d %281%29.png" />
