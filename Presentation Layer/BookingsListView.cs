@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhumlaKamnandi.Business;
 
+
 namespace PhumlaKamnandi.Presentation_Layer
 {
     public partial class BookingsListView : Form
@@ -17,7 +18,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         public bool listformclosed;
         private Formstates state;
         private Collection<Booking> bookings;
-        private Reserve reserve;
+        private BookingController bookingController;
         private Booking booking;
         public enum Formstates
         {
@@ -26,10 +27,10 @@ namespace PhumlaKamnandi.Presentation_Layer
             Delete = 1,
         }
 
-        public BookingsListView(Reserve reserve)
+        public BookingsListView(BookingController bookingcontroller)
         {
             InitializeComponent();
-            this.reserve = reserve;
+            bookingController = bookingcontroller;
             this.Load += BookingsListView_Load;
             this.FormClosed += BookingsListView_FormClosed;
             this.Activated += BookingsListView_Activated;
@@ -87,6 +88,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             txtCheckout.Enabled = value;
             txCheckin.Enabled = value;
             txtRoomNo.Enabled = value;
+            txtTotal.Enabled = value;
             if (state == Formstates.Delete)
             {
                 btnConfirm.Visible = !value;
@@ -135,7 +137,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             listViewBookings.Columns.Insert(3, "Checkin", 120, HorizontalAlignment.Left);
             listViewBookings.Columns.Insert(4, "Checkout", 120, HorizontalAlignment.Left);
             listViewBookings.Columns.Insert(5, "Total", 120, HorizontalAlignment.Left);
-            bookings = reserve.AllBookings;
+            bookings = bookingController.AllBookings;
 
             foreach(Booking booking in bookings)
             {
@@ -170,7 +172,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             EnableEntries(false);
             if(listViewBookings.SelectedItems.Count>0)
             {
-                booking = reserve.FindBooking(listViewBookings.SelectedItems[0].Text);
+                booking = bookingController.Find(listViewBookings.SelectedItems[0].Text);
                 Populatetextboxes(booking);
                 
             }
@@ -192,13 +194,21 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+
+            Data.DB.DBOperation operation;
+
             if(state==Formstates.Delete)
             {
-                reserve.DeleteBooking(booking.BookingID + "");
+                operation = Data.BookingDB.DBOperation.Delete;
+                bookingController.DataMaintenance(booking, operation);
+                bookingController.FinalizeChanges(operation);
             }
             ClearAll();
             state = Formstates.View;
-            setupBookingsListview();  
+            setupBookingsListview();
+
+
+       
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

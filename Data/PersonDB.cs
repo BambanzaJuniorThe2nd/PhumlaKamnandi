@@ -328,7 +328,7 @@ namespace PhumlaKamnandi.Data
             {
                 case Role.RoleType.Guest:
                     param = new SqlParameter("@GuestID", SqlDbType.Int);
-                    param.SourceColumn = "ClerkID";
+                    param.SourceColumn = "GuestID";
                     param.SourceVersion = DataRowVersion.Current;
                     break;
                 case Role.RoleType.Clerk:

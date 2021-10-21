@@ -11,7 +11,7 @@ namespace PhumlaKamnandi.Business
 
         #region Data Members
         int bookingId;
-       static int count = 0;
+      // static int count = 0;
         String  checkIn;
         String checkout;
         int guestId;
@@ -23,8 +23,8 @@ namespace PhumlaKamnandi.Business
         #region Constructor
         public Booking( int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
         {
-            count = count + 1;
-            this.bookingId = count;
+           
+            
             this.checkIn = checkIn;
             this.checkout = checkout;
 
@@ -50,8 +50,9 @@ namespace PhumlaKamnandi.Business
 
         public int BookingID
         {
-            set { bookingId = value; }
+           
             get { return bookingId; }
+            set { bookingId = value; }
         }
 
         public decimal TOTALFee

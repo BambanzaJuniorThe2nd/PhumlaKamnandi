@@ -22,6 +22,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
             InitializeComponent();
             reserve = Reserve;
+            bookingController = new BookingController();
         }
        
       
@@ -78,7 +79,8 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            int bookingid;
+            Person person;
+            int bookingid=bookingController.AllBookings.Count()+1;
             string checkin =lblCheckin.Text;
             string checkout=lblCheckout.Text;
             int guestid=int.Parse(lblGuestID.Text);
@@ -86,25 +88,18 @@ namespace PhumlaKamnandi.Presentation_Layer
             decimal total=decimal.Parse(lblTotal.Text);
             DialogResult dialogResult;
             HomePage home = new HomePage();
-            //if(txtCCnumber.Text==""||txtExpireDate.Text==""||cboCCC.SelectedIndex<-1)
-            //{
-            //    MessageBox.Show("Please make sure all fields in the Credit card details box\n is correctly completed before creating a booking.","Input Erro",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-          //  else
-          //  {
-               
-                
-               
+            person = reserve.FindGuest(guestid.ToString());
 
-                
-                bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
-                
+            // bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
+           
+            booking = new Booking(guestid, roomno, checkin, checkout, total);
+            booking.BookingID = bookingid;
 
-              
-
-
-                dialogResult = MessageBox.Show("New booking has been created for " + " " + guestid.ToString() + "\n" + "for " + " " +
+            bookingController.DataMaintenance(booking, DB.DBOperation.Add);
+            bookingController.FinalizeChanges(DB.DBOperation.Add);
+            bookingController.AllBookings.Add(booking);
+           
+            dialogResult = MessageBox.Show("New booking has been created for " + " " + person.Name + "\n" + "for " + " " +
                     checkin + " " + "\n with the BookingID of: " + bookingid.ToString(), "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)//makes sure all possibillities are attended too
                 {
@@ -114,7 +109,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                 }
                 
                 
-           // }
+           
         }
     }
 }

@@ -58,24 +58,7 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void Booking_Form_Load(object sender, EventArgs e)
         {
-        //    RoomFee aRoomfee = new RoomFee();
-        //    Reserve areserve = new Reserve();
-        //    dtpCheckin.Text = DateTime.Now.ToString();
-        //    dtpCheckout.Text = DateTime.Now.ToString();
-        //    DateTime checkin;
-        //    DateTime checkout;
-        //    checkin = DateTime.Parse(dtpCheckin.Text);
-        //    checkout = DateTime.Parse(dtpCheckout.Text);
-        //    rooms = areserve.makeBooking(checkin, checkout);
-        //    foreach(int room in rooms)
-        //    {
-        //        cboRoomNmbr.Items.Add(room);
-        //    }
-        //    PerNight = aRoomfee.TotalFee(checkin);
-        //    Days = Convert.ToInt32((checkout.Date) - (checkin.Date));
-        //    Total = PerNight * Days;
-        //    txtPerNight.Text = PerNight.ToString("c");
-        //    txtTotal.Text = Total.ToString("c");
+       
 
 
 
@@ -151,7 +134,10 @@ namespace PhumlaKamnandi.Presentation_Layer
 
         private void cboRoomNmbr_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            if(cboRoomNmbr.Items.Count==0)
+            {
+                MessageBox.Show("There are no availble rooms for the selected date", "Capacity Full", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void txtPerNight_TextChanged(object sender, EventArgs e)
@@ -177,8 +163,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             PerNight = aRoomfee.TotalFee(checkin);
             Days =checkout.Subtract(checkin).Days;
             Total = PerNight * Days;
-            txtPerNight.Text = PerNight.ToString();
-            txtTotal.Text = Total.ToString();
+            txtPerNight.Text = PerNight.ToString("c");
+            txtTotal.Text = Total.ToString("c");
         }
 
         private void dtpCheckin_ValueChanged(object sender, EventArgs e)

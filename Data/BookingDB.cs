@@ -193,20 +193,21 @@ namespace PhumlaKamnandi.Data
             Build_UPDATE_Parameters();
         }
 
-        private void Create_DELETE_Command()
-        {
-            daMain.DeleteCommand = new SqlCommand("DELETE FROM Booking WHERE BookingID=@BookingID", cnMain);
-            Build_DELETE_Parameters();
-        }
+       
 
         private void Build_DELETE_Parameters()
         {
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@ID", SqlDbType.Int);
+            param = new SqlParameter("@BookingID", SqlDbType.Int);
             param.SourceColumn = "BookingID";
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
+        }
+        private void Create_DELETE_Command()
+        {
+            daMain.DeleteCommand = new SqlCommand("DELETE FROM Booking WHERE BookingID=@BookingID", cnMain);
+            Build_DELETE_Parameters();
         }
 
         public bool UpdateDataSource(DB.DBOperation operation)
