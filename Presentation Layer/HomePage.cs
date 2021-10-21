@@ -184,5 +184,12 @@ namespace PhumlaKamnandi.Presentation_Layer
         {
 
         }
+
+        private void btnMonthlyReports_Click(object sender, EventArgs e)
+        {
+            MonthlyReports monthlyReports = new MonthlyReports(guest);
+            this.Hide();
+            monthlyReports.ShowDialog();
+        }
     }
 }

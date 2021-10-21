@@ -76,6 +76,53 @@ namespace PhumlaKamnandi.Business
             return AvailableRooms;
         }
 
+        public Collection<int> RoomsAvailable(DateTime checkIn)
+        {
+            Collection<int> AvailableRooms = new Collection<int>();
+            foreach (Booking book in bookings)
+            {
+                if (checkIn.Day == DateTime.Parse(book.Checkin).Day)
+                {
+                    rooms.Remove(book.RoomId);
+                }
+            }
+
+            foreach (int i in rooms)
+            {
+                AvailableRooms.Add(i);
+            }
+            UpdateRooms();
+            return AvailableRooms;
+        }
+
+        public Collection<Booking> Occupancy(DateTime date)
+        {
+            Collection<Booking> Occupancy = new Collection<Booking>();
+            foreach(Booking book in bookings)
+            {
+                if (DateTime.Parse(book.Checkin).Day == date.Day)
+                {
+                    Occupancy.Add(book);
+                }
+            }
+            return Occupancy;
+
+
+        }
+
+        public int OccupancyByMonth(DateTime date)
+        {
+            int count = 0;
+            foreach (Booking book in bookings)
+            {
+                if (DateTime.Parse(book.Checkin).Month == date.Month )
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public int AddBooking (int guestId, int roomId, String checkIn, String checkout, decimal Total_Fee)
        {
             Booking booking = new Booking(guestId, roomId, checkIn, checkout, Total_Fee);
