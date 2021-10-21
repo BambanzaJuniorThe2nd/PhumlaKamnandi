@@ -248,14 +248,16 @@ namespace PhumlaKamnandi.Presentation_Layer
                 {
                     operation = Data.PersonDB.DBOperation.Edit;
                     personController.DataMaintenance(person, operation);
+                    personController.FinalizeChanges(person, operation);
 
                 }
-                else
+                else if(state==FormStates.Delete)
                 {
                     operation = Data.PersonDB.DBOperation.Delete;
                     personController.DataMaintenance(person, Data.PersonDB.DBOperation.Delete);
+                    personController.FinalizeChanges(person, operation); ;
                 }
-                personController.FinalizeChanges(person, operation);
+              
                 ClearAll();
                 state = FormStates.View;
                 setGuestListview();
@@ -299,7 +301,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             state = FormStates.Delete;
             editButton.Visible = false;
             EnableEntries(false);
-            MessageBox.Show("This record will be deleted from the database", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("This record will be deleted from the database", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
       
