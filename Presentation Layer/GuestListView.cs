@@ -188,22 +188,23 @@ namespace PhumlaKamnandi.Presentation_Layer
             persons = personController.AllPeople;
 
             foreach(Person aperson in persons)
-            {
-                guestDetails = new ListViewItem();
-                guestDetails.Text = aperson.ID.ToString();
-                guestDetails.SubItems.Add(aperson.Name.ToString());
-                guestDetails.SubItems.Add(aperson.PersonalId.ToString());
-                guestDetails.SubItems.Add(aperson.Phone.ToString());
-                guestDetails.SubItems.Add(aperson.Email.ToString());
-                if(aperson.role.getRoleValue==Role.RoleType.Guest)
+            {   if(aperson.role.getRoleValue == Role.RoleType.Guest)
                 {
-                    guest = (Guest)aperson.role;
-                    guestDetails.SubItems.Add(guest.Address);
-                    guestDetails.SubItems.Add(guest.CreditCardNu);
+                    guestDetails = new ListViewItem();
+                    guestDetails.Text = aperson.ID.ToString();
+                    guestDetails.SubItems.Add(aperson.Name.ToString());
+                    guestDetails.SubItems.Add(aperson.PersonalId.ToString());
+                    guestDetails.SubItems.Add(aperson.Phone.ToString());
+                    guestDetails.SubItems.Add(aperson.Email.ToString());
+                    if (aperson.role.getRoleValue == Role.RoleType.Guest)
+                    {
+                        guest = (Guest)aperson.role;
+                        guestDetails.SubItems.Add(guest.Address);
+                        guestDetails.SubItems.Add(guest.CreditCardNu);
+                    }
+
+                    listViewGuests.Items.Add(guestDetails);
                 }
-
-                listViewGuests.Items.Add(guestDetails);
-
             }
 
 
