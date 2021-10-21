@@ -242,6 +242,15 @@ namespace PhumlaKamnandi.Presentation_Layer
             {
                 MessageBox.Show("Please make sure all fields are completed before committing changes", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            else if(txtPhone.Text.Length != 10)
+            {
+                MessageBox.Show("Invalid phone number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if(txtCCNumber.Text.Length == 16)
+            {
+                MessageBox.Show("Invalid Credit Card Number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 if (state == FormStates.Edit)

@@ -95,13 +95,14 @@ namespace PhumlaKamnandi.Presentation_Layer
 
 
             person = guest.FindGuest(id);
-            Guest aguest = (Guest)person.role;
+            
             if (person == null)
             {
                 MessageBox.Show("Guest doens't exist within our system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                Guest aguest = (Guest)person.role;
                 guestDetails.txtGuestID.Text = person.ID;
                 guestDetails.txtEmail.Text = person.Email;
                 guestDetails.txtName.Text = person.Name;
