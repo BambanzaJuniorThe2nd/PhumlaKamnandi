@@ -86,18 +86,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             decimal total=decimal.Parse(lblTotal.Text);
             DialogResult dialogResult;
             HomePage home = new HomePage();
-            //if(txtCCnumber.Text==""||txtExpireDate.Text==""||cboCCC.SelectedIndex<-1)
-            //{
-            //    MessageBox.Show("Please make sure all fields in the Credit card details box\n is correctly completed before creating a booking.","Input Erro",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-          //  else
-          //  {
-               
-                
-               
-
-                
+                       
                 bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
 
               
@@ -113,7 +102,7 @@ namespace PhumlaKamnandi.Presentation_Layer
                 }
                 
                 
-           // }
+           
         }
     }
 }
