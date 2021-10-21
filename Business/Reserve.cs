@@ -55,7 +55,7 @@ namespace PhumlaKamnandi.Business
 
         public Collection<Booking> AllBookings
         {
-            get { return bookings; }
+            get { return bookingController.AllBookings; }
         }
         public Collection<int> makeBooking(DateTime checkIn, DateTime checkout)
         {

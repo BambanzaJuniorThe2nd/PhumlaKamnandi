@@ -249,7 +249,7 @@ namespace PhumlaKamnandi.Presentation_Layer
             {
                 MessageBox.Show("Invalid phone number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if(txtCCNumber.Text.Length == 16)
+            else if(txtCCNumber.Text.Length != 16)
             {
                 MessageBox.Show("Invalid Credit Card Number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

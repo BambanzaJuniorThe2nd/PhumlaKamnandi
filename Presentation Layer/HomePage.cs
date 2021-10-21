@@ -166,7 +166,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         #region Booking ListForm
         private void CreatenewBookingForm()
         {
-            bookingsListView = new BookingsListView(bookingcontroller);
+            bookingsListView = new BookingsListView(guest);
         }
         private void btnBooking_Click(object sender, EventArgs e)
         {
@@ -193,6 +193,13 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnMonthlyReports_Click(object sender, EventArgs e)
+        {
+            MonthlyReports monthlyReports = new MonthlyReports(guest);
+            this.Hide();
+            monthlyReports.ShowDialog();
         }
     }
 }
