@@ -11,9 +11,6 @@ namespace PhumlaKamnandi.Business
     public class Reserve
     {
         #region Data Members
-        int BoookingId;
-        int periodOfStay;
-        decimal Total_Fee;
    
         Collection<Booking> bookings;
         Collection<Person> people;
@@ -42,10 +39,6 @@ namespace PhumlaKamnandi.Business
 
         public void UpdateRooms()
         {
-            //for (int num = 1; num < 6; num++)
-            //{
-            //    rooms.Add(num);
-            //}
             rooms.Add(1);
             rooms.Add(2);
             rooms.Add(3);
@@ -214,6 +207,20 @@ namespace PhumlaKamnandi.Business
         public Collection<CreditCardCompany> AllCreditCardCompanies()
         {
             return companies;
+        }
+
+        public int GetNextBookingId()
+        {
+            int id = 0;
+            foreach(Booking booking in bookings)
+            {
+                if (booking.BookingID > id)
+                {
+                    id = booking.BookingID;
+                }
+            }
+
+            return id++;
         }
         #endregion
 

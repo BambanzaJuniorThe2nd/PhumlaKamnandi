@@ -16,17 +16,12 @@ namespace PhumlaKamnandi.Presentation_Layer
     public partial class Payment_Form : Form
     {
         Booking booking;
-        BookingController bookingController;
         Reserve reserve;
         public Payment_Form(Reserve Reserve)
         {
             InitializeComponent();
             reserve = Reserve;
-            bookingController = new BookingController();
         }
-       
-      
-        
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -54,18 +49,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             
         }
 
-      
-
-        
-
-      
-
-      
-
-
-
-
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -80,7 +63,7 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnContinue_Click(object sender, EventArgs e)
         {
             Person person;
-            int bookingid=bookingController.AllBookings.Count()+1;
+            int bookingid = reserve.GetNextBookingId();
             string checkin =lblCheckin.Text;
             string checkout=lblCheckout.Text;
             int guestid=int.Parse(lblGuestID.Text);
@@ -89,8 +72,6 @@ namespace PhumlaKamnandi.Presentation_Layer
             DialogResult dialogResult;
             HomePage home = new HomePage();
             person = reserve.FindGuest(guestid.ToString());
-
-            // bookingid = reserve.AddBooking(guestid,roomno,checkin,checkout,total);
            
             booking = new Booking(guestid, roomno, checkin, checkout, total);
             booking.BookingID = bookingid;
@@ -101,14 +82,12 @@ namespace PhumlaKamnandi.Presentation_Layer
            
             dialogResult = MessageBox.Show("New booking has been created for " + " " + person.Name + "\n" + "for " + " " +
                     checkin + " " + "\n with the BookingID of: " + bookingid.ToString(), "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)//makes sure all possibillities are attended too
-                {
+            if(dialogResult==DialogResult.OK||dialogResult!=DialogResult.OK)//makes sure all possibillities are attended too
+            {
 
-                    this.Hide();
-                    home.ShowDialog();
-                }
-                
-                
+                this.Hide();
+                home.ShowDialog();
+            }
            
         }
     }
