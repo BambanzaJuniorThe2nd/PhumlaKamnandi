@@ -15,7 +15,6 @@ namespace PhumlaKamnandi.Presentation_Layer
     
     public partial class Payment_Form : Form
     {
-        Booking booking;
         Reserve reserve;
         public Payment_Form(Reserve Reserve)
         {
@@ -63,7 +62,6 @@ namespace PhumlaKamnandi.Presentation_Layer
         private void btnContinue_Click(object sender, EventArgs e)
         {
             Person person;
-            int bookingid = reserve.GetNextBookingId();
             string checkin =lblCheckin.Text;
             string checkout=lblCheckout.Text;
             int guestid=int.Parse(lblGuestID.Text);
@@ -72,13 +70,8 @@ namespace PhumlaKamnandi.Presentation_Layer
             DialogResult dialogResult;
             HomePage home = new HomePage();
             person = reserve.FindGuest(guestid.ToString());
-           
-            booking = new Booking(guestid, roomno, checkin, checkout, total);
-            booking.BookingID = bookingid;
 
-            bookingController.DataMaintenance(booking, DB.DBOperation.Add);
-            bookingController.FinalizeChanges(DB.DBOperation.Add);
-            bookingController.AllBookings.Add(booking);
+            int bookingid = reserve.AddBooking(guestid, roomno, checkin, checkout, total);
            
             dialogResult = MessageBox.Show("New booking has been created for " + " " + person.Name + "\n" + "for " + " " +
                     checkin + " " + "\n with the BookingID of: " + bookingid.ToString(), "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);

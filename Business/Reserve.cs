@@ -121,7 +121,6 @@ namespace PhumlaKamnandi.Business
             Booking booking = new Booking(guestId, roomId, checkIn, checkout, Total_Fee);
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
             bookingController.FinalizeChanges(Data.DB.DBOperation.Add);
-            //bookingController.AllBookings.Add(booking);
             bookings = bookingController.AllBookings;
             return booking.BookingID;
        }
